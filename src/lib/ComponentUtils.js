@@ -11,5 +11,5 @@ export const buildClassName = (main, ...add) => {
     }, [])
     result += ` ${actual.join(' ')}`
   }
-  return result
+  return result.trim()
 }

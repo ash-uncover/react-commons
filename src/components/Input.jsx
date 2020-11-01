@@ -8,6 +8,8 @@ import {
   buildClassName
 } from 'lib/ComponentUtils'
 
+import './Input.scss'
+
 const getShowButton = (visible, show, onClick) => {
   if (visible) {
     return (
@@ -40,8 +42,7 @@ const Input = ({
 
   const isEditing = edit || Boolean(value)
   const realClassName = buildClassName(
-    'form-control',
-    'form-input',
+    'input',
     className,
     isEditing ? 'active' : null,
     focus ? 'focus' : false
@@ -74,10 +75,9 @@ const Input = ({
       className={realClassName}
     >
       <div
-        className='form-input-control'
+        className='input-control'
       >
         <input
-          className='form-input-input'
           ref={input}
           placeholder={placeholder}
           name={name}
@@ -96,7 +96,7 @@ const Input = ({
         )}
       </div>
       <div
-        className='form-input-mask'
+        className='input-mask'
       >
         <button
           type='button'
