@@ -15,7 +15,6 @@ import './Carousel.scss'
 
 export const getClassName = (className) => buildClassName(
   'carousel',
-  'prepare',
   className
 )
 
@@ -27,7 +26,7 @@ const Carousel = ({
   const container = useRef(null)
   const prevChildren = usePrevious(children)
 
-  if (container.current) {
+  if (prevChildren && container.current) {
     container.current.classList.add('prepare')
   }
 
@@ -44,7 +43,6 @@ const Carousel = ({
   })
 
   const theclass = getClassName(className)
-  console.log('render carousel: ' + theclass)
 
   return (
     <div
