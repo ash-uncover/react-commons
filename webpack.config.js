@@ -8,8 +8,10 @@ module.exports = {
 
   entry: path.resolve(__dirname, './src/index.js'),
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'ap-react-commons.min.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'ap-react-commons.js',
+    library: 'apReactCommons',
+    libraryTarget: 'umd'
   },
 
   devServer: {
@@ -38,18 +40,6 @@ module.exports = {
           { loader: 'style-loader' },
           { loader: 'css-loader' },
           { loader: 'sass-loader' }
-        ]
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader?name=images/[name].[ext]',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/images/'
-            }
-          }
         ]
       }
     ],
