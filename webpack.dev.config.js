@@ -7,6 +7,7 @@ var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js')
 module.exports = {
 
   entry: path.resolve(__dirname, './src/index.js'),
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'ap-react-commons.min.js'
