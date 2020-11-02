@@ -42,11 +42,9 @@ const Carousel = ({
     cleanClass()
   })
 
-  const theclass = getClassName(className)
-
   return (
     <div
-      className={theclass}
+      className={getClassName(className)}
       ref={container}
     >
       <div className='carousel-slide carousel-current'>
