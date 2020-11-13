@@ -9,8 +9,8 @@ module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'ap-react-commons.js',
-    library: 'apReactCommons',
+    filename: 'react-commons.js',
+    library: 'reactCommons',
     libraryTarget: 'umd'
   },
 

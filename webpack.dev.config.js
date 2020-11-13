@@ -10,7 +10,7 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'ap-react-commons.min.js'
+    filename: 'react-commons.min.js'
   },
 
   devServer: {

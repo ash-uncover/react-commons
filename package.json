@@ -1,14 +1,14 @@
 {
-  "name": "ap-react-commons",
+  "name": "@uncover/react-commons",
   "version": "0.0.1",
   "description": "React common components",
-  "author": "aSH <ash.uncover@gmail.com>",
+  "author": "aSh <ash.uncover@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ash-uncover/ap-react-commons"
+    "url": "https://github.com/ash-uncover/react-commons"
   },
-  "main": "dist/ap-react-commons.js",
+  "main": "dist/react-commons.js",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch --progress",
@@ -21,42 +21,43 @@
     "test-update": "jest --updateSnapshot"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.12"
+    "@fortawesome/fontawesome-svg-core": "latest",
+    "@fortawesome/free-brands-svg-icons": "latest",
+    "@fortawesome/free-regular-svg-icons": "latest",
+    "@fortawesome/free-solid-svg-icons": "latest",
+    "@fortawesome/react-fontawesome": "latest"
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.1",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^5.0.0",
-    "file-loader": "^6.2.0",
-    "jest": "^26.6.1",
-    "node-sass": "^4.14.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-test-renderer": "^17.0.1",
-    "sass-loader": "^10.0.4",
-    "snazzy": "^9.0.0",
-    "standard": "^16.0.1",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.3.2",
-    "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^3.11.0"
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "babel-eslint": "latest",
+    "babel-jest": "latest",
+    "babel-loader": "latest",
+    "css-loader": "latest",
+    "file-loader": "latest",
+    "jest": "latest",
+    "node-sass": "latest",
+    "react-test-renderer": "latest",
+    "sass-loader": "latest",
+    "snazzy": "latest",
+    "standard": "latest",
+    "style-loader": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest"
   },
   "standard": {
     "parser": "babel-eslint",
     "env": [
       "jest"
+    ],
+    "ignore": [
+      "/dist/**/*.*"
     ]
   },
   "eslintConfig": {
