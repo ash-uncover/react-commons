@@ -7,6 +7,7 @@ var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js')
 module.exports = {
 
   entry: path.resolve(__dirname, './src/index.js'),
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'react-commons.js',
@@ -14,11 +15,33 @@ module.exports = {
     libraryTarget: 'umd'
   },
 
-  devServer: {
-    host: '0.0.0.0',
-    historyApiFallback: true,
-    port: 8000,
-    disableHostCheck: true
+  devtool: 'source-map',
+
+  externals: {
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: 'lodash',
+      root: '_',
+    },
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    },
+    'react-dom/server': {
+      root: 'ReactDOMServer',
+      commonjs2: 'react-dom/server',
+      commonjs: 'react-dom/server',
+      amd: 'react-dom/server'
+    },
   },
 
   resolve: {
@@ -45,24 +68,5 @@ module.exports = {
     ],
     noParse: [pathToReact]
   },
-  externals: {
-    react: {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react'
-    },
-    'react-dom': {
-      root: 'ReactDOM',
-      commonjs2: 'react-dom',
-      commonjs: 'react-dom',
-      amd: 'react-dom'
-    },
-    'react-dom/server': {
-      root: 'ReactDOMServer',
-      commonjs2: 'react-dom/server',
-      commonjs: 'react-dom/server',
-      amd: 'react-dom/server'
-    }
-  }
+
 };
