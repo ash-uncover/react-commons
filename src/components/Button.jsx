@@ -22,7 +22,7 @@ const Button = ({
       className={getClassName(className)}
       type={type || 'button'}
       disabled={disabled}
-      tooltip={tooltip}
+      title={tooltip}
       onClick={onClick}
     >
       {children}
