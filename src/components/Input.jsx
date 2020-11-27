@@ -8,18 +8,25 @@ import {
   buildClassName
 } from 'lib/ComponentUtils'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+
 import './Input.scss'
 
 const getShowButton = (visible, show, onClick) => {
   if (visible) {
     return (
       <button
-        className='form-input-show'
+        className='input-show'
         tabIndex={-1}
         type='button'
         onClick={onClick}
+        onMouseDown={(event) => {
+          event.preventDefault()
+          event.stopPropagation()
+        }}
       >
-        <i className={`fas fa-eye${show ? '' : '-slash'}`} />
+        <FontAwesomeIcon icon={show ? faEye : faEyeSlash} />
       </button>
     )
   }
