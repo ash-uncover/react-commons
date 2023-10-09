@@ -1,64 +1,48 @@
 {
   "name": "@uncover/react-commons",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "React common components",
-  "author": "aSh <ash.uncover@gmail.com>",
+  "author": "aSH <ash.uncover@gmail.com>",
   "license": "ISC",
+  "private": "true",
   "repository": {
     "type": "git",
     "url": "https://github.com/ash-uncover/react-commons"
   },
-  "main": "dist/react-commons.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch --config webpack.config.js --progress --mode development",
-    "lint": "standard --verbose | snazzy",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "test": "jest",
-    "test-coverage": "jest --collectCoverage",
-    "test-update": "jest --updateSnapshot"
+    "build": "npm run build:tsc && npm run build:babel && npm run build:css",
+    "build:babel": "babel src/lib --extensions .ts,.tsx --out-dir dist",
+    "build:css": "postcss src/**/*.css --base src --dir dist",
+    "build:tsc": "tsc --project tsconfig.build.json"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "latest",
-    "@fortawesome/free-brands-svg-icons": "latest",
-    "@fortawesome/free-regular-svg-icons": "latest",
-    "@fortawesome/free-solid-svg-icons": "latest",
-    "@fortawesome/react-fontawesome": "latest"
-  },
-  "peerDependencies": {
-    "react": "latest",
-    "react-dom": "latest"
+    "@fortawesome/fontawesome-svg-core": "6.4.2",
+    "@fortawesome/free-brands-svg-icons": "6.4.2",
+    "@fortawesome/free-regular-svg-icons": "6.4.2",
+    "@fortawesome/free-solid-svg-icons": "6.4.2",
+    "@fortawesome/react-fontawesome": "0.2.0",
+    "@uncover/js-utils": "0.0.15",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.16.0"
   },
   "devDependencies": {
-    "@babel/core": "latest",
-    "@babel/preset-env": "latest",
-    "@babel/preset-react": "latest",
-    "babel-eslint": "latest",
-    "babel-jest": "latest",
-    "babel-loader": "latest",
-    "css-loader": "latest",
-    "file-loader": "latest",
-    "jest": "latest",
-    "node-sass": "latest",
-    "react-test-renderer": "latest",
-    "sass-loader": "latest",
-    "snazzy": "latest",
-    "standard": "latest",
-    "style-loader": "latest",
-    "webpack": "latest",
-    "webpack-cli": "latest",
-    "webpack-dev-server": "latest"
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "env": [
-      "jest"
-    ],
-    "ignore": [
-      "/dist/**/*.*"
-    ]
+    "@babel/cli": "7.23.0",
+    "@babel/core": "7.23.0",
+    "@babel/eslint-parser": "7.22.15",
+    "@babel/preset-env": "7.22.20",
+    "@babel/preset-react": "7.22.15",
+    "@babel/preset-typescript": "7.23.0",
+    "@types/react-dom": "18.2.12",
+    "postcss": "8.4.31",
+    "postcss-cli": "10.1.0",
+    "postcss-preset-env": "9.2.0",
+    "typescript": "5.2.2"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -66,11 +50,5 @@
       "node": true,
       "jest": true
     }
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
