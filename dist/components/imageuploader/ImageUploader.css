@@ -1,0 +1,42 @@
+
+
+  .image-uploader .images {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+.image-uploader .images .image {
+      border: px solid grey;
+      -o-object-fit: cover;
+         object-fit: cover;
+    }
+.image-uploader .images .image:not([src]) {
+      background: rgba(0, 0, 0, 0.2);
+      }
+.image-uploader .images .image.l {
+        width: 150px;
+        height: 150px;
+        margin-right: 25px;
+      }
+.image-uploader .images .image.m {
+        width: 100px;
+        height: 100px;
+        margin-right: 25px;
+      }
+.image-uploader .images .image.s {
+        width: 60px;
+        height: 60px;
+      }
+.image-uploader .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+.image-uploader .controls .label {
+      width: 360px;
+      text-align: center;
+    }
+.image-uploader .controls .input {
+      display: none;
+    }

@@ -1,0 +1,132 @@
+
+:root {
+  --ap-main-text-color: rgb(34, 34, 34);
+  --ap-main-color: rgb(0, 148, 255);
+  --ap-main-focus-color: rgb(116, 195, 252);
+  --ap-main-active-color: rgb(67, 175, 252);
+  --ap-main-inactive: rgb(132, 185, 206) ;
+  --ap-main-highlight: rgb(247, 184, 1);
+  --ap-main-background: rgb(255, 255, 255);
+  --ap-main-background-subtle: rgb(243, 243, 243);
+  --ap-main-background-alpha: rgba(255,255,225,0.5);
+  --ap-main-box-shadow: 1px 2px 5px rgb(128, 128, 128);
+  --ap-main-box-shadow--smaller: 1px 2px 3px rgb(150, 150, 150);
+  --ap-main-box-shadow--element: 0 0 3px rgb(150, 150, 150);
+
+  --ap-positive-color: rgb(255, 255, 255);
+  --ap-positive-background: rgb(9, 161, 68);
+  --ap-negative-color: rgb(255, 255, 255);
+  --ap-negative-background: rgb(161, 12, 9);
+  --ap-warning-color: rgb(255, 255, 255);
+  --ap-warning-background: rgb(211, 161, 32);
+  --ap-attention-color: rgb(255, 255, 255);
+  --ap-attention-background: rgb(32, 187, 211);
+  --ap-principal-color: rgb(255, 255, 255);;
+  --ap-principal-background: rgb(0, 148, 255);
+  --ap-transparent-color: #333;
+  --ap-transparent-background: transparent;
+  --ap-default-color: #333;
+  --ap-default-background: #888;
+
+  --ap-main-nuance1-color: var(--ap-main-text-color);
+  --ap-main-nuance1-background: #06B8A6;
+  --ap-main-nuance2-color: var(--ap-main-text-color);
+  --ap-main-nuance2-background: #FFC4BF;
+  --ap-main-nuance3-color: var(--ap-main-text-color);
+  --ap-main-nuance3-background: #80E8FF;
+  --ap-main-nuance4-color: var(--ap-main-text-color);
+  --ap-main-nuance4-background: #34A853;
+  --ap-main-nuance5-color: var(--ap-main-text-color);
+  --ap-main-nuance5-background: #DC493A;
+  --ap-main-nuance6-color: var(--ap-main-text-color);
+  --ap-main-nuance6-background: #FFF49B;
+  --ap-main-nuance7-color: var(--ap-main-text-color);
+  --ap-main-nuance7-background: #D7B2FF;
+  --ap-main-nuance8-color: var(--ap-main-text-color);
+  --ap-main-nuance8-background: #B7FFBE;
+  --ap-main-nuance9-color: var(--ap-main-text-color);
+  --ap-main-nuance9-background: #F0BC8C;
+  --ap-main-nuance10-color: var(--ap-main-text-color);
+  --ap-main-nuance10-background: #4392F1;
+
+  --ap-main-effect: #F7D4C0;
+
+  --ap-border-radius-xs: 0.25rem;
+  --ap-border-radius-s: 0.5rem;
+  --ap-border-radius-m: 0.75rem;
+  --ap-border-radius-l: 1rem;
+  --ap-border-radius-xl: 1.25rem;
+
+  --ap-gaps-xs: 0.25rem;
+  --ap-gaps-s: 0.5rem;
+  --ap-gaps-m: 0.75rem;
+  --ap-gaps-l: 1rem;
+  --ap-gaps-xl: 1.25rem;
+
+  --ap-padding-xs: var(--ap-gaps-xs);
+  --ap-padding-s: var(--ap-gaps-s);
+  --ap-padding-m: var(--ap-gaps-m);
+  --ap-padding-l: var(--ap-gaps-l);
+  --ap-padding-xl: var(--ap-gaps-xl);
+
+  --ap-margin-xs: 0.25rem;
+  --ap-margin-s: var(--ap-gaps-s);
+  --ap-margin-m: var(--ap-gaps-m);
+  --ap-margin-l: var(--ap-gaps-l);
+  --ap-margin-xl: var(--ap-gaps-xl);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Roboto', sans-serif;
+  user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+#react-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+
+  user-select: none;
+
+  background-image: url('images/background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+*:focus {
+  outline: 1px solid var(--ap-main-color);
+  border-radius: 0.5rem;
+}
+
+.ap-dialog {
+  box-shadow: 0 0 1rem #000;
+}
+
+.ap-link {
+  line-height: 1.5rem;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  box-sizing: border-box;
+  color: #777;
+  text-decoration: none;
+  &:hover {
+    color: #000;
+  }
+}
