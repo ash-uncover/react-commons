@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "npm run build:tsc && npm run build:babel && npm run build:css",
-    "build:babel": "babel src/lib --extensions .ts,.tsx --out-dir dist",
+    "build:babel": "babel src --extensions .ts,.tsx --out-dir dist",
     "build:css": "postcss src/**/*.css --base src --dir dist",
     "build:tsc": "tsc --project tsconfig.build.json"
   },
