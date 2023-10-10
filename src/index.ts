@@ -1,5 +1,6 @@
 export { Avatar, AvatarSizes } from './components/avatar/Avatar'
 export { Button, ButtonSemantics } from './components/button/Button'
+export { ImageUploader } from './components/imageuploader/ImageUploader'
 export { Input } from './components/input/Input'
 export { Label } from './components/label/Label'
 export { Panel } from './components/panel/Panel'

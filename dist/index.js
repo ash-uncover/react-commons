@@ -33,6 +33,12 @@ Object.defineProperty(exports, "ClassBuilder", {
     return _ComponentUtil.ClassBuilder;
   }
 });
+Object.defineProperty(exports, "ImageUploader", {
+  enumerable: true,
+  get: function get() {
+    return _ImageUploader.ImageUploader;
+  }
+});
 Object.defineProperty(exports, "Input", {
   enumerable: true,
   get: function get() {
@@ -101,6 +107,7 @@ Object.defineProperty(exports, "TitleLevels", {
 });
 var _Avatar = require("./components/avatar/Avatar");
 var _Button = require("./components/button/Button");
+var _ImageUploader = require("./components/imageuploader/ImageUploader");
 var _Input = require("./components/input/Input");
 var _Label = require("./components/label/Label");
 var _Panel = require("./components/panel/Panel");
