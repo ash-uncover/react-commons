@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
+    "noImplicitAny": true,
     "outDir": "dist",
-    "target": "es6",
     "sourceMap": true,
+    "strict": true,
+    "target": "es6",
     "typeRoots": [
       "node_modules/@types"
     ]

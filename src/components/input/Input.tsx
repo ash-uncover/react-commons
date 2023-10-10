@@ -32,7 +32,6 @@ interface InputProperties {
   showPasswordIcon?: boolean
   type?: 'password' | 'number' | ''
   value?: string
-
   onChange: (event: { value: string }) => void
 }
 export const Input = ({
@@ -56,7 +55,7 @@ export const Input = ({
   // Hooks //
 
   const input = useRef<HTMLInputElement>(null)
-  const [focused, setFocused] = useState(false)
+  const [focused, setFocused] = useState<boolean>(false)
   const [showPassword, setShowPassword] = useState(false)
 
   // Events //

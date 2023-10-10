@@ -1,6 +1,6 @@
 {
   "name": "@uncover/react-commons",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "aSH <ash.uncover@gmail.com>",
   "description": "React common components",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "@fortawesome/free-regular-svg-icons": "6.4.2",
     "@fortawesome/free-solid-svg-icons": "6.4.2",
     "@fortawesome/react-fontawesome": "0.2.0",
+    "@types/react": "^18.2.27",
     "@types/react-dom": "18.2.12",
     "@uncover/js-utils": "0.0.15",
     "postcss": "8.4.31",
