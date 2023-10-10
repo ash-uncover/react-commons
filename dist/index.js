@@ -69,12 +69,6 @@ Object.defineProperty(exports, "Shell", {
     return _Shell.Shell;
   }
 });
-Object.defineProperty(exports, "ShellMainArea", {
-  enumerable: true,
-  get: function get() {
-    return _ShellMainArea.ShellMainArea;
-  }
-});
 Object.defineProperty(exports, "ShellMenu", {
   enumerable: true,
   get: function get() {
@@ -121,7 +115,6 @@ var _PanelFooter = require("./components/panel/PanelFooter");
 var _Shell = require("./components/shell/Shell");
 var _ShellMenu = require("./components/shell/ShellMenu");
 var _ShellMenuItem = require("./components/shell/ShellMenuItem");
-var _ShellMainArea = require("./components/shell/ShellMainArea");
 var _ShellNavbar = require("./components/shell/ShellNavbar");
 var _TextArea = require("./components/textarea/TextArea");
 var _Title = require("./components/title/Title");

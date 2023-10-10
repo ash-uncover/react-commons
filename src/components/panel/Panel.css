@@ -30,6 +30,7 @@
 
     & .ap-panel__header__title {
       margin-right: auto;
+      line-height: 2rem;
     }
   }
 

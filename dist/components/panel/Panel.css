@@ -38,6 +38,7 @@
 
 .ap-panel .ap-panel__header .ap-panel__header__title {
       margin-right: auto;
+      line-height: 2rem;
     }
 
 .ap-panel .ap-panel__content {

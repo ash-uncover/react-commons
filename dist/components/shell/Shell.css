@@ -4,6 +4,9 @@
   --ap-shell-area--background: var(--ap-main-background);
   --ap-shell-area--box-shadow: var(--ap-main-box-shadow);
   --ap-shell-area--border-radius: 0.5rem;
+
+  --ap-shell-area-main--padding-v: 1rem;
+  --ap-shell-area-main--padding-h: 2rem;
 }
 
 .ap-shell {
@@ -47,4 +50,6 @@
 .ap-shell .ap-shell__content .ap-shell__main {
       flex-grow: 1;
       flex-shrink: 1;
+      padding: 1rem 2rem;
+      padding: var(--ap-shell-area-main--padding-v) var(--ap-shell-area-main--padding-h);
     }
