@@ -1,6 +1,6 @@
 {
   "name": "@uncover/react-commons",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "aSH <ash.uncover@gmail.com>",
   "description": "React common components",
   "license": "ISC",
@@ -17,7 +17,12 @@
     "build": "npm run build:tsc && npm run build:babel && npm run build:css",
     "build:babel": "babel src --extensions .ts,.tsx --out-dir dist",
     "build:css": "postcss src/**/*.css --base src --dir dist",
-    "build:tsc": "tsc --project tsconfig.build.json"
+    "build:tsc": "tsc --project tsconfig.build.json",
+    "install-local": "npm i && npm link ../alpha-auth/node_modules/react ../alpha-auth/node_modules/react-router-dom",
+    "watch": "npm run watch:tsc && npm run watch:babel && npm run watch:css",
+    "watch:babel": "babel -w src --extensions .ts,.tsx --out-dir dist",
+    "watch:css": "postcss src/**/*.css --base src --dir dist --watch",
+    "watch:tsc": "tsc -w --project tsconfig.build.json"
   },
   "devDependencies": {
     "@babel/cli": "7.23.0",
@@ -31,7 +36,7 @@
     "@fortawesome/free-regular-svg-icons": "6.4.2",
     "@fortawesome/free-solid-svg-icons": "6.4.2",
     "@fortawesome/react-fontawesome": "0.2.0",
-    "@types/react": "^18.2.27",
+    "@types/react": "18.2.27",
     "@types/react-dom": "18.2.12",
     "@uncover/js-utils": "0.0.15",
     "postcss": "8.4.31",

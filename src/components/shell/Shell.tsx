@@ -6,18 +6,6 @@ import {
   useLocation
 } from 'react-router-dom'
 
-import {
-  faHome,
-  faQuestionCircle,
-  faUserCircle
-} from '@fortawesome/free-solid-svg-icons'
-
-import {
-  ShellNavbar,
-  ShellMenuItem,
-  ShellMenu
-} from '../..'
-
 import './Shell.css'
 
 // ---------------------------------------------------
@@ -39,6 +27,7 @@ export const Shell = ({
 
   return (
     <div className='ap-shell'>
+      {children}
     </div>
   )
 }

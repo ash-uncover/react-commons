@@ -5,6 +5,7 @@ export { Input } from './components/input/Input';
 export { Label } from './components/label/Label';
 export { Panel } from './components/panel/Panel';
 export { PanelFooter } from './components/panel/PanelFooter';
+export { Shell } from './components/shell/Shell';
 export { ShellMenu } from './components/shell/ShellMenu';
 export { ShellMenuItem } from './components/shell/ShellMenuItem';
 export { ShellMainArea } from './components/shell/ShellMainArea';

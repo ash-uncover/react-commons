@@ -63,6 +63,12 @@ Object.defineProperty(exports, "PanelFooter", {
     return _PanelFooter.PanelFooter;
   }
 });
+Object.defineProperty(exports, "Shell", {
+  enumerable: true,
+  get: function get() {
+    return _Shell.Shell;
+  }
+});
 Object.defineProperty(exports, "ShellMainArea", {
   enumerable: true,
   get: function get() {
@@ -112,6 +118,7 @@ var _Input = require("./components/input/Input");
 var _Label = require("./components/label/Label");
 var _Panel = require("./components/panel/Panel");
 var _PanelFooter = require("./components/panel/PanelFooter");
+var _Shell = require("./components/shell/Shell");
 var _ShellMenu = require("./components/shell/ShellMenu");
 var _ShellMenuItem = require("./components/shell/ShellMenuItem");
 var _ShellMainArea = require("./components/shell/ShellMainArea");

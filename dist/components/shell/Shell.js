@@ -22,5 +22,5 @@ var Shell = exports.Shell = function Shell(_ref) {
 
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "ap-shell"
-  });
+  }, children);
 };
