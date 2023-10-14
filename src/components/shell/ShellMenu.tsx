@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 import {
-  ClassBuilder,
   Button,
   ButtonSemantics,
+  ClassBuilder,
+  ShellElement,
   Title,
 } from '../..'
 
@@ -69,7 +70,7 @@ export const ShellMenu = ({
   })
 
   return (
-    <div
+    <ShellElement
       className={classes.className}
       style={style}
     >
@@ -89,6 +90,6 @@ export const ShellMenu = ({
         </Title>
       ) : null}
       {items}
-    </div>
+    </ShellElement>
   )
 }

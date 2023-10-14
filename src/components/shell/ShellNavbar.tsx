@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 
 import {
   ClassBuilder,
+  ShellElement,
   Title,
   TitleLevels
 } from '../..'
@@ -38,7 +39,7 @@ export const ShellNavbar = ({
   const classes = new ClassBuilder(['ap-shell-navbar', className])
 
   return (
-    <div
+    <ShellElement
       className={classes.className}
       style={style}
     >
@@ -58,6 +59,6 @@ export const ShellNavbar = ({
       <div className='ap-shell-navbar--right'>
         {children}
       </div>
-    </div>
+    </ShellElement>
   )
 }

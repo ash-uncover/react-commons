@@ -1,19 +1,22 @@
 :root {
+  --ap-shell-navbar--background: var(--ap-shell-element--background);
   --ap-shell-navbar--height: 3rem;
+
+  --ap-shell-navbar--padding-v: 0;
+  --ap-shell-navbar--padding-h: 1rem;
 }
 
 .ap-shell-navbar {
+  background: var(--ap-shell-navbar--background);
   height: var(--ap-shell-navbar--height);
+  padding: var(--ap-shell-navbar--padding-v) var(--ap-shell-navbar--padding-h);
 
   display: flex;
   align-items: center;
-  padding: 0 1rem;
   box-sizing: border-box;
-
-  background: var(--ap-main-background);
+  flex-shrink: 0;
 
   & .ap-shell-navbar--left {
-
     flex-grow: 1;
   }
 

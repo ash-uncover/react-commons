@@ -23,7 +23,7 @@ var ShellNavbar = exports.ShellNavbar = function ShellNavbar(_ref) {
   // Rendering //
 
   var classes = new _.ClassBuilder(['ap-shell-navbar', className]);
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement(_.ShellElement, {
     className: classes.className,
     style: style
   }, /*#__PURE__*/_react["default"].createElement("div", {

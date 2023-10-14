@@ -1,6 +1,6 @@
 {
   "name": "@uncover/react-commons",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "aSH <ash.uncover@gmail.com>",
   "description": "React common components",
   "license": "ISC",
@@ -18,11 +18,10 @@
     "build:babel": "babel src --extensions .ts,.tsx --out-dir dist",
     "build:css": "postcss src/**/*.css --base src --dir dist",
     "build:tsc": "tsc --project tsconfig.build.json",
-    "install-local": "npm i && npm link ../alpha-auth/node_modules/react ../alpha-auth/node_modules/react-router-dom",
     "watch": "npm run watch:tsc && npm run watch:babel && npm run watch:css",
-    "watch:babel": "babel -w src --extensions .ts,.tsx --out-dir dist",
-    "watch:css": "postcss src/**/*.css --base src --dir dist --watch",
-    "watch:tsc": "tsc -w --project tsconfig.build.json"
+    "watch:babel": "babel -w src --extensions .ts,.tsx --out-dir ../ap-wait-timer/node_modules/@uncover/react-commons/dist",
+    "watch:css": "postcss -w src/**/*.css --base src --dir ../ap-wait-timer/node_modules/@uncover/react-commons/dist",
+    "watch:tsc": "tsc -w --project tsconfig.build.local.json"
   },
   "devDependencies": {
     "@babel/cli": "7.23.0",

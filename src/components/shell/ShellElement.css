@@ -1,0 +1,12 @@
+:root {
+  --ap-shell-element--background: var(--ap-main-background);
+  --ap-shell-element--box-shadow: var(--ap-main-box-shadow);
+  --ap-shell-element--border-radius: 0.5rem;
+}
+.ap-shell-element {
+  background: var(--ap-shell-element--background);
+  border-radius: var(--ap-shell-element--border-radius);
+  box-shadow: var(--ap-shell-element--box-shadow);
+
+  position: relative;
+}

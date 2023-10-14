@@ -1,0 +1,10 @@
+:root {
+  --ap-shell-area--padding-v: 1rem;
+  --ap-shell-area--padding-h: 2rem;
+}
+.ap-shell-area {
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 1rem 2rem;
+  padding: var(--ap-shell-area--padding-v) var(--ap-shell-area--padding-h);
+}

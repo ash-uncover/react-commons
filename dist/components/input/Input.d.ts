@@ -13,7 +13,7 @@ interface InputProperties {
     required?: boolean;
     showClearIcon?: boolean;
     showPasswordIcon?: boolean;
-    type?: 'password' | 'number' | '';
+    type?: 'password' | 'number' | 'date' | 'time' | '';
     value?: string;
     onChange: (event: {
         value: string;

@@ -65,7 +65,7 @@ var ShellMenu = exports.ShellMenu = function ShellMenu(_ref) {
     }
     return child;
   });
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement(_.ShellElement, {
     className: classes.className,
     style: style
   }, /*#__PURE__*/_react["default"].createElement(_.Button, {

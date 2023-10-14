@@ -2,28 +2,28 @@ import React, { ReactNode } from 'react'
 
 import { ClassBuilder } from '../ComponentUtil'
 
-import './Shell.css'
+import './ShellBackground.css'
 
 // ---------------------------------------------------
-// Create Component Shell
+// Create Component
 // ---------------------------------------------------
 
-interface ShellProperties {
+interface ShellBackgroundProperties {
   className?: string
   style?: React.CSSProperties
 
   children: ReactNode
 }
-export const Shell = ({
+export const ShellBackground = ({
   className,
   style,
 
   children
-}: ShellProperties) => {
+}: ShellBackgroundProperties) => {
 
   // Rendering //
 
-  const classes = new ClassBuilder(['ap-shell', className])
+  const classes = new ClassBuilder(['ap-shell-background', className])
 
   return (
     <div
