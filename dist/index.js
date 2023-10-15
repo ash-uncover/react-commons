@@ -117,6 +117,12 @@ Object.defineProperty(exports, "ShellNavbar", {
     return _ShellNavbar.ShellNavbar;
   }
 });
+Object.defineProperty(exports, "Slider", {
+  enumerable: true,
+  get: function get() {
+    return _Slider.Slider;
+  }
+});
 Object.defineProperty(exports, "TextArea", {
   enumerable: true,
   get: function get() {
@@ -150,6 +156,7 @@ var _ShellElement = require("./components/shell/ShellElement");
 var _ShellMenu = require("./components/shell/ShellMenu");
 var _ShellMenuItem = require("./components/shell/ShellMenuItem");
 var _ShellNavbar = require("./components/shell/ShellNavbar");
+var _Slider = require("./components/slider/Slider");
 var _TextArea = require("./components/textarea/TextArea");
 var _Title = require("./components/title/Title");
 var _ComponentUtil = require("./components/ComponentUtil");
