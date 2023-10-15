@@ -13,6 +13,7 @@ export { ShellElement } from './components/shell/ShellElement'
 export { ShellMenu } from './components/shell/ShellMenu'
 export { ShellMenuItem } from './components/shell/ShellMenuItem'
 export { ShellNavbar } from './components/shell/ShellNavbar'
+export { Slider } from './components/slider/Slider'
 export { TextArea } from './components/textarea/TextArea'
 export { Title, type TitleLevel, TitleLevels } from './components/title/Title'
 
