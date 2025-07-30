@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 
-import { ControlButton } from '../../../../../alpha-games/ap-games-common/src/lib/components/menu/controls/ControlButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './Slider.css'
+import { Button } from '../button/Button'
 
 const DEFAULT_STEPS = 10
 
@@ -176,12 +176,12 @@ export const Slider = ({
         onChange={handleChange}
       />
 
-      <ControlButton
+      <Button
         disabled={disabled}
         onClick={handleValueDown}
       >
         <FontAwesomeIcon icon={['fas', 'chevron-left']} />
-      </ControlButton>
+      </Button>
 
       <div
         className='slider__control'
@@ -224,12 +224,12 @@ export const Slider = ({
         </div>
       </div>
 
-      <ControlButton
+      <Button
         disabled={disabled}
         onClick={handleValueUp}
       >
         <FontAwesomeIcon icon={['fas', 'chevron-right']} />
-      </ControlButton>
+      </Button>
 
     </div>
   )

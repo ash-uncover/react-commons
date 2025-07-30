@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Slider = void 0;
 var _react = _interopRequireWildcard(require("react"));
-var _ControlButton = require("../../../../../alpha-games/ap-games-common/src/lib/components/menu/controls/ControlButton");
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 require("./Slider.css");
+var _Button = require("../button/Button");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -173,7 +173,7 @@ var Slider = exports.Slider = function Slider(_ref) {
     max: max,
     value: currentValue,
     onChange: handleChange
-  }), /*#__PURE__*/_react["default"].createElement(_ControlButton.ControlButton, {
+  }), /*#__PURE__*/_react["default"].createElement(_Button.Button, {
     disabled: disabled,
     onClick: handleValueDown
   }, /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
@@ -204,7 +204,7 @@ var Slider = exports.Slider = function Slider(_ref) {
       opacity: showTooltip ? 1 : 0,
       transition: 'opacity 0.5s'
     }
-  }, currentValue, "%")))), /*#__PURE__*/_react["default"].createElement(_ControlButton.ControlButton, {
+  }, currentValue, "%")))), /*#__PURE__*/_react["default"].createElement(_Button.Button, {
     disabled: disabled,
     onClick: handleValueUp
   }, /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
