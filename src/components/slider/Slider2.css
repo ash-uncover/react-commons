@@ -1,0 +1,91 @@
+@import '../../styles/variables.css';
+
+.slider {
+  --slider__control_background: var(--base_background_2);
+  --slider__control-bar_background: var(--base_background_3);
+  --slider__control-bar-active_background: var(--base_selected_background);
+
+  height: 2rem;
+  display: flex;
+  align-items: center;
+
+  margin: 1rem 0;
+
+  & .slider__control {
+    flex-grow: 1;
+    height: 2rem;
+    cursor: pointer;
+
+    margin: 0 0.25rem;
+    padding: 0 1rem;
+    background: var(--slider__control_background);
+    border-radius: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+
+    & .slider__control--bar {
+      height: 0.35rem;
+      border-radius: 0.175rem;
+      width: 100%;
+
+      background: var(--slider__control-bar_background);
+
+      & .slider__control--bar-active {
+        position: relative;
+        background: var(--slider__control-bar-active_background);
+
+        & .slider__control--indicator {
+          position: absolute;
+          height: 1rem;
+          width: 1rem;
+          border-radius: 50%;
+          background: var(--slider__control-bar-active_background);
+          right: -0.5rem;
+          top: -0.325rem;
+          border: 0.5rem solid transparent;
+          box-sizing: border-box;
+
+          &:hover,
+          &:focus,
+          &:focus-visible {
+            outline: none;
+            box-shadow: 0 0 3px 2px white;
+          }
+
+        }
+        & .slider__control--toolip {
+          position: absolute;
+          bottom: calc(0.70rem + 100%);
+          right: -1rem;
+          width: 1.5rem;
+          text-align: center;
+          font-size: 0.6rem;
+
+          padding: 0.25rem;
+          border-radius: 0.25rem;
+          background: black;
+          color: white;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: calc(50% - 0.25rem);
+            border: 0.25rem solid transparent;
+            border-top-color: black;
+          }
+        }
+      }
+    }
+  }
+
+  &.slider--disabled {
+    --slider__control_background: var(--base_background_1);
+    --slider__control-bar_background: var(--base_background_2);
+    --slider__control-bar-active_background: var(--base_5_background);
+
+    pointer-events: none;
+ }
+}
