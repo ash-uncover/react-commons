@@ -87,6 +87,12 @@ Object.defineProperty(exports, "Slider", {
     return _Slider.Slider;
   }
 });
+Object.defineProperty(exports, "Switch", {
+  enumerable: true,
+  get: function get() {
+    return _Switch.Switch;
+  }
+});
 Object.defineProperty(exports, "TextArea", {
   enumerable: true,
   get: function get() {
@@ -116,6 +122,7 @@ var _Label = require("./components/label/Label");
 var _Panel = require("./components/panel/Panel");
 var _PanelFooter = require("./components/panel/PanelFooter");
 var _Slider = require("./components/slider/Slider");
+var _Switch = require("./components/switch/Switch");
 var _TextArea = require("./components/textarea/TextArea");
 var _Title = require("./components/title/Title");
 var _ComponentUtil = require("./components/ComponentUtil");

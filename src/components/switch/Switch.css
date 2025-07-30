@@ -1,0 +1,53 @@
+:root {
+  --switch__control_background: var(--base_4_background);
+  --switch__control-button_background: white;
+  --switch__control_background--active: var(--base_selected_background);
+}
+
+.ap-switch {
+  display: flex;
+  align-items: center;
+
+  margin: 0.75rem 0.25rem;
+
+  & .ap-switch__input+.ap-switch__label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    & .ap-switch__control {
+      height: 0.35rem;
+      border-radius: 0.175rem;
+      width: 1.5rem;
+      margin-right: 0.75rem;
+
+      background: var(--switch__control_background);
+
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: red;
+        top: -0.325rem;
+        left: -0.325rem;
+        transition: left 0.1s;
+        background: var(--switch__control-button_background);
+      }
+    }
+  }
+
+  & .ap-switch__input:checked+.ap-switch__label {
+    & .ap-switch__control {
+      background: var(--switch__control_background--active);
+
+      &::after {
+        left: 0.875rem;
+        background: var(--switch__control_background--active);
+      }
+    }
+  }
+}

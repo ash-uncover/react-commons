@@ -9,6 +9,7 @@ export { Label } from './components/label/Label'
 export { Panel } from './components/panel/Panel'
 export { PanelFooter } from './components/panel/PanelFooter'
 export { Slider } from './components/slider/Slider'
+export { Switch } from './components/switch/Switch'
 export { TextArea } from './components/textarea/TextArea'
 export { Title, type TitleLevel, TitleLevels } from './components/title/Title'
 

@@ -6,13 +6,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Slider = void 0;
 var _react = _interopRequireWildcard(require("react"));
-var _ = require("../..");
+var _ComponentUtil = require("../ComponentUtil");
 require("./Slider.css");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
+//
 
+// CSS
+
+// #region Declaration
+
+// #endregion
+
+// #region Component
 var Slider = exports.Slider = function Slider(_ref) {
   var className = _ref.className,
     style = _ref.style,
@@ -21,15 +26,14 @@ var Slider = exports.Slider = function Slider(_ref) {
     min = _ref$min === void 0 ? 0 : _ref$min,
     value = _ref.value,
     onChange = _ref.onChange;
-  // Hooks //
-
+  // #region Hooks
   var rail = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
     return unregisterEvents;
   }, []);
+  // #endregion
 
-  // Events //
-
+  // #region Events
   function onRailClick(event) {
     var mouseX = event.pageX;
     changeFromX(mouseX);
@@ -62,25 +66,27 @@ var Slider = exports.Slider = function Slider(_ref) {
     window.removeEventListener('mouseup', onMouseUp);
     window.removeEventListener('mousemove', onMouseMove);
   }
+  // #endregion
 
-  // Rendering //
-
-  var classes = new _.ClassBuilder(['ap-slider', className]);
+  // #region Render
+  var classes = new _ComponentUtil.ClassBuilder(['ap-slider', className]);
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: classes.className,
     style: style
   }, /*#__PURE__*/_react["default"].createElement("div", {
     ref: rail,
-    className: "ap-slider_rail",
+    className: "ap-slider__rail",
     onClick: onRailClick
   }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "ap-slider_pusher",
+    className: "ap-slider__pusher",
     style: {
       width: "".concat((value - min) * 100 / (max - min), "%")
     }
   }), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "ap-slider_spot",
+    className: "ap-slider__spot",
     title: String(value),
     onMouseDown: onSpotMouseDown
   })));
+  // #endregion
 };
+// #endregion

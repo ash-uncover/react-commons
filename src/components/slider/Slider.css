@@ -9,6 +9,7 @@
   --ap-slider-spot--background: var(--ap-main-background-subtle);
   --ap-slider-spot--border-color: var(--ap-main-color);
 }
+
 .ap-slider {
   height: var(--ap-slider--height);
   display: flex;
@@ -18,13 +19,14 @@
     & .ap-slider_rail {
       --ap-slider-rail--border-color: var(--ap-main-focus-color);
     }
+
     & .ap-slider_spot {
       --ap-slider-spot--background: var(--ap-main-color);
       --ap-slider-spot--border-color: var(--ap-main-focus-color);
     }
   }
 
-  & .ap-slider_rail {
+  & .ap-slider__rail {
     height: var(--ap-slider-rail--height);
     background: var(--ap-slider-rail--background);
     border: 1px solid var(--ap-slider-rail--border-color);
@@ -39,13 +41,13 @@
     margin: 0 2rem;
     border-radius: var(--ap-slider-rail--height);
 
-    & .ap-slider_pusher {
+    & .ap-slider__pusher {
       height: 100%;
       pointer-events: none;
       flex-shrink: 0;
     }
 
-    & .ap-slider_spot {
+    & .ap-slider__spot {
       cursor: pointer;
       flex-shrink: 0;
       box-sizing: border-box;

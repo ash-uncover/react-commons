@@ -1,8 +1,8 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import './Slider.css';
 interface SliderProperties {
     className?: string;
-    style?: CSSProperties;
+    style?: React.CSSProperties;
     max: number;
     min?: number;
     value: number;

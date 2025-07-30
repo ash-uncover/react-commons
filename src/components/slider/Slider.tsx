@@ -1,22 +1,22 @@
-import React, { CSSProperties, ReactNode, useEffect, useRef, useState } from 'react'
-
-import { ClassBuilder } from '../..'
-
+import React, { useEffect, useRef } from 'react'
+//
+import { ClassBuilder } from '../ComponentUtil'
+// CSS
 import './Slider.css'
 
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
-
+// #region Declaration
 interface SliderProperties {
   className?: string
-  style?: CSSProperties
+  style?: React.CSSProperties
 
   max: number
   min?: number
   value: number
   onChange: (event: { value: number }) => void
 }
+// #endregion
+
+// #region Component
 export const Slider = ({
   className,
   style,
@@ -27,16 +27,14 @@ export const Slider = ({
   onChange,
 }: SliderProperties) => {
 
-  // Hooks //
-
+  // #region Hooks
   const rail = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
     return unregisterEvents
   }, [])
-
-  // Events //
-
+  // #endregion
+  
+  // #region Events
   function onRailClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const mouseX = event.pageX
     changeFromX(mouseX)
@@ -68,11 +66,10 @@ export const Slider = ({
     window.removeEventListener('mouseup', onMouseUp)
     window.removeEventListener('mousemove', onMouseMove)
   }
+  // #endregion
 
-  // Rendering //
-
+  // #region Render
   const classes = new ClassBuilder(['ap-slider', className])
-
   return (
     <div
       className={classes.className}
@@ -80,21 +77,23 @@ export const Slider = ({
     >
       <div
         ref={rail}
-        className='ap-slider_rail'
+        className='ap-slider__rail'
         onClick={onRailClick}
       >
         <div
-          className='ap-slider_pusher'
+          className='ap-slider__pusher'
           style={{
             width: `${((value - min) * 100 / (max - min))}%`
           }}
         />
         <div
-          className='ap-slider_spot'
+          className='ap-slider__spot'
           title={String(value)}
           onMouseDown={onSpotMouseDown}
         />
       </div>
     </div>
   )
+  // #endregion
 }
+// #endregion
