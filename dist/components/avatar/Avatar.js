@@ -9,7 +9,7 @@ var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _ComponentUtil = require("../ComponentUtil");
 require("./Avatar.css");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 // ---------------------------------------------------
 // Constants
 // ---------------------------------------------------

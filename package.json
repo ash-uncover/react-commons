@@ -1,6 +1,6 @@
 {
-  "name": "@uncover/react-commons",
-  "version": "1.0.7",
+  "name": "@sol.ac/react-commons",
+  "version": "1.0.0",
   "author": "aSH <ash.uncover@gmail.com>",
   "description": "React common components",
   "license": "ISC",
@@ -14,37 +14,35 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "npm run build:tsc && npm run build:babel && npm run build:css",
-    "build:babel": "babel src --extensions .ts,.tsx --out-dir dist",
-    "build:css": "postcss src/**/*.css --base src --dir dist",
-    "build:tsc": "tsc --project tsconfig.build.json",
-    "watch": "npm run watch:tsc && npm run watch:babel && npm run watch:css",
-    "watch:babel": "babel -w src --extensions .ts,.tsx --out-dir ../ap-wait-timer/node_modules/@uncover/react-commons/dist",
-    "watch:css": "postcss -w src/**/*.css --base src --dir ../ap-wait-timer/node_modules/@uncover/react-commons/dist",
-    "watch:tsc": "tsc -w --project tsconfig.build.local.json"
+    "build": "npm run build:tsc && npm run build:babel",
+    "build:babel": "babel src --extensions .ts,.tsx --out-dir dist --copy-files",
+    "build:tsc": "tsc",
+    "prepare": "husky",
+    "watch": "npm run watch:tsc && npm run watch:babel",
+    "watch:babel": "babel -w src --extensions .ts,.tsx --out-dir dist --copy-files",
+    "watch:tsc": "tsc -w"
+  },
+  "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "7.0.0",
+    "@fortawesome/free-brands-svg-icons": "7.0.0",
+    "@fortawesome/free-regular-svg-icons": "7.0.0",
+    "@fortawesome/free-solid-svg-icons": "7.0.0",
+    "@fortawesome/react-fontawesome": "0.2.3",
+    "@sol.ac/js-utils": "1.0.1",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.23.9",
-    "@babel/core": "7.23.9",
-    "@babel/eslint-parser": "7.23.10",
-    "@babel/preset-env": "7.23.9",
-    "@babel/preset-react": "7.23.3",
-    "@babel/preset-typescript": "7.23.3",
-    "@fortawesome/fontawesome-svg-core": "6.5.1",
-    "@fortawesome/free-brands-svg-icons": "6.5.1",
-    "@fortawesome/free-regular-svg-icons": "6.5.1",
-    "@fortawesome/free-solid-svg-icons": "6.5.1",
-    "@fortawesome/react-fontawesome": "0.2.0",
-    "@types/react": "18.2.55",
-    "@types/react-dom": "18.2.19",
-    "@uncover/js-utils": "0.0.16",
-    "postcss": "8.4.35",
-    "postcss-cli": "11.0.0",
-    "postcss-preset-env": "9.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-router-dom": "6.22.0",
-    "typescript": "5.3.3"
+    "@babel/cli": "7.28.0",
+    "@babel/core": "7.28.0",
+    "@babel/eslint-parser": "7.28.0",
+    "@babel/preset-env": "7.28.0",
+    "@babel/preset-react": "7.27.1",
+    "@babel/preset-typescript": "7.27.1",
+    "@types/react": "19.1.9",
+    "@types/react-dom": "19.1.7",
+    "husky": "9.1.7",
+    "typescript": "5.8.3"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -52,8 +50,5 @@
       "node": true,
       "jest": true
     }
-  },
-  "dependencies": {
-    "react-aria-components": "^1.0.1"
   }
 }

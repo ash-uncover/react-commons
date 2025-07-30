@@ -5,10 +5,15 @@
     "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "jsx": "react",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "dist",
+    "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "es6",

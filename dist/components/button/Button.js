@@ -3,30 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ButtonSemantics = exports.Button = void 0;
+exports.Button = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _ComponentUtil = require("../ComponentUtil");
 require("./Button.css");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-// ---------------------------------------------------
-// Constants
-// ---------------------------------------------------
-
-var ButtonSemantics = exports.ButtonSemantics = {
-  POSITIVE: 'POSITIVE',
-  NEGATIVE: 'NEGATIVE',
-  WARNING: 'WARNING',
-  ATTENTION: 'ATTENTION',
-  PRINCIPAL: 'PRINCIPAL',
-  TRANSPARENT: 'TRANSPARENT',
-  DEFAULT: 'DEFAULT'
-};
-
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
-
+var _ButtonSemantic = require("./ButtonSemantic");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var Button = exports.Button = function Button(_ref) {
   var className = _ref.className,
     style = _ref.style,
@@ -34,7 +17,7 @@ var Button = exports.Button = function Button(_ref) {
     icon = _ref.icon,
     iconEnd = _ref.iconEnd,
     _ref$semantic = _ref.semantic,
-    semantic = _ref$semantic === void 0 ? ButtonSemantics.DEFAULT : _ref$semantic,
+    semantic = _ref$semantic === void 0 ? _ButtonSemantic.ButtonSemantics.DEFAULT : _ref$semantic,
     text = _ref.text,
     title = _ref.title,
     type = _ref.type,

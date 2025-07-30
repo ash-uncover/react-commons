@@ -5,7 +5,7 @@ import React, {
 
 import {
   FileUtils
-} from '@uncover/js-utils'
+} from '@sol.ac/js-utils'
 
 import './ImageUploader.css'
 
@@ -72,7 +72,7 @@ export const ImageUploader = ({
       const files = fileInput.current.files
       if (files?.length && files[0]) {
         const file = files[0]
-        const extOk = FileUtils.checkExtension(file, TYPES_EXT)
+        const extOk = FileUtils.checkExtention(file, TYPES_EXT)
         if (!extOk) {
           setError('Type de fichier non supporté')
           return

@@ -6,35 +6,9 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { ClassBuilder } from '../ComponentUtil'
 
 import './Button.css'
+import { ButtonSemantic, ButtonSemantics } from './ButtonSemantic'
 
-// ---------------------------------------------------
-// Constants
-// ---------------------------------------------------
-
-type ButtonSemantic = 'POSITIVE' | 'NEGATIVE' | 'WARNING' | 'ATTENTION' | 'PRINCIPAL' | 'TRANSPARENT' | 'DEFAULT'
-export const ButtonSemantics: {
-  POSITIVE: ButtonSemantic
-  NEGATIVE: ButtonSemantic
-  WARNING: ButtonSemantic
-  ATTENTION: ButtonSemantic
-  PRINCIPAL: ButtonSemantic
-  TRANSPARENT: ButtonSemantic
-  DEFAULT: ButtonSemantic
-} = {
-  POSITIVE: 'POSITIVE',
-  NEGATIVE: 'NEGATIVE',
-  WARNING: 'WARNING',
-  ATTENTION: 'ATTENTION',
-  PRINCIPAL: 'PRINCIPAL',
-  TRANSPARENT: 'TRANSPARENT',
-  DEFAULT: 'DEFAULT',
-}
-
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
-
-interface ButtonProperties {
+export interface ButtonProperties {
   className?: string
   style?: React.CSSProperties
 
@@ -49,6 +23,7 @@ interface ButtonProperties {
 
   children?: ReactNode
 }
+
 export const Button = ({
   className,
   style,

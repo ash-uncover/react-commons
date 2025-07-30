@@ -1,10 +1,10 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router'
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { ClassBuilder } from '../ComponentUtil'
+import { ClassBuilder } from '../../src/components/ComponentUtil'
 
 import './ShellMenuItem.css'
 

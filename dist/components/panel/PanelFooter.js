@@ -7,7 +7,7 @@ exports.PanelFooter = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _ComponentUtil = require("../ComponentUtil");
 require("./PanelFooter.css");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var PanelFooter = exports.PanelFooter = function PanelFooter(_ref) {
   var className = _ref.className,
     style = _ref.style,

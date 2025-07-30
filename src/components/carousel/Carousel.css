@@ -1,0 +1,50 @@
+@keyframes forward {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes backward {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: left 0.5s;
+  }
+
+  .carousel-slide.carousel-previous {
+    left: 100%;
+  }
+  .carousel-slide.carousel-current {
+    left: 0;
+  }
+
+  &.prepare {
+    .carousel-slide {
+      transition: initial;
+    }
+    .carousel-slide.carousel-previous {
+      left: 0;
+    }
+    .carousel-slide.carousel-current {
+      left: -100%;
+    }
+  }
+}

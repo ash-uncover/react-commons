@@ -24,7 +24,7 @@ Object.defineProperty(exports, "Button", {
 Object.defineProperty(exports, "ButtonSemantics", {
   enumerable: true,
   get: function get() {
-    return _Button.ButtonSemantics;
+    return _ButtonSemantic.ButtonSemantics;
   }
 });
 Object.defineProperty(exports, "ClassBuilder", {
@@ -75,48 +75,6 @@ Object.defineProperty(exports, "PanelFooter", {
     return _PanelFooter.PanelFooter;
   }
 });
-Object.defineProperty(exports, "Shell", {
-  enumerable: true,
-  get: function get() {
-    return _Shell.Shell;
-  }
-});
-Object.defineProperty(exports, "ShellArea", {
-  enumerable: true,
-  get: function get() {
-    return _ShellArea.ShellArea;
-  }
-});
-Object.defineProperty(exports, "ShellBackground", {
-  enumerable: true,
-  get: function get() {
-    return _ShellBackground.ShellBackground;
-  }
-});
-Object.defineProperty(exports, "ShellElement", {
-  enumerable: true,
-  get: function get() {
-    return _ShellElement.ShellElement;
-  }
-});
-Object.defineProperty(exports, "ShellMenu", {
-  enumerable: true,
-  get: function get() {
-    return _ShellMenu.ShellMenu;
-  }
-});
-Object.defineProperty(exports, "ShellMenuItem", {
-  enumerable: true,
-  get: function get() {
-    return _ShellMenuItem.ShellMenuItem;
-  }
-});
-Object.defineProperty(exports, "ShellNavbar", {
-  enumerable: true,
-  get: function get() {
-    return _ShellNavbar.ShellNavbar;
-  }
-});
 Object.defineProperty(exports, "Slider", {
   enumerable: true,
   get: function get() {
@@ -143,19 +101,13 @@ Object.defineProperty(exports, "TitleLevels", {
 });
 var _Avatar = require("./components/avatar/Avatar");
 var _Button = require("./components/button/Button");
+var _ButtonSemantic = require("./components/button/ButtonSemantic");
 var _FormGroup = require("./components/form/FormGroup");
 var _ImageUploader = require("./components/imageuploader/ImageUploader");
 var _Input = require("./components/input/Input");
 var _Label = require("./components/label/Label");
 var _Panel = require("./components/panel/Panel");
 var _PanelFooter = require("./components/panel/PanelFooter");
-var _Shell = require("./components/shell/Shell");
-var _ShellArea = require("./components/shell/ShellArea");
-var _ShellBackground = require("./components/shell/ShellBackground");
-var _ShellElement = require("./components/shell/ShellElement");
-var _ShellMenu = require("./components/shell/ShellMenu");
-var _ShellMenuItem = require("./components/shell/ShellMenuItem");
-var _ShellNavbar = require("./components/shell/ShellNavbar");
 var _Slider = require("./components/slider/Slider");
 var _TextArea = require("./components/textarea/TextArea");
 var _Title = require("./components/title/Title");

@@ -4,7 +4,6 @@
   --ap-panel-footer--padding-v: 0.5rem;
 }
 .ap-panel-footer {
-  border-top: 1px solid grey;
   border-top: var(--ap-panel-footer--border-top);
   padding: var(--ap-panel-header--padding-v) var(--ap-panel-header--padding-h);
 

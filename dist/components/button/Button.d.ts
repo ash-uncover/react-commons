@@ -1,17 +1,8 @@
 import React, { ReactNode } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import './Button.css';
-type ButtonSemantic = 'POSITIVE' | 'NEGATIVE' | 'WARNING' | 'ATTENTION' | 'PRINCIPAL' | 'TRANSPARENT' | 'DEFAULT';
-export declare const ButtonSemantics: {
-    POSITIVE: ButtonSemantic;
-    NEGATIVE: ButtonSemantic;
-    WARNING: ButtonSemantic;
-    ATTENTION: ButtonSemantic;
-    PRINCIPAL: ButtonSemantic;
-    TRANSPARENT: ButtonSemantic;
-    DEFAULT: ButtonSemantic;
-};
-interface ButtonProperties {
+import { ButtonSemantic } from './ButtonSemantic';
+export interface ButtonProperties {
     className?: string;
     style?: React.CSSProperties;
     disabled?: boolean;
@@ -25,4 +16,3 @@ interface ButtonProperties {
     children?: ReactNode;
 }
 export declare const Button: ({ className, style, disabled, icon, iconEnd, semantic, text, title, type, onClick, children, }: ButtonProperties) => React.JSX.Element;
-export {};

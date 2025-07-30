@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { ClassBuilder } from '../ComponentUtil'
+import { ClassBuilder } from '../../src/components/ComponentUtil'
 
 import './ShellBackground.css'
 

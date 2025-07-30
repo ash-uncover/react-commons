@@ -5,22 +5,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.ClassBuilder = void 0;
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _classPrivateFieldInitSpec(e, t, a) { _checkPrivateRedeclaration(e, t), t.set(e, a); }
+function _checkPrivateRedeclaration(e, t) { if (t.has(e)) throw new TypeError("Cannot initialize the same private elements twice on an object"); }
+function _classPrivateFieldGet(s, a) { return s.get(_assertClassBrand(s, a)); }
+function _assertClassBrand(e, t, n) { if ("function" == typeof e ? e === t : e.has(t)) return arguments.length < 3 ? t : n; throw new TypeError("Private element is not present on this object"); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function transform(arg) {
   if (Array.isArray(arg)) {
     return arg.reduce(function (acc, s) {
@@ -40,20 +39,18 @@ var ClassBuilder = exports.ClassBuilder = /*#__PURE__*/function () {
     var _this = this;
     _classCallCheck(this, ClassBuilder);
     // Attributes //
-    _classPrivateFieldInitSpec(this, _classArray, {
-      writable: true,
-      value: {}
-    });
+
+    _classPrivateFieldInitSpec(this, _classArray, {});
     transform(classBase).forEach(function (c) {
-      _classPrivateFieldGet(_this, _classArray)[c] = true;
+      _classPrivateFieldGet(_classArray, _this)[c] = true;
     });
   }
 
   // Getters & Setters //
-  _createClass(ClassBuilder, [{
+  return _createClass(ClassBuilder, [{
     key: "className",
     get: function get() {
-      return Object.keys(_classPrivateFieldGet(this, _classArray)).join(' ');
+      return Object.keys(_classPrivateFieldGet(_classArray, this)).join(' ');
     }
 
     // Methods //
@@ -62,7 +59,7 @@ var ClassBuilder = exports.ClassBuilder = /*#__PURE__*/function () {
     value: function add(className) {
       var _this2 = this;
       transform(className).forEach(function (c) {
-        _classPrivateFieldGet(_this2, _classArray)[c] = true;
+        _classPrivateFieldGet(_classArray, _this2)[c] = true;
       });
     }
   }, {
@@ -70,7 +67,7 @@ var ClassBuilder = exports.ClassBuilder = /*#__PURE__*/function () {
     value: function remove(className) {
       var _this3 = this;
       transform(className).forEach(function (c) {
-        delete _classPrivateFieldGet(_this3, _classArray)[c];
+        delete _classPrivateFieldGet(_classArray, _this3)[c];
       });
     }
   }, {
@@ -78,7 +75,7 @@ var ClassBuilder = exports.ClassBuilder = /*#__PURE__*/function () {
     value: function toggle(className) {
       var _this4 = this;
       transform(className).forEach(function (c) {
-        if (_classPrivateFieldGet(_this4, _classArray)[c]) {
+        if (_classPrivateFieldGet(_classArray, _this4)[c]) {
           _this4.remove(c);
         } else {
           _this4.add(c);
@@ -86,5 +83,4 @@ var ClassBuilder = exports.ClassBuilder = /*#__PURE__*/function () {
       });
     }
   }]);
-  return ClassBuilder;
 }();

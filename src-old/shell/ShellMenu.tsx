@@ -9,7 +9,7 @@ import {
   ClassBuilder,
   ShellElement,
   Title,
-} from '../..'
+} from '../../src'
 
 import './ShellMenu.css'
 
