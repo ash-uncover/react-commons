@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import './Button.css';
 import { ButtonSemantic } from './ButtonSemantic';
+import './Button.css';
 export interface ButtonProperties {
     className?: string;
     style?: React.CSSProperties;

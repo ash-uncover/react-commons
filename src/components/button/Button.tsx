@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 import { ClassBuilder } from '../ComponentUtil'
+import { ButtonSemantic, ButtonSemantics } from './ButtonSemantic'
 
 import './Button.css'
-import { ButtonSemantic, ButtonSemantics } from './ButtonSemantic'
 
 export interface ButtonProperties {
   className?: string

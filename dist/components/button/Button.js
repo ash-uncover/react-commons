@@ -7,8 +7,8 @@ exports.Button = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _ComponentUtil = require("../ComponentUtil");
-require("./Button.css");
 var _ButtonSemantic = require("./ButtonSemantic");
+require("./Button.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var Button = exports.Button = function Button(_ref) {
   var className = _ref.className,

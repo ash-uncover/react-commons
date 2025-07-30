@@ -45,6 +45,12 @@ Object.defineProperty(exports, "FormGroupDirections", {
     return _FormGroup.FormGroupDirections;
   }
 });
+Object.defineProperty(exports, "ICONS", {
+  enumerable: true,
+  get: function get() {
+    return _IconUtils.ICONS;
+  }
+});
 Object.defineProperty(exports, "ImageUploader", {
   enumerable: true,
   get: function get() {
@@ -104,6 +110,7 @@ var _Button = require("./components/button/Button");
 var _ButtonSemantic = require("./components/button/ButtonSemantic");
 var _FormGroup = require("./components/form/FormGroup");
 var _ImageUploader = require("./components/imageuploader/ImageUploader");
+var _IconUtils = require("./components/icon/IconUtils");
 var _Input = require("./components/input/Input");
 var _Label = require("./components/label/Label");
 var _Panel = require("./components/panel/Panel");
