@@ -1,14 +1,15 @@
 import React from 'react';
 import './Slider.css';
-interface SliderProperties {
+export interface SliderProperties {
     className?: string;
     style?: React.CSSProperties;
+    disabled?: boolean;
+    min: number;
     max: number;
-    min?: number;
+    step?: number;
     value: number;
     onChange: (event: {
         value: number;
     }) => void;
 }
-export declare const Slider: ({ className, style, max, min, value, onChange, }: SliderProperties) => React.JSX.Element;
-export {};
+export declare const Slider: ({ className, disabled, min, max, step, value, onChange, }: SliderProperties) => React.JSX.Element;
