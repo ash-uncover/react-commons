@@ -16,7 +16,7 @@ export interface SelectProperties {
   value: string
   values: SelectValue[]
 
-  onChange: (value: string) => void
+  onChange: (event: { value: string }) => void
 }
 export interface SelectValue {
   id: string
@@ -44,13 +44,13 @@ export const Select = ({
     const currentValueIndex: number = values.findIndex(v => v.id === value)
     const newValueIndex = (currentValueIndex + values.length - 1) % values.length
     const newValue = values[newValueIndex]
-    onChange(newValue.id)
+    onChange({ value: newValue.id })
   }
   function handleValueNext() {
     const currentValueIndex: number = values.findIndex(v => v.id === value)
     const newValueIndex = (currentValueIndex + values.length + 1) % values.length
     const newValue = values[newValueIndex]
-    onChange(newValue.id)
+    onChange({ value: newValue.id })
   }
   // #endregion
 
@@ -59,7 +59,7 @@ export const Select = ({
   if (disabled) classes.add('ap-select--disabled')
 
   return (
-    <div 
+    <div
       className={classes.className}
       style={style}
     >

@@ -6,7 +6,9 @@ export interface SelectProperties {
     disabled?: boolean;
     value: string;
     values: SelectValue[];
-    onChange: (value: string) => void;
+    onChange: (event: {
+        value: string;
+    }) => void;
 }
 export interface SelectValue {
     id: string;

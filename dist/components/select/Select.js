@@ -37,7 +37,9 @@ var Select = exports.Select = function Select(_ref) {
     });
     var newValueIndex = (currentValueIndex + values.length - 1) % values.length;
     var newValue = values[newValueIndex];
-    onChange(newValue.id);
+    onChange({
+      value: newValue.id
+    });
   }
   function handleValueNext() {
     var currentValueIndex = values.findIndex(function (v) {
@@ -45,7 +47,9 @@ var Select = exports.Select = function Select(_ref) {
     });
     var newValueIndex = (currentValueIndex + values.length + 1) % values.length;
     var newValue = values[newValueIndex];
-    onChange(newValue.id);
+    onChange({
+      value: newValue.id
+    });
   }
   // #endregion
 

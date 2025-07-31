@@ -1,22 +1,14 @@
-import React, { useRef, useState } from 'react'
-
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRemove } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-
+//
 import { ClassBuilder } from '../ComponentUtil'
-
+// CSS
 import './Input.css'
 
-// ---------------------------------------------------
-// Constants
-// ---------------------------------------------------
-
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
-
+// #region Declaration
 interface InputProperties {
   className?: string
   style?: React.CSSProperties
@@ -34,6 +26,9 @@ interface InputProperties {
   value?: string
   onChange: (event: { value: string }) => void
 }
+// #endregion
+
+// #region Component
 export const Input = ({
   className,
   style,
@@ -52,14 +47,13 @@ export const Input = ({
   onChange,
 }: InputProperties) => {
 
-  // Hooks //
+  // #region > Hooks
+  const input = React.useRef<HTMLInputElement>(null)
+  const [focused, setFocused] = React.useState<boolean>(false)
+  const [showPassword, setShowPassword] = React.useState(false)
+  // #endregion
 
-  const input = useRef<HTMLInputElement>(null)
-  const [focused, setFocused] = useState<boolean>(false)
-  const [showPassword, setShowPassword] = useState(false)
-
-  // Events //
-
+  // #region > Events
   function handleFocus() {
     setFocused(true)
     if (input.current) {
@@ -69,34 +63,27 @@ export const Input = ({
         input.current.focus()
       }
     }
-
   }
   function handleBlur() {
     setFocused(false)
   }
-
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     onChange({ value: event.target.value })
   }
-
   function handleToggleShowPassword() {
     setShowPassword(!showPassword)
   }
   function handleResetShowPassword() {
     setShowPassword(false)
   }
-
   function handleResetValue() {
     onChange({ value: '' })
   }
+  // #endregion
 
-  // Rendering //
-
+  // #region > Render
   const classes = new ClassBuilder(['ap-input', className])
-
-  if (showPassword) {
-    classes.add('ap-input--show-password')
-  }
+  if (showPassword) classes.add('ap-input--show-password')
 
   return (
     <div
@@ -139,4 +126,6 @@ export const Input = ({
       ) : null}
     </div>
   )
+  // #endregion
 }
+// #endregion
