@@ -35,7 +35,7 @@ var Panel = exports.Panel = function Panel(_ref) {
     children = _ref.children;
   // #region > Hooks
   var content = _react["default"].useRef(null);
-  var _React$useState = _react["default"].useState(expanded),
+  var _React$useState = _react["default"].useState(expanded && children),
     _React$useState2 = _slicedToArray(_React$useState, 2),
     isExpanded = _React$useState2[0],
     setIsExpanded = _React$useState2[1];
@@ -75,7 +75,7 @@ var Panel = exports.Panel = function Panel(_ref) {
 
   // #region > Render
   var classes = new _.ClassBuilder(['ap-panel', className]);
-  if (!expandable || isExpanded) {
+  if (children && (!expandable || isExpanded)) {
     classes.add('ap-panel--expanded');
   } else {
     classes.add('ap-panel--collapsed');
@@ -85,18 +85,18 @@ var Panel = exports.Panel = function Panel(_ref) {
     style: style
   }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "ap-panel__header"
-  }, /*#__PURE__*/_react["default"].createElement(_.Title, {
-    className: "ap-panel__header__title",
-    level: titleLevel
-  }, title), expandable ? /*#__PURE__*/_react["default"].createElement(_.Button, {
+  }, expandable ? /*#__PURE__*/_react["default"].createElement(_.Button, {
     semantic: _.ButtonSemantics.TRANSPARENT,
     onClick: handleExpandClick
   }, /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
     icon: isExpanded ? _freeSolidSvgIcons.faChevronUp : _freeSolidSvgIcons.faChevronDown
-  })) : null), /*#__PURE__*/_react["default"].createElement("div", {
+  })) : null, /*#__PURE__*/_react["default"].createElement(_.Title, {
+    className: "ap-panel__header__title",
+    level: titleLevel
+  }, title)), children ? /*#__PURE__*/_react["default"].createElement("div", {
     ref: content,
     className: "ap-panel__content"
-  }, children));
+  }, children) : null);
   // #endregion
 };
 // #endregion

@@ -99,6 +99,12 @@ Object.defineProperty(exports, "PanelFooter", {
     return _PanelFooter.PanelFooter;
   }
 });
+Object.defineProperty(exports, "PanelHeader", {
+  enumerable: true,
+  get: function get() {
+    return _PanelHeader.PanelHeader;
+  }
+});
 Object.defineProperty(exports, "ResponsiveBreakpoints", {
   enumerable: true,
   get: function get() {
@@ -173,6 +179,7 @@ var _MenuNavigationItem = require("./components/menu/MenuNavigationItem");
 var _MenuNavigationList = require("./components/menu/MenuNavigationList");
 var _Panel = require("./components/panel/Panel");
 var _PanelFooter = require("./components/panel/PanelFooter");
+var _PanelHeader = require("./components/panel/PanelHeader");
 var _Select = require("./components/select/Select");
 var _Slider = require("./components/slider/Slider");
 var _Switch = require("./components/switch/Switch");

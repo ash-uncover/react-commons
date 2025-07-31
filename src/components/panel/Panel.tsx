@@ -42,7 +42,7 @@ export const Panel = ({
 
   // #region > Hooks
   const content = React.useRef<HTMLDivElement>(null);
-  const [isExpanded, setIsExpanded] = React.useState(expanded);
+  const [isExpanded, setIsExpanded] = React.useState(expanded && children);
   const [baseHeight, setBaseHeight] = React.useState(0);
   const [baseOverflow, setBaseOverflow] = React.useState('');
   // #endregion
@@ -74,7 +74,7 @@ export const Panel = ({
   // #region > Render
   const classes = new ClassBuilder(['ap-panel', className])
 
-  if (!expandable || isExpanded) {
+  if (children && (!expandable || isExpanded)) {
     classes.add('ap-panel--expanded')
   } else {
     classes.add('ap-panel--collapsed')
@@ -86,12 +86,6 @@ export const Panel = ({
       style={style}
     >
       <div className='ap-panel__header'>
-        <Title
-          className='ap-panel__header__title'
-          level={titleLevel}
-        >
-          {title}
-        </Title>
         {expandable ? (
           <Button
             semantic={ButtonSemantics.TRANSPARENT}
@@ -100,14 +94,26 @@ export const Panel = ({
             <FontAwesomeIcon icon={isExpanded ? faChevronUp : faChevronDown} />
           </Button>
         ) : null}
+        <Title
+          className='ap-panel__header__title'
+          level={titleLevel}
+        >
+          {title}
+        </Title>
       </div>
 
-      <div
-        ref={content}
-        className='ap-panel__content'
-      >
-        {children}
-      </div>
+      {children
+        ? (
+
+          <div
+            ref={content}
+            className='ap-panel__content'
+          >
+            {children}
+          </div>
+        )
+        : null
+      }
     </div>
   )
   // #endregion

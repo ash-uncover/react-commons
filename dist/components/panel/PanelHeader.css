@@ -1,0 +1,17 @@
+:root {
+  --ap-panel-header--border-top: 1px solid grey;
+  --ap-panel-header--padding-h: 1rem;
+  --ap-panel-header--padding-v: 0.5rem;
+}
+.ap-panel-header {
+  border-top: var(--ap-panel-header--border-top);
+  padding: var(--ap-panel-header--padding-v) var(--ap-panel-header--padding-h);
+
+  margin-right: calc(var(--ap-panel-content--padding) * -1);
+  margin-left: calc(var(--ap-panel-content--padding) * -1);
+  margin-bottom: calc(var(--ap-panel-content--padding) * -1);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
