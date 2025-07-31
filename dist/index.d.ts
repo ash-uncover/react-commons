@@ -18,6 +18,8 @@ export { Switch } from './components/switch/Switch';
 export { TextArea } from './components/textarea/TextArea';
 export { Title, type TitleLevel, TitleLevels } from './components/title/Title';
 export { ClassBuilder } from './components/ComponentUtil';
+export { useIsPhone } from './hooks/useIsPhone';
 export { useQuery } from './hooks/useQuery';
 export { usePrevious } from './hooks/usePrevious';
+export { type ResponsiveBreakpoint, ResponsiveBreakpoints } from './lib/ResponsiveBreakpoint';
 import './index.css';

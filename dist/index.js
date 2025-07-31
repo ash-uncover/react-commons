@@ -99,6 +99,12 @@ Object.defineProperty(exports, "PanelFooter", {
     return _PanelFooter.PanelFooter;
   }
 });
+Object.defineProperty(exports, "ResponsiveBreakpoints", {
+  enumerable: true,
+  get: function get() {
+    return _ResponsiveBreakpoint.ResponsiveBreakpoints;
+  }
+});
 Object.defineProperty(exports, "Select", {
   enumerable: true,
   get: function get() {
@@ -135,6 +141,12 @@ Object.defineProperty(exports, "TitleLevels", {
     return _Title.TitleLevels;
   }
 });
+Object.defineProperty(exports, "useIsPhone", {
+  enumerable: true,
+  get: function get() {
+    return _useIsPhone.useIsPhone;
+  }
+});
 Object.defineProperty(exports, "usePrevious", {
   enumerable: true,
   get: function get() {
@@ -167,6 +179,8 @@ var _Switch = require("./components/switch/Switch");
 var _TextArea = require("./components/textarea/TextArea");
 var _Title = require("./components/title/Title");
 var _ComponentUtil = require("./components/ComponentUtil");
+var _useIsPhone = require("./hooks/useIsPhone");
 var _useQuery = require("./hooks/useQuery");
 var _usePrevious = require("./hooks/usePrevious");
+var _ResponsiveBreakpoint = require("./lib/ResponsiveBreakpoint");
 require("./index.css");

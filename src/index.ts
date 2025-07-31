@@ -23,8 +23,13 @@ export { ClassBuilder } from './components/ComponentUtil'
 // #endregion
 
 // #region Hooks
+export { useIsPhone } from './hooks/useIsPhone'
 export { useQuery } from './hooks/useQuery'
 export { usePrevious } from './hooks/usePrevious'
+// #endregion
+
+// #region Lib
+export { type ResponsiveBreakpoint, ResponsiveBreakpoints } from './lib/ResponsiveBreakpoint'
 // #endregion
 
 import './index.css'
