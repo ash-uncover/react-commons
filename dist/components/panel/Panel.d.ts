@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { TitleLevel } from '../..';
 import './Panel.css';
 interface PanelProperties {
@@ -8,7 +8,7 @@ interface PanelProperties {
     expanded?: boolean;
     title: string;
     titleLevel?: TitleLevel;
-    children?: ReactNode;
+    children?: React.ReactNode;
 }
 export declare const Panel: ({ className, style, expandable, expanded, title, titleLevel, children, }: PanelProperties) => React.JSX.Element;
 export {};

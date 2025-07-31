@@ -1,10 +1,7 @@
-import React, {
-  ReactNode, useRef, useState
-} from 'react'
-
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
-
+//
 import {
   ClassBuilder,
   Button,
@@ -13,9 +10,10 @@ import {
   TitleLevel,
   TitleLevels,
 } from '../..'
-
+// CSS
 import './Panel.css'
 
+// #region Declaration
 interface PanelProperties {
   className?: string
   style?: React.CSSProperties
@@ -25,13 +23,16 @@ interface PanelProperties {
   title: string
   titleLevel?: TitleLevel
 
-  children?: ReactNode
+  children?: React.ReactNode
 }
+// #endregion
+
+// #region Component
 export const Panel = ({
   className,
   style,
 
-  expandable,
+  expandable = false,
   expanded = true,
   title,
   titleLevel = TitleLevels.H4,
@@ -39,16 +40,14 @@ export const Panel = ({
   children,
 }: PanelProperties) => {
 
-  // Hooks //
+  // #region > Hooks
+  const content = React.useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = React.useState(expanded);
+  const [baseHeight, setBaseHeight] = React.useState(0);
+  const [baseOverflow, setBaseOverflow] = React.useState('');
+  // #endregion
 
-  const content = useRef<HTMLDivElement>(null);
-  const [isExpanded, setIsExpanded] = useState(expanded);
-
-  const [baseHeight, setBaseHeight] = useState(0);
-  const [baseOverflow, setBaseOverflow] = useState('');
-
-  // Events //
-
+  // #region > Events
   function handleExpandClick() {
     if (content.current) {
       if (isExpanded) {
@@ -70,9 +69,9 @@ export const Panel = ({
       }
     }
   }
+  // #endregion
 
-  // Rendering //
-
+  // #region > Render
   const classes = new ClassBuilder(['ap-panel', className])
 
   if (!expandable || isExpanded) {
@@ -111,4 +110,6 @@ export const Panel = ({
       </div>
     </div>
   )
+  // #endregion
 }
+// #endregion

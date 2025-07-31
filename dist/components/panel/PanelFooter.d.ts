@@ -1,9 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import './PanelFooter.css';
-interface PanelFooterProperties {
+interface PanelFooterProperties extends React.PropsWithChildren {
     className?: string;
     style?: React.CSSProperties;
-    children?: ReactNode;
 }
 export declare const PanelFooter: ({ className, style, children, }: PanelFooterProperties) => React.JSX.Element;
 export {};

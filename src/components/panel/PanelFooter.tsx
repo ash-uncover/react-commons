@@ -1,17 +1,17 @@
-import React, {
-  ReactNode
-} from 'react'
-
+import React from 'react'
+//
 import { ClassBuilder } from '../ComponentUtil'
-
+// CSS
 import './PanelFooter.css'
 
-interface PanelFooterProperties {
+// #region Declaration
+interface PanelFooterProperties extends React.PropsWithChildren {
   className?: string
   style?: React.CSSProperties
-
-  children?: ReactNode
 }
+// #endregion
+
+// #region Component
 export const PanelFooter = ({
   className,
   style,
@@ -19,12 +19,13 @@ export const PanelFooter = ({
   children,
 }: PanelFooterProperties) => {
 
-  // Hooks //
+  // #region > Hooks
+  // #endregion
 
-  // Events //
+  // #region > Events
+  // #endregion
 
-  // Rendering //
-
+  // #region Render
   const classes = new ClassBuilder(['ap-panel-footer', className])
 
   return (
@@ -35,4 +36,6 @@ export const PanelFooter = ({
       {children}
     </div>
   )
+  // #endregion
 }
+// #endregion
