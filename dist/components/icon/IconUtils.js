@@ -5,14 +5,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ICONS = void 0;
 var ICONS = exports.ICONS = {
-  PLAY: ['fas', 'gamepad'],
-  PLAY_NEW: ['fas', 'user'],
-  PLAY_LOAD: ['fas', 'download'],
-  PLAY_ONLINE: ['fas', 'users'],
-  SETTINGS: ['fas', 'gear'],
-  SETTINGS_GENERAL: ['fas', 'wrench'],
-  SETTINGS_AUDIO: ['fas', 'sliders'],
-  SETTINGS_DISPLAY: ['fas', 'desktop'],
-  CREDITS: ['fas', 'gifts'],
-  BACK: ['fas', 'right-from-bracket']
+  FAS_CHEVRON_LEFT: ['fas', 'chevron-left'],
+  FAS_CHEVRON_RIGHT: ['fas', 'chevron-right'],
+  FAS_DESKTOP: ['fas', 'desktop'],
+  FAS_DOWNLOAD: ['fas', 'download'],
+  FAS_GAMEPAD: ['fas', 'gamepad'],
+  FAS_GEAR: ['fas', 'gear'],
+  FAS_GIFTS: ['fas', 'gifts'],
+  FAS_RIGHT_FROM_BRACKET: ['fas', 'right-from-bracket'],
+  FAS_SLIDERS: ['fas', 'sliders'],
+  FAS_USER: ['fas', 'user'],
+  FAS_USERS: ['fas', 'users'],
+  FAS_WRENCH: ['fas', 'wrench']
 };

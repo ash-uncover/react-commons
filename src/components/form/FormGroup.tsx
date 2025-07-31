@@ -1,22 +1,11 @@
 import React, { CSSProperties, ReactNode } from 'react'
-
+//
 import { ClassBuilder } from '../..'
-
+import { FormGroupDirection, FormGroupDirections } from './FormGroupDirection'
+// CSS
 import './FormGroup.css'
 
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
-
-export type FormGroupDirection = 'Vertical' | 'Horizontal'
-export const FormGroupDirections: {
-  HORIZONTAL: FormGroupDirection
-  VERTICAL: FormGroupDirection
-} = {
-  HORIZONTAL: 'Horizontal',
-  VERTICAL: 'Vertical',
-}
-
+// #region Declaration
 interface FormGroupProperties {
   className?: string
   style?: CSSProperties
@@ -25,6 +14,9 @@ interface FormGroupProperties {
 
   children: ReactNode
 }
+// #endregion
+
+// #region
 export const FormGroup = ({
   className,
   style,
@@ -34,12 +26,14 @@ export const FormGroup = ({
   children,
 }: FormGroupProperties) => {
 
-  // Events //
+  // #region Hooks
+  // #endregion
+  
+  // #region Events
+  // #endregion
 
-  // Rendering //
-
+  // #region Render
   const classes = new ClassBuilder(['ap-form-group', className])
-
   classes.add(`ap-form-group--${direction.toLowerCase()}`)
 
   return (
@@ -50,4 +44,6 @@ export const FormGroup = ({
       {children}
     </div>
   )
+  // #endregion
 }
+// #endregion

@@ -42,7 +42,7 @@ Object.defineProperty(exports, "FormGroup", {
 Object.defineProperty(exports, "FormGroupDirections", {
   enumerable: true,
   get: function get() {
-    return _FormGroup.FormGroupDirections;
+    return _FormGroupDirection.FormGroupDirections;
   }
 });
 Object.defineProperty(exports, "ICONS", {
@@ -81,6 +81,12 @@ Object.defineProperty(exports, "PanelFooter", {
     return _PanelFooter.PanelFooter;
   }
 });
+Object.defineProperty(exports, "Select", {
+  enumerable: true,
+  get: function get() {
+    return _Select.Select;
+  }
+});
 Object.defineProperty(exports, "Slider", {
   enumerable: true,
   get: function get() {
@@ -115,12 +121,14 @@ var _Avatar = require("./components/avatar/Avatar");
 var _Button = require("./components/button/Button");
 var _ButtonSemantic = require("./components/button/ButtonSemantic");
 var _FormGroup = require("./components/form/FormGroup");
+var _FormGroupDirection = require("./components/form/FormGroupDirection");
 var _ImageUploader = require("./components/imageuploader/ImageUploader");
 var _IconUtils = require("./components/icon/IconUtils");
 var _Input = require("./components/input/Input");
 var _Label = require("./components/label/Label");
 var _Panel = require("./components/panel/Panel");
 var _PanelFooter = require("./components/panel/PanelFooter");
+var _Select = require("./components/select/Select");
 var _Slider = require("./components/slider/Slider");
 var _Switch = require("./components/switch/Switch");
 var _TextArea = require("./components/textarea/TextArea");

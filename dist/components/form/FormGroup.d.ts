@@ -1,10 +1,6 @@
 import React, { CSSProperties, ReactNode } from 'react';
+import { FormGroupDirection } from './FormGroupDirection';
 import './FormGroup.css';
-export type FormGroupDirection = 'Vertical' | 'Horizontal';
-export declare const FormGroupDirections: {
-    HORIZONTAL: FormGroupDirection;
-    VERTICAL: FormGroupDirection;
-};
 interface FormGroupProperties {
     className?: string;
     style?: CSSProperties;

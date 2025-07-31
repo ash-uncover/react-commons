@@ -1,17 +1,10 @@
 import React, { ReactNode } from 'react'
-
+//
 import { ClassBuilder } from '../ComponentUtil'
-
+// CSS
 import './Label.css'
 
-// ---------------------------------------------------
-// Constants
-// ---------------------------------------------------
-
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
-
+// #region Declaration
 interface LabelProperties {
   className?: string
   style?: React.CSSProperties
@@ -20,6 +13,9 @@ interface LabelProperties {
 
   children?: ReactNode
 }
+// #endregion
+
+// #region Component
 export const Label = ({
   className,
   style,
@@ -29,12 +25,13 @@ export const Label = ({
   children,
 }: LabelProperties) => {
 
-  // Hooks //
+  // #region Hooks
+  // #endregion
 
-  // Events //
+  // #region Events
+  // #endregion
 
-  // Rendering //
-
+  // #region Render
   const classes = new ClassBuilder(['ap-label', className])
 
   return (
@@ -45,4 +42,6 @@ export const Label = ({
       {children || text}
     </div>
   )
+  // #endregion
 }
+// #endregion

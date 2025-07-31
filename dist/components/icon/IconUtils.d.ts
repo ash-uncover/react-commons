@@ -1,13 +1,15 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 export declare const ICONS: {
-    PLAY: IconProp;
-    PLAY_NEW: IconProp;
-    PLAY_LOAD: IconProp;
-    PLAY_ONLINE: IconProp;
-    SETTINGS: IconProp;
-    SETTINGS_GENERAL: IconProp;
-    SETTINGS_AUDIO: IconProp;
-    SETTINGS_DISPLAY: IconProp;
-    CREDITS: IconProp;
-    BACK: IconProp;
+    FAS_CHEVRON_LEFT: IconProp;
+    FAS_CHEVRON_RIGHT: IconProp;
+    FAS_GIFTS: IconProp;
+    FAS_DESKTOP: IconProp;
+    FAS_DOWNLOAD: IconProp;
+    FAS_GAMEPAD: IconProp;
+    FAS_GEAR: IconProp;
+    FAS_RIGHT_FROM_BRACKET: IconProp;
+    FAS_SLIDERS: IconProp;
+    FAS_USER: IconProp;
+    FAS_USERS: IconProp;
+    FAS_WRENCH: IconProp;
 };
