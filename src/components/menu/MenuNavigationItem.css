@@ -1,0 +1,43 @@
+:root {
+  --ap-menu-navigation-item--size: 3rem;
+  --ap-menu-navigation-item--color: var(--ap-main-background);
+  --ap-menu-navigation-item--background: var(--ap-main-color);
+  --ap-menu-navigation-item--border-radius: var(--ap-border-radius-m);
+  --ap-menu-navigation-item--box-shadow: none;
+  --ap-menu-navigation-item--padding-h: var(--ap-padding-s);
+  --ap-menu-navigation-item--padding-v: var(--ap-padding-s);
+}
+
+.ap-menu-navigation-item {
+
+  width: var(--ap-menu-navigation-item--size);
+  height: var(--ap-menu-navigation-item--size);
+  border-radius: var(--ap-menu-navigation-item--border-radius);
+  border: 2px solid var(--ap-menu-navigation-item--color);
+  background: var(--ap-menu-navigation-item--background);
+  padding: var(--ap-menu-navigation-item--padding-v) var(--ap-menu-navigation-item--padding-h);
+  box-sizing: border-box;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    --ap-menu-navigation-item--color: orange;
+    --ap-menu-navigation-item--background: blue;
+  }
+  
+  &.ap-menu-navigation-item--selected {
+    --ap-menu-navigation-item--color: yellow;
+    --ap-menu-navigation-item--background: red;
+  }
+
+  & .ap-menu-navigation-item__icon {}
+
+  & .ap-menu-navigation-item__text {}
+}

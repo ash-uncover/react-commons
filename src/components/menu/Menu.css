@@ -1,0 +1,17 @@
+.ap-menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  
+  & .ap-menu__content {
+    height: 0;
+    flex-grow: 1;
+    overflow: auto;
+  }
+
+  & .ap-menu__navigation {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}

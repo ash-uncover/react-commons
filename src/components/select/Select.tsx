@@ -63,7 +63,6 @@ export const Select = ({
       className={classes.className}
       style={style}
     >
-
       <Button
         disabled={disabled}
         onClick={handleValuePrevious}
