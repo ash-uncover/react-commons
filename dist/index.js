@@ -12,7 +12,7 @@ Object.defineProperty(exports, "Avatar", {
 Object.defineProperty(exports, "AvatarSizes", {
   enumerable: true,
   get: function get() {
-    return _Avatar.AvatarSizes;
+    return _AvatarSize.AvatarSizes;
   }
 });
 Object.defineProperty(exports, "Button", {
@@ -25,12 +25,6 @@ Object.defineProperty(exports, "ButtonSemantics", {
   enumerable: true,
   get: function get() {
     return _ButtonSemantic.ButtonSemantics;
-  }
-});
-Object.defineProperty(exports, "ClassBuilder", {
-  enumerable: true,
-  get: function get() {
-    return _ComponentUtil.ClassBuilder;
   }
 });
 Object.defineProperty(exports, "FormGroup", {
@@ -117,6 +111,24 @@ Object.defineProperty(exports, "Select", {
     return _Select.Select;
   }
 });
+Object.defineProperty(exports, "Shell", {
+  enumerable: true,
+  get: function get() {
+    return _Shell.Shell;
+  }
+});
+Object.defineProperty(exports, "ShellContainer", {
+  enumerable: true,
+  get: function get() {
+    return _ShellContainer.ShellContainer;
+  }
+});
+Object.defineProperty(exports, "ShellPage", {
+  enumerable: true,
+  get: function get() {
+    return _ShellPage.ShellPage;
+  }
+});
 Object.defineProperty(exports, "Slider", {
   enumerable: true,
   get: function get() {
@@ -144,7 +156,13 @@ Object.defineProperty(exports, "Title", {
 Object.defineProperty(exports, "TitleLevels", {
   enumerable: true,
   get: function get() {
-    return _Title.TitleLevels;
+    return _TitleLevel.TitleLevels;
+  }
+});
+Object.defineProperty(exports, "useClasses", {
+  enumerable: true,
+  get: function get() {
+    return _useClasses.useClasses;
   }
 });
 Object.defineProperty(exports, "useIsPhone", {
@@ -166,6 +184,7 @@ Object.defineProperty(exports, "useQuery", {
   }
 });
 var _Avatar = require("./components/avatar/Avatar");
+var _AvatarSize = require("./components/avatar/AvatarSize");
 var _Button = require("./components/button/Button");
 var _ButtonSemantic = require("./components/button/ButtonSemantic");
 var _FormGroup = require("./components/form/FormGroup");
@@ -181,13 +200,17 @@ var _Panel = require("./components/panel/Panel");
 var _PanelFooter = require("./components/panel/PanelFooter");
 var _PanelHeader = require("./components/panel/PanelHeader");
 var _Select = require("./components/select/Select");
+var _Shell = require("./components/shell/Shell");
+var _ShellContainer = require("./components/shell/ShellContainer");
+var _ShellPage = require("./components/shell/ShellPage");
 var _Slider = require("./components/slider/Slider");
 var _Switch = require("./components/switch/Switch");
 var _TextArea = require("./components/textarea/TextArea");
 var _Title = require("./components/title/Title");
-var _ComponentUtil = require("./components/ComponentUtil");
+var _TitleLevel = require("./components/title/TitleLevel");
+var _useClasses = require("./hooks/useClasses");
 var _useIsPhone = require("./hooks/useIsPhone");
 var _useQuery = require("./hooks/useQuery");
 var _usePrevious = require("./hooks/usePrevious");
-var _ResponsiveBreakpoint = require("./lib/ResponsiveBreakpoint");
+var _ResponsiveBreakpoint = require("./lib/constants/ResponsiveBreakpoint");
 require("./index.css");

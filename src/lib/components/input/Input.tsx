@@ -1,0 +1,139 @@
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRemove } from '@fortawesome/free-solid-svg-icons'
+import { faEye } from '@fortawesome/free-regular-svg-icons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+//
+import { 
+  useClasses 
+} from '../..'
+// CSS
+import './Input.css'
+
+// #region Declaration
+interface InputProperties {
+  className?: string
+  style?: React.CSSProperties
+
+  autoFocus?: boolean
+  autoSelect?: boolean
+  disabled?: boolean
+  icon?: IconProp
+  name?: string
+  placeholder?: string
+  required?: boolean
+  showClearIcon?: boolean
+  showPasswordIcon?: boolean
+  type?: 'password' | 'number' | 'date' | 'time' | ''
+  value?: string
+  onChange: (event: { value: string }) => void
+}
+// #endregion
+
+// #region Component
+export const Input = ({
+  className,
+  style,
+
+  autoFocus,
+  autoSelect,
+  disabled,
+  name,
+  placeholder,
+  required,
+  showClearIcon,
+  showPasswordIcon,
+  type,
+  value,
+
+  onChange,
+}: InputProperties) => {
+
+  // #region > Hooks
+  const input = React.useRef<HTMLInputElement>(null)
+  const [focused, setFocused] = React.useState<boolean>(false)
+  const [showPassword, setShowPassword] = React.useState(false)
+  const { classBuilder, classes } = useClasses(['ap-input', className])
+  React.useEffect(() => {
+    if (showPassword) {
+      classBuilder.add(`ap-input--show-password`)
+    }
+    return () => {
+      classBuilder.remove(`ap-input--show-password`)
+    }
+  }, [showPassword])
+  // #endregion
+
+  // #region > Events
+  function handleFocus() {
+    setFocused(true)
+    if (input.current) {
+      if (autoSelect) {
+        input.current.select()
+      } else if (autoFocus) {
+        input.current.focus()
+      }
+    }
+  }
+  function handleBlur() {
+    setFocused(false)
+  }
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    onChange({ value: event.target.value })
+  }
+  function handleToggleShowPassword() {
+    setShowPassword(!showPassword)
+  }
+  function handleResetShowPassword() {
+    setShowPassword(false)
+  }
+  function handleResetValue() {
+    onChange({ value: '' })
+  }
+  // #endregion
+
+  // #region > Render
+  return (
+    <div
+      className={classes}
+      style={style}
+      tabIndex={focused ? -1 : 0}
+      onFocus={handleFocus}
+    >
+      <input
+        ref={input}
+        className='ap-input__input'
+
+        autoFocus={autoFocus}
+        disabled={disabled}
+        name={name}
+        placeholder={placeholder}
+        required={required}
+        tabIndex={-1}
+        type={(type === 'password' && showPassword) ? '' : type}
+        value={value}
+
+        onBlur={handleBlur}
+        onChange={handleInputChange}
+      />
+      {showPasswordIcon && type === 'password' && value?.length ? (
+        <FontAwesomeIcon
+          className='ap-input__action ap-input__action-password'
+          icon={faEye}
+          onMouseDown={handleToggleShowPassword}
+          onMouseLeave={handleResetShowPassword}
+          onMouseUp={handleResetShowPassword}
+        />
+      ) : null}
+      {showClearIcon && value?.length ? (
+        <FontAwesomeIcon
+          className='ap-input__action'
+          icon={faRemove}
+          onClick={handleResetValue}
+        />
+      ) : null}
+    </div>
+  )
+  // #endregion
+}
+// #endregion

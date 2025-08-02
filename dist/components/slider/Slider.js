@@ -6,8 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.Slider = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
-var _Button = require("../button/Button");
-var _ComponentUtil = require("../ComponentUtil");
+var _ = require("../..");
 require("./Slider.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
@@ -72,6 +71,17 @@ var Slider = exports.Slider = function Slider(_ref) {
       return setShowTooltip(false);
     }, TOOLTIP_TIMEOUT_DELAY);
   };
+  var _useClasses = (0, _.useClasses)(['ap-slider', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    if (disabled) {
+      classBuilder.add("ap-slider--disabled");
+    }
+    return function () {
+      classBuilder.remove("ap-slider--disabled");
+    };
+  }, [disabled]);
   // #endregion
 
   // #region > Events
@@ -161,10 +171,8 @@ var Slider = exports.Slider = function Slider(_ref) {
   // #endregion
 
   // #region > Render
-  var classes = new _ComponentUtil.ClassBuilder(['ap-slider', className]);
-  if (disabled) classes.add('ap-slider--disabled');
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className
+    className: classes
   }, /*#__PURE__*/_react["default"].createElement("input", {
     style: {
       display: 'none'
@@ -174,7 +182,7 @@ var Slider = exports.Slider = function Slider(_ref) {
     max: max,
     value: currentValue,
     onChange: handleChange
-  }), /*#__PURE__*/_react["default"].createElement(_Button.Button, {
+  }), /*#__PURE__*/_react["default"].createElement(_.Button, {
     disabled: disabled,
     onClick: handleValueDown
   }, /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
@@ -205,7 +213,7 @@ var Slider = exports.Slider = function Slider(_ref) {
       opacity: showTooltip ? 1 : 0,
       transition: 'opacity 0.5s'
     }
-  }, currentValue, "%")))), /*#__PURE__*/_react["default"].createElement(_Button.Button, {
+  }, currentValue, "%")))), /*#__PURE__*/_react["default"].createElement(_.Button, {
     disabled: disabled,
     onClick: handleValueUp
   }, /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {

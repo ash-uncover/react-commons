@@ -3,45 +3,47 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TitleLevels = exports.Title = void 0;
+exports.Title = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _ComponentUtil = require("../ComponentUtil");
+var _ = require("../..");
 require("./Title.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
-// ---------------------------------------------------
-// Constants
-// ---------------------------------------------------
+//
 
-var TitleLevels = exports.TitleLevels = {
-  H1: 'H1',
-  H2: 'H2',
-  H3: 'H3',
-  H4: 'H4',
-  H5: 'H5',
-  H6: 'H6'
-};
-// ---------------------------------------------------
-// Create Component
-// ---------------------------------------------------
+// CSS
 
+// #region Declaration
+
+// #endregion
+
+// #region Component
 var Title = exports.Title = function Title(_ref) {
   var className = _ref.className,
     style = _ref.style,
     _ref$level = _ref.level,
-    level = _ref$level === void 0 ? TitleLevels.H1 : _ref$level,
+    level = _ref$level === void 0 ? _.TitleLevels.H1 : _ref$level,
     text = _ref.text,
     children = _ref.children;
-  // Hooks //
+  // #region >  Hooks
+  var _useClasses = (0, _.useClasses)(['ap-title', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    classBuilder.add("ap-title--".concat(level.toLowerCase()));
+    return function () {
+      classBuilder.remove("ap-title--".concat(level.toLowerCase()));
+    };
+  }, [level]);
+  // #endregion
 
-  // Events //
+  // #region > Events
+  // #endregion
 
-  // Rendering //
-
-  var classes = new _ComponentUtil.ClassBuilder('ap-title');
-  classes.add(className);
-  classes.add("ap-title--".concat(level.toLowerCase()));
+  // #region > Render
   return /*#__PURE__*/_react["default"].createElement(level.toLowerCase(), {
-    className: classes.className,
+    className: classes,
     style: style
   }, children || text);
+  // #endregion
 };
+// #endregion

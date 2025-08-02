@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 var _freeRegularSvgIcons = require("@fortawesome/free-regular-svg-icons");
-var _ComponentUtil = require("../ComponentUtil");
+var _ = require("../..");
 require("./Input.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
@@ -47,6 +47,17 @@ var Input = exports.Input = function Input(_ref) {
     _React$useState4 = _slicedToArray(_React$useState3, 2),
     showPassword = _React$useState4[0],
     setShowPassword = _React$useState4[1];
+  var _useClasses = (0, _.useClasses)(['ap-input', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    if (showPassword) {
+      classBuilder.add("ap-input--show-password");
+    }
+    return function () {
+      classBuilder.remove("ap-input--show-password");
+    };
+  }, [showPassword]);
   // #endregion
 
   // #region > Events
@@ -82,10 +93,8 @@ var Input = exports.Input = function Input(_ref) {
   // #endregion
 
   // #region > Render
-  var classes = new _ComponentUtil.ClassBuilder(['ap-input', className]);
-  if (showPassword) classes.add('ap-input--show-password');
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className,
+    className: classes,
     style: style,
     tabIndex: focused ? -1 : 0,
     onFocus: handleFocus

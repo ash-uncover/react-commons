@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PanelFooter = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _ComponentUtil = require("../ComponentUtil");
+var _ = require("../..");
 require("./PanelFooter.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //
@@ -22,15 +22,17 @@ var PanelFooter = exports.PanelFooter = function PanelFooter(_ref) {
     style = _ref.style,
     children = _ref.children;
   // #region > Hooks
+  var _useClasses = (0, _.useClasses)(['ap-panel-footer', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
   // #endregion
 
   // #region > Events
   // #endregion
 
-  // #region Render
-  var classes = new _ComponentUtil.ClassBuilder(['ap-panel-footer', className]);
+  // #region > Render
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className,
+    className: classes,
     style: style
   }, children);
   // #endregion

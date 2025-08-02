@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.MenuNavigationItem = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
-var _ComponentUtil = require("../ComponentUtil");
+var _ = require("../..");
 require("./MenuNavigationItem.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //
@@ -26,6 +26,17 @@ var MenuNavigationItem = exports.MenuNavigationItem = function MenuNavigationIte
     selected = _ref.selected,
     onClick = _ref.onClick;
   // #region Hooks
+  var _useClasses = (0, _.useClasses)(['ap-menu-navigation-item', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    if (selected) {
+      classBuilder.add("ap-menu-navigation-item--selected");
+    }
+    return function () {
+      classBuilder.remove("ap-menu-navigation-item--selected");
+    };
+  }, [selected]);
   // #endregion
 
   // #region > Events
@@ -35,10 +46,8 @@ var MenuNavigationItem = exports.MenuNavigationItem = function MenuNavigationIte
   // #endregion
 
   // #region > Render
-  var classes = new _ComponentUtil.ClassBuilder(['ap-menu-navigation-item', className]);
-  if (selected) classes.add('ap-menu-navigation-item--selected');
   return /*#__PURE__*/_react["default"].createElement("li", {
-    className: classes.className,
+    className: classes,
     title: description,
     onClick: handleClick
   }, icon ? /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {

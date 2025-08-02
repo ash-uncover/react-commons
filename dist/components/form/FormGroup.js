@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.FormGroup = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _ = require("../..");
-var _FormGroupDirection = require("./FormGroupDirection");
 require("./FormGroup.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //
@@ -22,19 +21,26 @@ var FormGroup = exports.FormGroup = function FormGroup(_ref) {
   var className = _ref.className,
     style = _ref.style,
     _ref$direction = _ref.direction,
-    direction = _ref$direction === void 0 ? _FormGroupDirection.FormGroupDirections.VERTICAL : _ref$direction,
+    direction = _ref$direction === void 0 ? _.FormGroupDirections.VERTICAL : _ref$direction,
     children = _ref.children;
-  // #region Hooks
+  // #region > Hooks
+  var _useClasses = (0, _.useClasses)(['ap-form-group', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    classBuilder.add("ap-form-group--".concat(direction.toLowerCase()));
+    return function () {
+      classBuilder.remove("ap-form-group--".concat(direction.toLowerCase()));
+    };
+  }, [direction]);
   // #endregion
 
-  // #region Events
+  // #region > Events
   // #endregion
 
-  // #region Render
-  var classes = new _.ClassBuilder(['ap-form-group', className]);
-  classes.add("ap-form-group--".concat(direction.toLowerCase()));
+  // #region > Render
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className,
+    className: classes,
     style: style
   }, children);
   // #endregion

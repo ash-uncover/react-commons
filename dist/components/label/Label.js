@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Label = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _ComponentUtil = require("../ComponentUtil");
+var _ = require("../..");
 require("./Label.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //
@@ -22,16 +22,18 @@ var Label = exports.Label = function Label(_ref) {
     style = _ref.style,
     text = _ref.text,
     children = _ref.children;
-  // #region Hooks
+  // #region > Hooks
+  var _useClasses = (0, _.useClasses)(['ap-label', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
   // #endregion
 
-  // #region Events
+  // #region > Events
   // #endregion
 
-  // #region Render
-  var classes = new _ComponentUtil.ClassBuilder(['ap-label', className]);
+  // #region > Render
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className,
+    className: classes,
     style: style
   }, children || text);
   // #endregion

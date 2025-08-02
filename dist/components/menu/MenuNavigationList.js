@@ -5,8 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MenuNavigationList = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _ComponentUtil = require("../ComponentUtil");
-var _MenuNavigationItem = require("./MenuNavigationItem");
+var _ = require("../..");
 require("./MenuNavigationList.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); } //
@@ -19,18 +18,20 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 var MenuNavigationList = exports.MenuNavigationList = function MenuNavigationList(_ref) {
   var className = _ref.className,
     items = _ref.items;
-  // #region Hooks
+  // #region > Hooks
+  var _useClasses = (0, _.useClasses)(['ap-menu-navigation-list', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
   // #endregion
 
-  // #region Events
+  // #region > Events
   // #endregion
 
   // #region > Render
-  var classes = new _ComponentUtil.ClassBuilder(['ap-menu-navigation-list', className]);
   return /*#__PURE__*/_react["default"].createElement("ul", {
-    className: classes.className
+    className: classes
   }, items.map(function (item) {
-    return /*#__PURE__*/_react["default"].createElement(_MenuNavigationItem.MenuNavigationItem, _extends({
+    return /*#__PURE__*/_react["default"].createElement(_.MenuNavigationItem, _extends({
       key: item.name
     }, item));
   }));

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PanelHeader = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _ComponentUtil = require("../ComponentUtil");
+var _ = require("../..");
 require("./PanelHeader.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 //
@@ -22,15 +22,17 @@ var PanelHeader = exports.PanelHeader = function PanelHeader(_ref) {
     style = _ref.style,
     children = _ref.children;
   // #region > Hooks
+  var _useClasses = (0, _.useClasses)(['ap-panel-header', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
   // #endregion
 
   // #region > Events
   // #endregion
 
   // #region Render
-  var classes = new _ComponentUtil.ClassBuilder(['ap-panel-header', className]);
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className,
+    className: classes,
     style: style
   }, children);
   // #endregion

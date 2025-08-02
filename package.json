@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "aSH <ash.uncover@gmail.com>",
   "description": "React common components",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ash-uncover/react-commons"
@@ -15,12 +15,14 @@
   ],
   "scripts": {
     "build": "npm run build:tsc && npm run build:babel",
-    "build:babel": "babel src --extensions .ts,.tsx --out-dir dist --copy-files",
-    "build:tsc": "tsc",
-    "prepare": "husky",
+    "build:babel": "babel src/lib --extensions .ts,.tsx --out-dir dist --copy-files",
+    "build:docs": "webpack --config webpack.config.docs.js --mode production",
+    "build:tsc": "tsc --project tsconfig.build.json",
     "watch": "npm run watch:tsc && npm run watch:babel",
-    "watch:babel": "babel -w src --extensions .ts,.tsx --out-dir dist --copy-files",
-    "watch:tsc": "tsc -w"
+    "watch:babel": "babel -w src/lib --extensions .ts,.tsx --out-dir dist --copy-files",
+    "watch:tsc": "tsc -w --project tsconfig.build.json",
+    "start": "webpack serve --config webpack.config.dev.js --progress",
+    "prepare": "husky"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "7.0.0",
@@ -43,11 +45,22 @@
     "@babel/preset-typescript": "7.27.1",
     "@types/jest": "30.0.0",
     "@types/react": "19.1.9",
+    "@types/react-dom": "19.1.7",
+    "babel-loader": "10.0.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "7.1.2",
+    "html-webpack-plugin": "5.6.3",
     "husky": "9.1.7",
     "jest": "30.0.5",
+    "source-map-loader": "5.0.0",
+    "style-loader": "4.0.0",
     "ts-jest": "29.4.0",
+    "ts-loader": "9.5.2",
     "ts-node": "10.9.2",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "webpack": "5.101.0",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.2"
   },
   "eslintConfig": {
     "extends": "react-app",

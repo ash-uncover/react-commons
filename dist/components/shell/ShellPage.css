@@ -1,0 +1,11 @@
+:root {
+  --ap-shell-page--padding-h: 2rem;
+  --ap-shell-page--padding-v: 2rem;
+}
+.ap-shell-page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--ap-shell-page--padding-v) var(--ap-shell-page--padding-h);
+}

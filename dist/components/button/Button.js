@@ -6,10 +6,18 @@ Object.defineProperty(exports, "__esModule", {
 exports.Button = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
-var _ComponentUtil = require("../ComponentUtil");
-var _ButtonSemantic = require("./ButtonSemantic");
+var _ = require("../..");
 require("./Button.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+//
+
+// CSS
+
+// #region Declaration
+
+// #endregion
+
+// #region Component
 var Button = exports.Button = function Button(_ref) {
   var className = _ref.className,
     style = _ref.style,
@@ -17,25 +25,38 @@ var Button = exports.Button = function Button(_ref) {
     icon = _ref.icon,
     iconEnd = _ref.iconEnd,
     _ref$semantic = _ref.semantic,
-    semantic = _ref$semantic === void 0 ? _ButtonSemantic.ButtonSemantics.DEFAULT : _ref$semantic,
+    semantic = _ref$semantic === void 0 ? _.ButtonSemantics.DEFAULT : _ref$semantic,
     text = _ref.text,
     title = _ref.title,
     type = _ref.type,
     onClick = _ref.onClick,
     children = _ref.children;
-  // Hooks //
+  // #region > Hooks
+  var _useClasses = (0, _.useClasses)(['ap-button', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    classBuilder.add("ap-button--".concat(semantic.toLowerCase()));
+    return function () {
+      classBuilder.remove("ap-button--".concat(semantic.toLowerCase()));
+    };
+  }, [semantic]);
+  _react["default"].useEffect(function () {
+    if (!children && !text && (!icon && iconEnd || icon && !iconEnd)) {
+      classBuilder.add('ap-button--icon-only');
+    }
+    return function () {
+      classBuilder.remove('ap-button--icon-only');
+    };
+  }, [children, text, icon, iconEnd]);
+  // #endregion
 
-  // Events //
+  // #region > Events
+  // #endregion
 
-  // Rendering //
-
-  var classes = new _ComponentUtil.ClassBuilder(['ap-button', className]);
-  classes.add("ap-button--".concat(semantic.toLowerCase()));
-  if (!children && !text && (!icon && iconEnd || icon && !iconEnd)) {
-    classes.add('ap-button--icon-only');
-  }
+  // #region > Render
   return /*#__PURE__*/_react["default"].createElement("button", {
-    className: classes.className,
+    className: classes,
     disabled: disabled,
     style: style,
     title: title,
@@ -48,4 +69,6 @@ var Button = exports.Button = function Button(_ref) {
     className: "ap-button__icon-end",
     icon: iconEnd
   }) : null);
+  // #endregion
 };
+// #endregion

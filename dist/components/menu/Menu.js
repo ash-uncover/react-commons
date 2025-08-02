@@ -5,11 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Menu = void 0;
 var _react = _interopRequireDefault(require("react"));
+var _ = require("../..");
 var _MenuUtil = require("./MenuUtil");
-var _MenuNavigationList = require("./MenuNavigationList");
-var _IconUtils = require("../icon/IconUtils");
 require("./Menu.css");
-var _ComponentUtil = require("../ComponentUtil");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -98,6 +96,17 @@ var Menu = exports.Menu = function Menu(_ref) {
       setItemComponent(null);
     }
   }, [itemSelection]);
+  var _useClasses = (0, _.useClasses)(['ap-menu', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    if (collapsed) {
+      classBuilder.add("ap-menu--collapsed");
+    }
+    return function () {
+      classBuilder.remove("ap-menu--collapsed");
+    };
+  }, [collapsed]);
   // #endregion
 
   // #region > Events
@@ -134,7 +143,7 @@ var Menu = exports.Menu = function Menu(_ref) {
         items.push({
           name: 'back',
           description: 'back',
-          icon: _IconUtils.ICONS.FAS_RIGHT_FROM_BRACKET,
+          icon: _.ICONS.FAS_RIGHT_FROM_BRACKET,
           selected: false,
           onClick: function onClick() {
             return setItemSelection((0, _MenuUtil.getParent)(itemNavigation));
@@ -145,15 +154,13 @@ var Menu = exports.Menu = function Menu(_ref) {
     }
     return [];
   }
-  var classes = new _ComponentUtil.ClassBuilder(['ap-menu', className]);
-  if (collapsed) classes.add('ap-menu--collapsed');
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className
+    className: classes
   }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "ap-menu__content"
   }, itemComponent ? itemComponent.component : null), /*#__PURE__*/_react["default"].createElement("nav", {
     className: "ap-menu__navigation"
-  }, /*#__PURE__*/_react["default"].createElement(_MenuNavigationList.MenuNavigationList, {
+  }, /*#__PURE__*/_react["default"].createElement(_.MenuNavigationList, {
     items: buildMenuNavigationItem(itemNavigation)
   })));
   // #endregion

@@ -47,6 +47,20 @@ var Panel = exports.Panel = function Panel(_ref) {
     _React$useState6 = _slicedToArray(_React$useState5, 2),
     baseOverflow = _React$useState6[0],
     setBaseOverflow = _React$useState6[1];
+  var _useClasses = (0, _.useClasses)(['ap-panel', className]),
+    classBuilder = _useClasses.classBuilder,
+    classes = _useClasses.classes;
+  _react["default"].useEffect(function () {
+    if (children && (!expandable || isExpanded)) {
+      classBuilder.add('ap-panel--expanded');
+    } else {
+      classBuilder.add('ap-panel--collapsed');
+    }
+    return function () {
+      classBuilder.remove("ap-panel--collapsed");
+      classBuilder.remove("ap-panel--expanded");
+    };
+  }, [children, expandable, isExpanded]);
   // #endregion
 
   // #region > Events
@@ -74,14 +88,8 @@ var Panel = exports.Panel = function Panel(_ref) {
   // #endregion
 
   // #region > Render
-  var classes = new _.ClassBuilder(['ap-panel', className]);
-  if (children && (!expandable || isExpanded)) {
-    classes.add('ap-panel--expanded');
-  } else {
-    classes.add('ap-panel--collapsed');
-  }
-  return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes.className,
+  return /*#__PURE__*/_react["default"].createElement(_.ShellContainer, {
+    className: classes,
     style: style
   }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "ap-panel__header"
