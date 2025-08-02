@@ -6,6 +6,9 @@ const { merge } = require('webpack-merge')
 const base = require('./webpack.config.base.js')
 
 const DIR_DOCS = path.resolve(__dirname, 'docs')
+const DIR_PUBLIC = path.resolve(__dirname, 'public')
+
+const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(base, {
@@ -24,6 +27,12 @@ module.exports = merge(base, {
       template: './src/app/index_docs.html',
       title: 'AP React Commons',
       publicPath: '/react-commons'
+    }),
+    new CopyPlugin({
+      patterns: [{
+        from: DIR_PUBLIC,
+        to: '.',
+      }],
     }),
   ]
 })
