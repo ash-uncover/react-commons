@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.ShellContainer = void 0;
 exports.computeContainerLevel = computeContainerLevel;
 exports.getParentContainer = getParentContainer;
+exports.validContainerLevel = validContainerLevel;
 var _react = _interopRequireDefault(require("react"));
 var _ = require("../..");
 require("./ShellContainer.css");
@@ -21,7 +22,7 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default":
 // #region Component
 var ShellContainer = exports.ShellContainer = function ShellContainer(_ref) {
   var className = _ref.className,
-    root = _ref.root,
+    level = _ref.level,
     style = _ref.style,
     children = _ref.children;
   // #region > Hooks
@@ -31,14 +32,18 @@ var ShellContainer = exports.ShellContainer = function ShellContainer(_ref) {
     classes = _useClasses.classes;
   _react["default"].useEffect(function () {
     var containerLevel = 0;
-    if (!root && container.current) {
-      containerLevel = computeContainerLevel(container.current);
+    if (typeof level === 'undefined') {
+      if (container.current) {
+        containerLevel = computeContainerLevel(container.current);
+      }
+    } else {
+      containerLevel = validContainerLevel(level);
     }
     classBuilder.add("ap-shell-container-".concat(containerLevel));
     return function () {
       classBuilder.remove("ap-shell-container-".concat(containerLevel));
     };
-  }, [container, root]);
+  }, [container, level]);
   // #endregion
 
   // #region > Events
@@ -63,7 +68,10 @@ function computeContainerLevel(element) {
       result = 1 + computeContainerLevel(parentContainer);
     }
   }
-  return Math.max(Math.min(result, 10), 0);
+  return validContainerLevel(result);
+}
+function validContainerLevel(level) {
+  return Math.max(Math.min(level, 10), 0);
 }
 function getParentContainer(element) {
   if (element && element.parentElement) {

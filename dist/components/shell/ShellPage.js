@@ -20,6 +20,7 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default":
 var ShellPage = exports.ShellPage = function ShellPage(_ref) {
   var className = _ref.className,
     style = _ref.style,
+    level = _ref.level,
     children = _ref.children;
   // #region > Hooks
   var _useClasses = (0, _.useClasses)(['ap-shell-page', className]),
@@ -29,7 +30,8 @@ var ShellPage = exports.ShellPage = function ShellPage(_ref) {
   // #region > Render
   return /*#__PURE__*/_react["default"].createElement(_.ShellContainer, {
     className: classes,
-    style: style
+    style: style,
+    level: level
   }, children);
   // #endregion
 };

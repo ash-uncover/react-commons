@@ -30,7 +30,7 @@ export const Shell = ({
   return (
     <ShellContainer
       className={classes}
-      root={true}
+      level={0}
       style={style}
     >
       {children}

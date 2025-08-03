@@ -11,6 +11,8 @@ import './ShellPage.css'
 export interface ShellPageProperties extends React.PropsWithChildren {
   className?: string
   style?: React.CSSProperties
+
+  level?: number
 }
 // #endregion
 
@@ -19,6 +21,8 @@ export const ShellPage = ({
   className,
   style,
 
+  level,
+  
   children
 }: ShellPageProperties) => {
 
@@ -31,6 +35,7 @@ export const ShellPage = ({
     <ShellContainer
       className={classes}
       style={style}
+      level={level}
     >
       {children}
     </ShellContainer>

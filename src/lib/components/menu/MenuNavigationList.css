@@ -1,17 +1,16 @@
 :root {
   --ap-menu-navigation-list--height: 5rem;
-  --ap-menu-navigation-list--background: var(--ap-main-color);
+  --ap-menu-navigation-list--padding-v: 0;
   --ap-menu-navigation-list--padding-h: var(--ap-padding-s);
+  --ap-menu-navigation-list--gap: var(--ap-gaps-l);
 }
 .ap-menu-navigation-list {
-  height: var(--ap-menu-navigation-item--height);
-  padding: var(--ap-menu-navigation-item--padding-v) var(--ap-menu-navigation-item--padding-h);
-  background: var(--ap-menu-navigation-list--background);
+  padding: var(--ap-menu-navigation-list--padding-v) var(--ap-menu-navigation-list--padding-h);
 
   list-style: none;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: var(--ap-menu-navigation-list--gap);
 }

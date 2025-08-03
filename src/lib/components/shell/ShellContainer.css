@@ -1,41 +1,64 @@
 :root {
   --ap-shell-container--background: var(--ap-level-0-background);
+  --ap-shell-container--color: var(--ap-main-text-color);
 }
 
 .ap-shell-container {
   background: var(--ap-shell-container--background);
-  
+  color: var(--ap-shell-container--color);
+
   &.ap-shell-container-0 {
     --ap-shell-container--background: var(--ap-level-0-background);
+    --ap-shell-container--color: var(--ap-level-0-color);
   }
+
   &.ap-shell-container-1 {
     --ap-shell-container--background: var(--ap-level-1-background);
+    --ap-shell-container--color: var(--ap-level-1-color);
   }
+
   &.ap-shell-container-2 {
     --ap-shell-container--background: var(--ap-level-2-background);
+    --ap-shell-container--color: var(--ap-level-2-color);
   }
+
   &.ap-shell-container-3 {
     --ap-shell-container--background: var(--ap-level-3-background);
+    --ap-shell-container--color: var(--ap-level-3-color);
   }
+
   &.ap-shell-container-4 {
     --ap-shell-container--background: var(--ap-level-4-background);
+    --ap-shell-container--color: var(--ap-level-4-color);;
   }
+
   &.ap-shell-container-5 {
     --ap-shell-container--background: var(--ap-level-5-background);
+    --ap-shell-container--color: var(--ap-level-5-color);
   }
+
   &.ap-shell-container-6 {
     --ap-shell-container--background: var(--ap-level-6-background);
+    --ap-shell-container--color: var(--ap-level-6-color);
   }
+
   &.ap-shell-container-7 {
     --ap-shell-container--background: var(--ap-level-7-background);
+    --ap-shell-container--color: var(--ap-level-7-color);
   }
+
   &.ap-shell-container-8 {
     --ap-shell-container--background: var(--ap-level-8-background);
+    --ap-shell-container--color: var(--ap-level-8-color);
   }
+
   &.ap-shell-container-9 {
     --ap-shell-container--background: var(--ap-level-9-background);
+    --ap-shell-container--color: var(--ap-level-9-color);
   }
+
   &.ap-shell-container-10 {
     --ap-shell-container--background: var(--ap-level-10-background);
+    --ap-shell-container--color: var(--ap-level-10-color);
   }
 }

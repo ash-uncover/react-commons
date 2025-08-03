@@ -1,43 +1,68 @@
 :root {
-  --ap-menu-navigation-item--size: 3rem;
-  --ap-menu-navigation-item--color: var(--ap-main-background);
-  --ap-menu-navigation-item--background: var(--ap-main-color);
+  --ap-menu-navigation-item--color: var(--ap-main-text-color);
+  --ap-menu-navigation-item--background: transparent;
   --ap-menu-navigation-item--border-radius: var(--ap-border-radius-m);
-  --ap-menu-navigation-item--box-shadow: none;
-  --ap-menu-navigation-item--padding-h: var(--ap-padding-s);
-  --ap-menu-navigation-item--padding-v: var(--ap-padding-s);
+  --ap-menu-navigation-item--padding-h: var(--ap-padding-m);
+  --ap-menu-navigation-item--padding-v: var(--ap-padding-m);
+
+  --ap-menu-navigation-item--content--size: 4rem;
+  --ap-menu-navigation-item--content--background: transparent;
+  --ap-menu-navigation-item--content--border-radius: var(--ap-border-radius-s);
+  --ap-menu-navigation-item--content--padding-h: var(--ap-padding-xs);
+  --ap-menu-navigation-item--content--padding-v: var(--ap-padding-xs);
 }
 
 .ap-menu-navigation-item {
 
-  width: var(--ap-menu-navigation-item--size);
-  height: var(--ap-menu-navigation-item--size);
-  border-radius: var(--ap-menu-navigation-item--border-radius);
-  border: 2px solid var(--ap-menu-navigation-item--color);
-  background: var(--ap-menu-navigation-item--background);
-  padding: var(--ap-menu-navigation-item--padding-v) var(--ap-menu-navigation-item--padding-h);
-  box-sizing: border-box;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-  cursor: pointer;
-  user-select: none;
-
   &:hover {
-    --ap-menu-navigation-item--color: orange;
-    --ap-menu-navigation-item--background: blue;
+    --ap-menu-navigation-item--color: var(--ap-main-color);
   }
-  
+
   &.ap-menu-navigation-item--selected {
-    --ap-menu-navigation-item--color: yellow;
-    --ap-menu-navigation-item--background: red;
   }
 
-  & .ap-menu-navigation-item__icon {}
+  &:not(.ap-menu-navigation-item--selected) {
+    &>.ap-menu-navigation-item--container {
+      background: var(--ap-menu-navigation-item--background);
+    }
+  }
 
-  & .ap-menu-navigation-item__text {}
+  &.ap-menu-navigation-item--container {
+    padding: var(--ap-menu-navigation-item--padding-v) var(--ap-menu-navigation-item--padding-h);
+    box-sizing: border-box;
+  }
+
+  &>.ap-menu-navigation-item--container {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: var(--ap-border-radius-xl);
+    border-bottom-right-radius: var(--ap-border-radius-xl);
+    padding: var(--ap-menu-navigation-item--padding-v) var(--ap-menu-navigation-item--padding-h);
+    cursor: pointer;
+  }
+
+  & .ap-menu-navigation-item__content {
+    width: var(--ap-menu-navigation-item--content--size);
+    height: var(--ap-menu-navigation-item--content--size);
+
+    color: var(--ap-menu-navigation-item--color);
+    background: var(--ap-menu-navigation-item--content--background);
+    border-radius: var(--ap-menu-navigation-item--content--border-radius);
+    padding: var(--ap-menu-navigation-item--content-padding-v) var(--ap-menu-navigation-item--content-padding-h);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    &>.ap-menu-navigation-item__icon {}
+
+    &>.ap-menu-navigation-item__text {
+      text-align: center;
+    }
+  }
+
 }

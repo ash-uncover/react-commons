@@ -23,7 +23,10 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; } // Local Stuff
 // #region Component
 var Menu = exports.Menu = function Menu(_ref) {
   var className = _ref.className,
+    style = _ref.style,
     collapsed = _ref.collapsed,
+    container = _ref.container,
+    containerLevel = _ref.containerLevel,
     menu = _ref.menu,
     onMenuToggle = _ref.onMenuToggle;
   // #region > Hooks
@@ -110,18 +113,6 @@ var Menu = exports.Menu = function Menu(_ref) {
   // #endregion
 
   // #region > Events
-  function selectItem(itemDef) {
-    var _itemSelection$items3;
-    // Resolve Selection
-    if (itemSelection !== null && itemSelection !== void 0 && (_itemSelection$items3 = itemSelection.items) !== null && _itemSelection$items3 !== void 0 && _itemSelection$items3.length) {}
-    // Resolve Navigation
-    // Resolve Component
-    if (itemDef.component) {
-      setItemComponent(itemDef);
-    } else if (itemSelection !== null && itemSelection !== void 0 && itemSelection.items) {
-      setItemComponent((0, _MenuUtil.findItemDefinition)(itemsDef, itemSelection.items[0]));
-    }
-  }
   // #endregion
 
   // #region > Render
@@ -129,9 +120,10 @@ var Menu = exports.Menu = function Menu(_ref) {
     if (itemDef !== null && itemDef !== void 0 && itemDef.items) {
       var items = itemDef.items.map(function (i) {
         return {
-          name: i.name,
-          icon: i.icon,
+          container: container,
           description: i.description,
+          icon: i.icon,
+          name: i.name,
           selected: itemSelected === i,
           onClick: function onClick() {
             return setItemSelection(i);
@@ -141,6 +133,7 @@ var Menu = exports.Menu = function Menu(_ref) {
       var parent = (0, _MenuUtil.getParent)(itemDef);
       if (parent && itemNavigation) {
         items.push({
+          container: container,
           name: 'back',
           description: 'back',
           icon: _.ICONS.FAS_RIGHT_FROM_BRACKET,
@@ -154,8 +147,22 @@ var Menu = exports.Menu = function Menu(_ref) {
     }
     return [];
   }
+  if (container) {
+    return /*#__PURE__*/_react["default"].createElement(_.ShellContainer, {
+      className: classes,
+      style: style,
+      level: containerLevel
+    }, /*#__PURE__*/_react["default"].createElement(_.ShellPage, {
+      className: "ap-menu__content"
+    }, itemComponent ? itemComponent.component : null), /*#__PURE__*/_react["default"].createElement("nav", {
+      className: "ap-menu__navigation"
+    }, /*#__PURE__*/_react["default"].createElement(_.MenuNavigationList, {
+      items: buildMenuNavigationItem(itemNavigation)
+    })));
+  }
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: classes
+    className: classes,
+    style: style
   }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "ap-menu__content"
   }, itemComponent ? itemComponent.component : null), /*#__PURE__*/_react["default"].createElement("nav", {

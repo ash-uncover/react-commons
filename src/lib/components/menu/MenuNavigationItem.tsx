@@ -3,6 +3,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //
 import {
+  ShellContainer,
   useClasses
 } from '../..'
 // CSS
@@ -11,9 +12,12 @@ import './MenuNavigationItem.css'
 // #region Declaration
 export interface MenuNavigationItemProperties {
   className?: string
-  name?: string
+  style?: React.CSSProperties
+
+  container?: boolean
   description?: string
   icon?: IconProp
+  name?: string
   selected?: boolean
   onClick: () => void
 }
@@ -22,9 +26,11 @@ export interface MenuNavigationItemProperties {
 // #region Component
 export const MenuNavigationItem = ({
   className,
-  name,
+
+  container,
   description,
   icon,
+  name,
   selected,
   onClick
 }: MenuNavigationItemProperties) => {
@@ -39,6 +45,14 @@ export const MenuNavigationItem = ({
       classBuilder.remove(`ap-menu-navigation-item--selected`)
     }
   }, [selected])
+  React.useEffect(() => {
+    if (!container) {
+      classBuilder.add(`ap-menu-navigation-item--container`)
+    }
+    return () => {
+      classBuilder.remove(`ap-menu-navigation-item--container`)
+    }
+  }, [container])
   // #endregion
 
   // #region > Events
@@ -48,20 +62,51 @@ export const MenuNavigationItem = ({
   // #endregion
 
   // #region > Render
+  if (container) {
+    return (
+      <li
+        className={classes}
+        title={description}
+        onClick={handleClick}
+      >
+        <ShellContainer
+          className='ap-menu-navigation-item--container'
+        >
+          <div
+            className='ap-menu-navigation-item__content'
+          >
+            {icon
+              ? <FontAwesomeIcon
+                className='ap-menu-navigation-item__icon'
+                icon={icon}
+              />
+              : null}
+            <div className='ap-menu-navigation-item__text'>
+              {name}
+            </div>
+          </div>
+        </ShellContainer>
+      </li>
+    )
+  }
   return (
     <li
       className={classes}
       title={description}
       onClick={handleClick}
     >
-      {icon
-        ? <FontAwesomeIcon
-          className='ap-menu-navigation-item__icon'
-          icon={icon}
-        />
-        : null}
-      <div className='ap-menu-navigation-item__text'>
-        {name}
+      <div
+        className='ap-menu-navigation-item__content'
+      >
+        {icon
+          ? <FontAwesomeIcon
+            className='ap-menu-navigation-item__icon'
+            icon={icon}
+          />
+          : null}
+        <div className='ap-menu-navigation-item__text'>
+          {name}
+        </div>
       </div>
     </li>
   )

@@ -3,6 +3,8 @@ import React from 'react'
 import {
   ICONS,
   MenuNavigationList,
+  ShellContainer,
+  ShellPage,
   useClasses
 } from '../..'
 import { findItemDefinition, flattenMenu, getParent, IMenu, IMenuItemDef } from './MenuUtil'
@@ -13,7 +15,11 @@ import './Menu.css'
 // #region Declaration
 export interface MenuProperties {
   className?: string
+  style?: React.CSSProperties
+
   collapsed?: boolean
+  container?: boolean
+  containerLevel?: number
   menu: IMenu
   onMenuToggle?: () => void
 }
@@ -22,7 +28,11 @@ export interface MenuProperties {
 // #region Component
 export const Menu = ({
   className,
+  style,
+
   collapsed,
+  container,
+  containerLevel,
   menu,
   onMenuToggle
 }: MenuProperties) => {
@@ -97,33 +107,23 @@ export const Menu = ({
   // #endregion
 
   // #region > Events
-  function selectItem(itemDef: IMenuItemDef) {
-    // Resolve Selection
-    if (itemSelection?.items?.length) {
-    }
-    // Resolve Navigation
-    // Resolve Component
-    if (itemDef.component) {
-      setItemComponent(itemDef)
-    } else if (itemSelection?.items) {
-      setItemComponent(findItemDefinition(itemsDef, itemSelection.items[0]))
-    }
-  }
   // #endregion
 
   // #region > Render
   function buildMenuNavigationItem(itemDef: IMenuItemDef | null): MenuNavigationItemProperties[] {
     if (itemDef?.items) {
       const items = itemDef.items.map(i => ({
-        name: i.name,
-        icon: i.icon,
+        container,
         description: i.description,
+        icon: i.icon,
+        name: i.name,
         selected: itemSelected === i,
         onClick: () => setItemSelection(i)
       }))
       const parent = getParent(itemDef)
       if (parent && itemNavigation) {
         items.push({
+          container,
           name: 'back',
           description: 'back',
           icon: ICONS.FAS_RIGHT_FROM_BRACKET,
@@ -136,8 +136,32 @@ export const Menu = ({
     return []
   }
 
+  if (container) {
+    return (
+      <ShellContainer
+        className={classes}
+        style={style}
+        level={containerLevel}
+      >
+
+        <ShellPage className='ap-menu__content'>
+          {itemComponent ? itemComponent.component : null}
+        </ShellPage>
+
+        <nav className='ap-menu__navigation'>
+          <MenuNavigationList
+            items={buildMenuNavigationItem(itemNavigation)}
+          />
+        </nav>
+
+      </ShellContainer>
+    )
+  }
   return (
-    <div className={classes}>
+    <div
+      className={classes}
+      style={style}
+    >
 
       <div className='ap-menu__content'>
         {itemComponent ? itemComponent.component : null}

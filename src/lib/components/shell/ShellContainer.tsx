@@ -11,14 +11,14 @@ export interface ShellContainerProperties extends React.PropsWithChildren {
   className?: string
   style?: React.CSSProperties
 
-  root?: boolean
+  level?: number
 }
 // #endregion
 
 // #region Component
 export const ShellContainer = ({
   className,
-  root,
+  level,
   style,
 
   children
@@ -29,14 +29,18 @@ export const ShellContainer = ({
   const { classBuilder, classes } = useClasses(['ap-shell-container', className])
   React.useEffect(() => {
     let containerLevel = 0
-    if (!root && container.current) {
-      containerLevel = computeContainerLevel(container.current)
+    if (typeof level === 'undefined') {
+      if (container.current) {
+        containerLevel = computeContainerLevel(container.current)
+      }
+    } else {
+      containerLevel = validContainerLevel(level)
     }
     classBuilder.add(`ap-shell-container-${containerLevel}`)
     return () => {
       classBuilder.remove(`ap-shell-container-${containerLevel}`)
     }
-  }, [container, root])
+  }, [container, level])
   // #endregion
 
   // #region > Events
@@ -65,7 +69,10 @@ export function computeContainerLevel(element: HTMLElement): number {
       result = 1 + computeContainerLevel(parentContainer)
     }
   }
-  return Math.max(Math.min(result, 10), 0)
+  return validContainerLevel(result)
+}
+export function validContainerLevel(level: number): number {
+  return Math.max(Math.min(level, 10), 0)
 }
 export function getParentContainer(element: HTMLElement): HTMLElement | null {
   if (element && element.parentElement) {

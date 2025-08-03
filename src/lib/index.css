@@ -1,14 +1,13 @@
 
 :root {
-  --ap-main-text-color: rgb(34, 34, 34);
-  --ap-main-color: rgb(0, 148, 255);
+  --ap-main-text-color: hsl(0, 0%, 10%);
+  --ap-main-color: hsl(205, 100%, 50%);
   --ap-main-focus-color: rgb(116, 195, 252);
   --ap-main-active-color: rgb(67, 175, 252);
   --ap-main-inactive: rgb(132, 185, 206) ;
   --ap-main-highlight: rgb(247, 184, 1);
-  --ap-main-background: rgb(255, 255, 255);
-  --ap-main-background-subtle: rgb(243, 243, 243);
-  --ap-main-background-alpha: rgba(255,255,225,0.5);
+  --ap-main-background: hsl(0, 0%, 100%);
+
   --ap-main-box-shadow: 1px 2px 5px rgb(128, 128, 128);
   --ap-main-box-shadow--smaller: 1px 2px 3px rgb(150, 150, 150);
   --ap-main-box-shadow--element: 0 0 3px rgb(150, 150, 150);
@@ -24,6 +23,18 @@
   --ap-level-8-background: hsl(0, 0%, 20%);
   --ap-level-9-background: hsl(0, 0%, 10%);
   --ap-level-10-background: hsl(0, 0%, 0%);
+
+  --ap-level-0-color: hsl(0, 0%, 10%);
+  --ap-level-1-color: hsl(0, 0%, 8%);
+  --ap-level-2-color: hsl(0, 0%, 6%);
+  --ap-level-3-color: hsl(0, 0%, 4%);
+  --ap-level-4-color: hsl(0, 0%, 2%);
+  --ap-level-5-color: hsl(0, 0%, 0%);
+  --ap-level-6-color: hsl(0, 0%, 100%);
+  --ap-level-7-color: hsl(0, 0%, 98%);
+  --ap-level-8-color: hsl(0, 0%, 96%);
+  --ap-level-9-color: hsl(0, 0%, 94%);
+  --ap-level-10-color: hsl(0, 0%, 92%);
 
   --ap-positive-color: rgb(255, 255, 255);
   --ap-positive-background: rgb(9, 161, 68);
@@ -63,29 +74,35 @@
 
   --ap-main-effect: #F7D4C0;
 
-  --ap-border-radius-xs: 0.25rem;
-  --ap-border-radius-s: 0.5rem;
-  --ap-border-radius-m: 0.75rem;
-  --ap-border-radius-l: 1rem;
-  --ap-border-radius-xl: 1.25rem;
+  --ap-size-xs: 0.25rem;
+  --ap-size-s: 0.5rem;
+  --ap-size-m: 0.75rem;
+  --ap-size-l: 1rem;
+  --ap-size-xl: 1.25rem;
 
-  --ap-gaps-xs: 0.25rem;
-  --ap-gaps-s: 0.5rem;
-  --ap-gaps-m: 0.75rem;
-  --ap-gaps-l: 1rem;
-  --ap-gaps-xl: 1.25rem;
+  --ap-border-radius-xs: var(--ap-size-xs);
+  --ap-border-radius-s: var(--ap-size-s);
+  --ap-border-radius-m: var(--ap-size-m);
+  --ap-border-radius-l: var(--ap-size-l);
+  --ap-border-radius-xl: var(--ap-size-xl);
 
-  --ap-padding-xs: var(--ap-gaps-xs);
-  --ap-padding-s: var(--ap-gaps-s);
-  --ap-padding-m: var(--ap-gaps-m);
-  --ap-padding-l: var(--ap-gaps-l);
-  --ap-padding-xl: var(--ap-gaps-xl);
+  --ap-gaps-xs: var(--ap-size-xs);
+  --ap-gaps-s: var(--ap-size-s);
+  --ap-gaps-m: var(--ap-size-m);
+  --ap-gaps-l: var(--ap-size-l);
+  --ap-gaps-xl: var(--ap-size-xl);
 
-  --ap-margin-xs: var(--ap-gaps-xs);
-  --ap-margin-s: var(--ap-gaps-s);
-  --ap-margin-m: var(--ap-gaps-m);
-  --ap-margin-l: var(--ap-gaps-l);
-  --ap-margin-xl: var(--ap-gaps-xl);
+  --ap-padding-xs: var(--ap-size-xs);
+  --ap-padding-s: var(--ap-size-s);
+  --ap-padding-m: var(--ap-size-m);
+  --ap-padding-l: var(--ap-size-l);
+  --ap-padding-xl: var(--ap-size-xl);
+
+  --ap-margin-xs: var(--ap-size-xs);
+  --ap-margin-s: var(--ap-size-s);
+  --ap-margin-m: var(--ap-size-m);
+  --ap-margin-l: var(--ap-size-l);
+  --ap-margin-xl: var(--ap-size-xl);
 }
 
 html, body {
@@ -97,48 +114,14 @@ html, body {
 
   font-family: 'Roboto', sans-serif;
   user-select: none;
+
+  color: var(--ap-main-text-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-#react-root {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: hidden;
-
-  user-select: none;
-
-  background-image: url('images/background.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-textarea {
-  font-family: 'Roboto', sans-serif;
-}
-
-*:focus {
-  outline: 1px solid var(--ap-main-color);
-  border-radius: 0.5rem;
-}
-
-.ap-dialog {
-  box-shadow: 0 0 1rem #000;
-}
-
-.ap-link {
-  line-height: 1.5rem;
-  font-size: 0.85rem;
-  padding: 0.25rem 0.5rem;
-  box-sizing: border-box;
-  color: #777;
-  text-decoration: none;
-  &:hover {
-    color: #000;
-  }
+ul {
+  margin: 0;
 }

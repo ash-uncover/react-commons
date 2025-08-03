@@ -20,9 +20,10 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default":
 // #region Component
 var MenuNavigationItem = exports.MenuNavigationItem = function MenuNavigationItem(_ref) {
   var className = _ref.className,
-    name = _ref.name,
+    container = _ref.container,
     description = _ref.description,
     icon = _ref.icon,
+    name = _ref.name,
     selected = _ref.selected,
     onClick = _ref.onClick;
   // #region Hooks
@@ -37,6 +38,14 @@ var MenuNavigationItem = exports.MenuNavigationItem = function MenuNavigationIte
       classBuilder.remove("ap-menu-navigation-item--selected");
     };
   }, [selected]);
+  _react["default"].useEffect(function () {
+    if (!container) {
+      classBuilder.add("ap-menu-navigation-item--container");
+    }
+    return function () {
+      classBuilder.remove("ap-menu-navigation-item--container");
+    };
+  }, [container]);
   // #endregion
 
   // #region > Events
@@ -46,16 +55,34 @@ var MenuNavigationItem = exports.MenuNavigationItem = function MenuNavigationIte
   // #endregion
 
   // #region > Render
+  if (container) {
+    return /*#__PURE__*/_react["default"].createElement("li", {
+      className: classes,
+      title: description,
+      onClick: handleClick
+    }, /*#__PURE__*/_react["default"].createElement(_.ShellContainer, {
+      className: "ap-menu-navigation-item--container"
+    }, /*#__PURE__*/_react["default"].createElement("div", {
+      className: "ap-menu-navigation-item__content"
+    }, icon ? /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
+      className: "ap-menu-navigation-item__icon",
+      icon: icon
+    }) : null, /*#__PURE__*/_react["default"].createElement("div", {
+      className: "ap-menu-navigation-item__text"
+    }, name))));
+  }
   return /*#__PURE__*/_react["default"].createElement("li", {
     className: classes,
     title: description,
     onClick: handleClick
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "ap-menu-navigation-item__content"
   }, icon ? /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
     className: "ap-menu-navigation-item__icon",
     icon: icon
   }) : null, /*#__PURE__*/_react["default"].createElement("div", {
     className: "ap-menu-navigation-item__text"
-  }, name));
+  }, name)));
   // #endregion
 };
 // #endregion

@@ -29,7 +29,7 @@ var Shell = exports.Shell = function Shell(_ref) {
   // #region > Render
   return /*#__PURE__*/_react["default"].createElement(_.ShellContainer, {
     className: classes,
-    root: true,
+    level: 0,
     style: style
   }, children);
   // #endregion
