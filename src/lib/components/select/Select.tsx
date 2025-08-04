@@ -39,6 +39,15 @@ export const Select = ({
 }: SelectProperties) => {
 
   // #region > Hooks
+  const [valueSelected, setValueSelected] = React.useState<string | null>(value)
+  React.useEffect(() => {
+    const newValue = values.find(v => v.id === value)
+    if (newValue) {
+      setValueSelected(newValue.text)
+    } else {
+      setValueSelected(null)
+    }
+  }, [value, values])
   const { classBuilder, classes } = useClasses(['ap-select', className])
   React.useEffect(() => {
     if (disabled) {
@@ -52,16 +61,20 @@ export const Select = ({
 
   // #region > Events
   function handleValuePrevious() {
-    const currentValueIndex: number = values.findIndex(v => v.id === value)
-    const newValueIndex = (currentValueIndex + values.length - 1) % values.length
-    const newValue = values[newValueIndex]
-    onChange({ value: newValue.id })
+    if (value && values?.length) {
+      const currentValueIndex: number = values.findIndex(v => v.id === value)
+      const newValueIndex = (currentValueIndex + values.length - 1) % values.length
+      const newValue = values[newValueIndex]
+      onChange({ value: newValue.id })
+    }
   }
   function handleValueNext() {
-    const currentValueIndex: number = values.findIndex(v => v.id === value)
-    const newValueIndex = (currentValueIndex + values.length + 1) % values.length
-    const newValue = values[newValueIndex]
-    onChange({ value: newValue.id })
+    if (value && values?.length) {
+      const currentValueIndex: number = values.findIndex(v => v.id === value)
+      const newValueIndex = (currentValueIndex + values.length + 1) % values.length
+      const newValue = values[newValueIndex]
+      onChange({ value: newValue.id })
+    }
   }
   // #endregion
 
@@ -79,7 +92,7 @@ export const Select = ({
       </Button>
 
       <div className='ap-select__value'>
-        {values.find(v => v.id === value)!.text}
+        {valueSelected}
       </div>
 
       <Button
