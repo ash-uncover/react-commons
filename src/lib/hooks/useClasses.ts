@@ -3,7 +3,7 @@ import React from 'react'
 export const useClasses = (classes: (string | undefined)[]) => {
   const classArray: string[] = toClassArray(classes)
   const [classesString, setClassesString] = React.useState<string>(classArray.join(' '))
-  const classBuilder = new ClassBuilder(classArray, setClassesString)
+  const [classBuilder] = React.useState<ClassBuilder>(new ClassBuilder(classArray, setClassesString))
   return {
     classBuilder,
     classes: classesString

@@ -33,7 +33,9 @@ var useClasses = exports.useClasses = function useClasses(classes) {
     _React$useState2 = _slicedToArray(_React$useState, 2),
     classesString = _React$useState2[0],
     setClassesString = _React$useState2[1];
-  var classBuilder = new ClassBuilder(classArray, setClassesString);
+  var _React$useState3 = _react["default"].useState(new ClassBuilder(classArray, setClassesString)),
+    _React$useState4 = _slicedToArray(_React$useState3, 1),
+    classBuilder = _React$useState4[0];
   return {
     classBuilder: classBuilder,
     classes: classesString

@@ -2,6 +2,7 @@ import React from 'react'
 //
 import {
   Panel,
+  Select,
   ShellPage,
 } from '../../lib'
 
@@ -14,27 +15,21 @@ export interface Page1Properties extends React.PropsWithChildren {
 export const Page1 = ({
 }: Page1Properties) => {
 
+  // #region > Hooks
+  const [selectValue, setSelectValue] = React.useState('v1')
+  // #endregion
+
   // #region > Render
   return (
     <Panel title={'Panel 1'}>
-      <Panel title={'Panel 2'}>
-        <Panel title={'Panel 3'}>
-          <Panel title={'Panel 4'}>
-            <Panel title={'Panel 5'}>
-              <Panel title={'Panel 6'}>
-                <Panel title={'Panel 7'}>
-                  <Panel title={'Panel 8'}>
-                    <Panel title={'Panel 9'}>
-                      <Panel title={'Panel 10'}>
-                      </Panel>
-                    </Panel>
-                  </Panel>
-                </Panel>
-              </Panel>
-            </Panel>
-          </Panel>
-        </Panel>
-      </Panel>
+      <Select 
+        value={selectValue}
+        values={[
+          { id: 'v1', text: 'Value 1'},
+          { id: 'v2', text: 'Value 2'}
+        ]}
+        onChange={({ value }) => { setSelectValue(value) }}
+      />
     </Panel>
   )
   // #endregion
