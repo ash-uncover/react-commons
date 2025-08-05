@@ -10,4 +10,13 @@ export interface MenuProperties {
     menu: IMenu;
     onMenuToggle?: () => void;
 }
-export declare const Menu: ({ className, style, collapsed, container, containerLevel, menu, onMenuToggle }: MenuProperties) => React.JSX.Element;
+export declare const Menu: ({ className, style, collapsed, container, containerLevel, menu, onMenuToggle }: MenuProperties) => React.JSX.Element | undefined;
+export interface MenuInnerProperties {
+    className?: string;
+    style?: React.CSSProperties;
+    collapsed?: boolean;
+    container?: boolean;
+    containerLevel?: number;
+    onMenuToggle?: () => void;
+}
+export declare const MenuInner: ({ className, style, collapsed, container, containerLevel, onMenuToggle }: MenuInnerProperties) => React.JSX.Element;

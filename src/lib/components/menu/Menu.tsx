@@ -7,8 +7,9 @@ import {
   ShellPage,
   useClasses
 } from '../..'
-import { findItemDefinition, flattenMenu, getParent, IMenu, IMenuItemDef } from './MenuUtil'
+import { flattenMenu, getParent, IMenu, IMenuItemDef } from './MenuUtil'
 import { MenuNavigationItemProperties } from './MenuNavigationItem'
+import { MenuProvider, useGoBack, useMenuItemComponent, useMenuItemNavigation, useMenuItemSelected, useSelectItem } from './MenuProvider'
 // CSS
 import './Menu.css'
 
@@ -38,62 +39,71 @@ export const Menu = ({
 }: MenuProperties) => {
 
   // #region > Hooks
-  const [itemsDef, setItemsDef] = React.useState<IMenuItemDef[]>([])
+  const [menuDef, setMenuDef] = React.useState<IMenuItemDef[]>([])
   React.useEffect(() => {
     if (menu) {
-      const itemsDef = flattenMenu(menu)
-      setItemsDef(itemsDef)
+      const menuDef = flattenMenu(menu)
+      setMenuDef(menuDef)
     } else {
-      setItemsDef([])
+      setMenuDef([])
     }
   }, [menu])
 
-  const [itemSelection, setItemSelection] = React.useState<IMenuItemDef | null>(null)
-  React.useEffect(() => {
-    if (itemsDef.length) {
-      setItemSelection(itemsDef[0])
-    }
-  }, [itemsDef])
+  // #endregion
 
-  const [itemSelected, setItemSelected] = React.useState<IMenuItemDef | null>(null)
-  React.useEffect(() => {
-    if (itemSelection) {
-      if (itemSelection.component) {
-        setItemSelected(itemSelection)
-      } else if (itemSelection.items?.length) {
-        setItemSelected(itemSelection.items[0])
-      }
-    } else {
-      setItemSelected(null)
-    }
-  }, [itemSelection])
+  // #region > Events
+  // #endregion
 
-  const [itemNavigation, setItemNavigation] = React.useState<IMenuItemDef | null>(null)
-  React.useEffect(() => {
-    if (itemSelection) {
-      const parent = getParent(itemSelection)
-      if (itemSelection.items?.length) {
-        setItemNavigation(itemSelection)
-      } else if (parent) {
-        setItemNavigation(parent)
-      }
-    } else {
-      setItemNavigation(null)
-    }
-  }, [itemSelection])
+  // #region > Render
+  if (menuDef?.length) {
+    return (
+      <MenuProvider
+        items={menuDef}
+      >
+        <MenuInner
+          className={className}
+          style={style}
+          collapsed={collapsed}
+          container={container}
+          containerLevel={containerLevel}
+          onMenuToggle={onMenuToggle}
+        />
+      </MenuProvider>
+    )
+  }
+  // #endregion
+}
+// #endregion
 
-  const [itemComponent, setItemComponent] = React.useState<IMenuItemDef | null>(null)
-  React.useEffect(() => {
-    if (itemSelection) {
-      if (itemSelection.component) {
-        setItemComponent(itemSelection)
-      } else if (itemSelection.items) {
-        setItemComponent(findItemDefinition(itemsDef, itemSelection.items[0]))
-      }
-    } else {
-      setItemComponent(null)
-    }
-  }, [itemSelection])
+// #region Declaration
+export interface MenuInnerProperties {
+  className?: string
+  style?: React.CSSProperties
+
+  collapsed?: boolean
+  container?: boolean
+  containerLevel?: number
+  onMenuToggle?: () => void
+}
+// #endregion
+
+// #region Component
+export const MenuInner = ({
+  className,
+  style,
+
+  collapsed,
+  container,
+  containerLevel,
+  onMenuToggle
+}: MenuInnerProperties) => {
+
+  // #region > Hooks
+  const itemSelected = useMenuItemSelected()
+  const itemNavigation = useMenuItemNavigation()
+  const itemComponent = useMenuItemComponent()
+  const selectItem = useSelectItem()
+  const goBack = useGoBack()
 
   const { classBuilder, classes } = useClasses(['ap-menu', className])
   React.useEffect(() => {
@@ -107,6 +117,12 @@ export const Menu = ({
   // #endregion
 
   // #region > Events
+  function handleItemClick(itemDef: IMenuItemDef) {
+    selectItem(itemDef)
+  }
+  function handleBackClick() {
+    goBack()
+  }
   // #endregion
 
   // #region > Render
@@ -118,7 +134,7 @@ export const Menu = ({
         icon: i.icon,
         name: i.name,
         selected: itemSelected === i,
-        onClick: () => setItemSelection(i)
+        onClick: () => handleItemClick(i)
       }))
       const parent = getParent(itemDef)
       if (parent && itemNavigation) {
@@ -128,7 +144,7 @@ export const Menu = ({
           description: 'back',
           icon: ICONS.FAS_RIGHT_FROM_BRACKET,
           selected: false,
-          onClick: () => setItemSelection(getParent(itemNavigation))
+          onClick: handleBackClick
         })
       }
       return items

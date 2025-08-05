@@ -21,7 +21,7 @@
     "watch": "npm run watch:tsc && npm run watch:babel",
     "watch:babel": "babel -w src/lib --extensions .ts,.tsx --out-dir dist --copy-files",
     "watch:tsc": "tsc -w --project tsconfig.build.json",
-    "start": "webpack serve --config webpack.config.dev.js --progress",
+    "dev": "webpack serve --config webpack.config.dev.js --progress",
     "prepare": "husky"
   },
   "peerDependencies": {
@@ -47,7 +47,7 @@
     "@types/react": "19.1.9",
     "@types/react-dom": "19.1.7",
     "babel-loader": "10.0.0",
-    "copy-webpack-plugin": "^13.0.0",
+    "copy-webpack-plugin": "13.0.0",
     "css-loader": "7.1.2",
     "html-webpack-plugin": "5.6.3",
     "husky": "9.1.7",

@@ -1,9 +1,16 @@
 import { ReactElement } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+export type MenuMode = 'RIGHT' | 'TOP' | 'BOTTOM' | 'NONE';
+export declare const MenuModes: {
+    RIGHT: MenuMode;
+    TOP: MenuMode;
+    BOTTOM: MenuMode;
+    NONE: MenuMode;
+};
 export interface IMenu {
-    mode?: MenuMode;
     component?: ReactElement;
     items: IMenuItem[];
+    mode?: MenuMode;
 }
 export interface IMenuItem {
     component?: ReactElement;
@@ -13,7 +20,6 @@ export interface IMenuItem {
     items?: IMenuItem[];
     name?: string;
 }
-export type MenuMode = 'RIGHT' | 'TOP' | 'BOTTOM';
 export interface IMenuItemDef {
     parents: IMenuItemDef[];
     name?: string;

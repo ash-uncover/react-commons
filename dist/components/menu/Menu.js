@@ -3,10 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Menu = void 0;
+exports.MenuInner = exports.Menu = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _ = require("../..");
 var _MenuUtil = require("./MenuUtil");
+var _MenuProvider = require("./MenuProvider");
 require("./Menu.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
@@ -32,73 +33,57 @@ var Menu = exports.Menu = function Menu(_ref) {
   // #region > Hooks
   var _React$useState = _react["default"].useState([]),
     _React$useState2 = _slicedToArray(_React$useState, 2),
-    itemsDef = _React$useState2[0],
-    setItemsDef = _React$useState2[1];
+    menuDef = _React$useState2[0],
+    setMenuDef = _React$useState2[1];
   _react["default"].useEffect(function () {
     if (menu) {
-      var _itemsDef = (0, _MenuUtil.flattenMenu)(menu);
-      setItemsDef(_itemsDef);
+      var _menuDef = (0, _MenuUtil.flattenMenu)(menu);
+      setMenuDef(_menuDef);
     } else {
-      setItemsDef([]);
+      setMenuDef([]);
     }
   }, [menu]);
-  var _React$useState3 = _react["default"].useState(null),
-    _React$useState4 = _slicedToArray(_React$useState3, 2),
-    itemSelection = _React$useState4[0],
-    setItemSelection = _React$useState4[1];
-  _react["default"].useEffect(function () {
-    if (itemsDef.length) {
-      setItemSelection(itemsDef[0]);
-    }
-  }, [itemsDef]);
-  var _React$useState5 = _react["default"].useState(null),
-    _React$useState6 = _slicedToArray(_React$useState5, 2),
-    itemSelected = _React$useState6[0],
-    setItemSelected = _React$useState6[1];
-  _react["default"].useEffect(function () {
-    if (itemSelection) {
-      var _itemSelection$items;
-      if (itemSelection.component) {
-        setItemSelected(itemSelection);
-      } else if ((_itemSelection$items = itemSelection.items) !== null && _itemSelection$items !== void 0 && _itemSelection$items.length) {
-        setItemSelected(itemSelection.items[0]);
-      }
-    } else {
-      setItemSelected(null);
-    }
-  }, [itemSelection]);
-  var _React$useState7 = _react["default"].useState(null),
-    _React$useState8 = _slicedToArray(_React$useState7, 2),
-    itemNavigation = _React$useState8[0],
-    setItemNavigation = _React$useState8[1];
-  _react["default"].useEffect(function () {
-    if (itemSelection) {
-      var _itemSelection$items2;
-      var parent = (0, _MenuUtil.getParent)(itemSelection);
-      if ((_itemSelection$items2 = itemSelection.items) !== null && _itemSelection$items2 !== void 0 && _itemSelection$items2.length) {
-        setItemNavigation(itemSelection);
-      } else if (parent) {
-        setItemNavigation(parent);
-      }
-    } else {
-      setItemNavigation(null);
-    }
-  }, [itemSelection]);
-  var _React$useState9 = _react["default"].useState(null),
-    _React$useState0 = _slicedToArray(_React$useState9, 2),
-    itemComponent = _React$useState0[0],
-    setItemComponent = _React$useState0[1];
-  _react["default"].useEffect(function () {
-    if (itemSelection) {
-      if (itemSelection.component) {
-        setItemComponent(itemSelection);
-      } else if (itemSelection.items) {
-        setItemComponent((0, _MenuUtil.findItemDefinition)(itemsDef, itemSelection.items[0]));
-      }
-    } else {
-      setItemComponent(null);
-    }
-  }, [itemSelection]);
+
+  // #endregion
+
+  // #region > Events
+  // #endregion
+
+  // #region > Render
+  if (menuDef !== null && menuDef !== void 0 && menuDef.length) {
+    return /*#__PURE__*/_react["default"].createElement(_MenuProvider.MenuProvider, {
+      items: menuDef
+    }, /*#__PURE__*/_react["default"].createElement(MenuInner, {
+      className: className,
+      style: style,
+      collapsed: collapsed,
+      container: container,
+      containerLevel: containerLevel,
+      onMenuToggle: onMenuToggle
+    }));
+  }
+  // #endregion
+};
+// #endregion
+
+// #region Declaration
+
+// #endregion
+
+// #region Component
+var MenuInner = exports.MenuInner = function MenuInner(_ref2) {
+  var className = _ref2.className,
+    style = _ref2.style,
+    collapsed = _ref2.collapsed,
+    container = _ref2.container,
+    containerLevel = _ref2.containerLevel,
+    onMenuToggle = _ref2.onMenuToggle;
+  // #region > Hooks
+  var itemSelected = (0, _MenuProvider.useMenuItemSelected)();
+  var itemNavigation = (0, _MenuProvider.useMenuItemNavigation)();
+  var itemComponent = (0, _MenuProvider.useMenuItemComponent)();
+  var selectItem = (0, _MenuProvider.useSelectItem)();
+  var goBack = (0, _MenuProvider.useGoBack)();
   var _useClasses = (0, _.useClasses)(['ap-menu', className]),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
@@ -113,6 +98,12 @@ var Menu = exports.Menu = function Menu(_ref) {
   // #endregion
 
   // #region > Events
+  function handleItemClick(itemDef) {
+    selectItem(itemDef);
+  }
+  function handleBackClick() {
+    goBack();
+  }
   // #endregion
 
   // #region > Render
@@ -126,7 +117,7 @@ var Menu = exports.Menu = function Menu(_ref) {
           name: i.name,
           selected: itemSelected === i,
           onClick: function onClick() {
-            return setItemSelection(i);
+            return handleItemClick(i);
           }
         };
       });
@@ -138,9 +129,7 @@ var Menu = exports.Menu = function Menu(_ref) {
           description: 'back',
           icon: _.ICONS.FAS_RIGHT_FROM_BRACKET,
           selected: false,
-          onClick: function onClick() {
-            return setItemSelection((0, _MenuUtil.getParent)(itemNavigation));
-          }
+          onClick: handleBackClick
         });
       }
       return items;

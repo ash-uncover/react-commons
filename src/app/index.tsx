@@ -15,5 +15,3 @@ const root = createRoot(containerRoot)
 root.render(
   <App />
 )
-
-

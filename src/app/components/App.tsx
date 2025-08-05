@@ -33,7 +33,19 @@ export const App = ({
           }, {
             name: 'Item 2',
             icon: ICONS.FAS_GIFTS,
-            component: <div>ITEM 2</div>
+            items:[{
+              name: 'Item 2-1',
+              icon: ICONS.FAS_GIFTS,
+              component: <div>ITEM 2-1</div>
+            }, {
+              name: 'Item 2-2',
+              icon: ICONS.FAS_GIFTS,
+              component: <div>ITEM 2-2</div>
+            }, {
+              name: 'Item 2-3',
+              icon: ICONS.FAS_GIFTS,
+              component: <div>ITEM 2-3</div>
+            }]
           }, {
             name: 'Item 3',
             icon: ICONS.FAS_GEAR,
