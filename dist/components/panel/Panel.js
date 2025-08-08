@@ -47,9 +47,10 @@ var Panel = exports.Panel = function Panel(_ref) {
     _React$useState6 = _slicedToArray(_React$useState5, 2),
     baseOverflow = _React$useState6[0],
     setBaseOverflow = _React$useState6[1];
-  var _useClasses = (0, _.useClasses)(['ap-panel', className]),
+  var _useClasses = (0, _.useClasses)(['ap-panel']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     if (children && (!expandable || isExpanded)) {
       classBuilder.add('ap-panel--expanded');

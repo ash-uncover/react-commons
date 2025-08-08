@@ -23,9 +23,10 @@ var Label = exports.Label = function Label(_ref) {
     text = _ref.text,
     children = _ref.children;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-label', className]),
+  var _useClasses = (0, _.useClasses)(['ap-label']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region > Events

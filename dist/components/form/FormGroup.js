@@ -24,9 +24,10 @@ var FormGroup = exports.FormGroup = function FormGroup(_ref) {
     direction = _ref$direction === void 0 ? _.FormGroupDirections.VERTICAL : _ref$direction,
     children = _ref.children;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-form-group', className]),
+  var _useClasses = (0, _.useClasses)(['ap-form-group']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     classBuilder.add("ap-form-group--".concat(direction.toLowerCase()));
     return function () {

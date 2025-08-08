@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //
 import {
    Button, 
+   useClasseName, 
    useClasses
   } from '../..'
 // CSS
@@ -73,7 +74,8 @@ export const Slider = ({
     TOOLTIP_TIMEOUT = setTimeout(() => setShowTooltip(false), TOOLTIP_TIMEOUT_DELAY)
   }
 
-  const { classBuilder, classes } = useClasses(['ap-slider', className])
+  const { classBuilder, classes } = useClasses(['ap-slider'])
+  useClasseName(classBuilder, className)
     React.useEffect(() => {
       if (disabled) {
         classBuilder.add(`ap-slider--disabled`)

@@ -2,6 +2,7 @@ import React from 'react'
 //
 import { 
   MenuNavigationItem,
+  useClasseName,
   useClasses 
 } from '../..'
 import { MenuNavigationItemProperties } from './MenuNavigationItem'
@@ -22,7 +23,8 @@ export const MenuNavigationList = ({
 }: MenuNavigationListProperties) => {
   
   // #region > Hooks
-  const { classBuilder, classes } = useClasses(['ap-menu-navigation-list', className])
+  const { classBuilder, classes } = useClasses(['ap-menu-navigation-list'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region > Events

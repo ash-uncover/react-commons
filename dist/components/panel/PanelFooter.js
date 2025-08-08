@@ -22,9 +22,10 @@ var PanelFooter = exports.PanelFooter = function PanelFooter(_ref) {
     style = _ref.style,
     children = _ref.children;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-panel-footer', className]),
+  var _useClasses = (0, _.useClasses)(['ap-panel-footer']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region > Events

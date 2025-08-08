@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //
 import {
   ShellContainer,
+  useClasseName,
   useClasses
 } from '../..'
 // CSS
@@ -36,7 +37,8 @@ export const MenuNavigationItem = ({
 }: MenuNavigationItemProperties) => {
 
   // #region Hooks
-  const { classBuilder, classes } = useClasses(['ap-menu-navigation-item', className])
+  const { classBuilder, classes } = useClasses(['ap-menu-navigation-item'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     if (selected) {
       classBuilder.add(`ap-menu-navigation-item--selected`)

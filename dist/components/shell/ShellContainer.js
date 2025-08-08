@@ -27,9 +27,10 @@ var ShellContainer = exports.ShellContainer = function ShellContainer(_ref) {
     children = _ref.children;
   // #region > Hooks
   var container = _react["default"].useRef(null);
-  var _useClasses = (0, _.useClasses)(['ap-shell-container', className]),
+  var _useClasses = (0, _.useClasses)(['ap-shell-container']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     var containerLevel = 0;
     if (typeof level === 'undefined') {

@@ -9,6 +9,7 @@ import {
   Title,
   TitleLevel,
   TitleLevels,
+  useClasseName,
   useClasses,
 } from '../..'
 // CSS
@@ -46,7 +47,8 @@ export const Panel = ({
   const [isExpanded, setIsExpanded] = React.useState(expanded && children);
   const [baseHeight, setBaseHeight] = React.useState(0);
   const [baseOverflow, setBaseOverflow] = React.useState('');
-  const { classBuilder, classes } = useClasses(['ap-panel', className])
+  const { classBuilder, classes } = useClasses(['ap-panel'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     if (children && (!expandable || isExpanded)) {
       classBuilder.add('ap-panel--expanded')

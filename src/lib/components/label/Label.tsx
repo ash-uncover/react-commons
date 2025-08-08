@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 //
 import { 
+  useClasseName,
   useClasses 
 } from '../..'
 // CSS
@@ -28,7 +29,8 @@ export const Label = ({
 }: LabelProperties) => {
 
   // #region > Hooks
-  const { classBuilder, classes } = useClasses(['ap-label', className])
+  const { classBuilder, classes } = useClasses(['ap-label'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region > Events

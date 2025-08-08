@@ -5,6 +5,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import {
   ButtonSemantic,
   ButtonSemantics,
+  useClasseName,
   useClasses
 } from '../..'
 // CSS
@@ -44,7 +45,8 @@ export const Button = ({
 }: ButtonProperties) => {
 
   // #region > Hooks
-  const { classBuilder, classes } = useClasses(['ap-button', className])
+  const { classBuilder, classes } = useClasses(['ap-button'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     classBuilder.add(`ap-button--${semantic.toLowerCase()}`)
     return () => {

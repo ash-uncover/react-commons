@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   Button,
   ICONS,
+  useClasseName,
   useClasses
 } from '../..'
 // CSS
@@ -48,7 +49,8 @@ export const Select = ({
       setValueSelected(null)
     }
   }, [value, values])
-  const { classBuilder, classes } = useClasses(['ap-select', className])
+  const { classBuilder, classes } = useClasses(['ap-select'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     if (disabled) {
       classBuilder.add(`ap-select--disabled`)

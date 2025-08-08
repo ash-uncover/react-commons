@@ -32,9 +32,10 @@ var Button = exports.Button = function Button(_ref) {
     onClick = _ref.onClick,
     children = _ref.children;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-button', className]),
+  var _useClasses = (0, _.useClasses)(['ap-button']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     classBuilder.add("ap-button--".concat(semantic.toLowerCase()));
     return function () {

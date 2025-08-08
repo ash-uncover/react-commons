@@ -2,6 +2,7 @@ import React from 'react'
 //
 import {
   ShellContainer,
+  useClasseName,
   useClasses
 } from '../..'
 // CSS
@@ -27,7 +28,8 @@ export const ShellPage = ({
 }: ShellPageProperties) => {
 
   // #region > Hooks
-  const { classes } = useClasses(['ap-shell-page', className])
+  const { classBuilder, classes } = useClasses(['ap-shell-page'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region > Render

@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   AvatarSize,
   AvatarSizes,
-  useClasses
+  useClasses,
+  useClasseName
 } from '../..'
 // CSS
 import './Avatar.css'
-import { useClasseName } from 'src/lib/hooks/useClasses'
 
 // #region Declaration
 interface AvatarProperties {
@@ -40,8 +40,8 @@ export const Avatar = ({
 }: AvatarProperties) => {
 
   // #region > Hooks
-  const { classBuilder, classes } = useClasses(['ap-avatar', className])
-  useClasseName
+  const { classBuilder, classes } = useClasses(['ap-avatar'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
       classBuilder.add(`ap-avatar--${size.toLowerCase()}`)
       return () => {

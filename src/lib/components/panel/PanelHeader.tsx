@@ -1,6 +1,7 @@
 import React from 'react'
 //
 import { 
+  useClasseName,
   useClasses 
 } from '../..'
 // CSS
@@ -22,7 +23,8 @@ export const PanelHeader = ({
 }: PanelHeaderProperties) => {
 
   // #region > Hooks
-  const { classBuilder, classes } = useClasses(['ap-panel-header', className])
+  const { classBuilder, classes } = useClasses(['ap-panel-header'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region > Events

@@ -23,7 +23,7 @@ export { Switch } from './components/switch/Switch';
 export { TextArea } from './components/textarea/TextArea';
 export { Title } from './components/title/Title';
 export { type TitleLevel, TitleLevels } from './components/title/TitleLevel';
-export { useClasses } from './hooks/useClasses';
+export { useClasses, useClasseName } from './hooks/useClasses';
 export { useIsPhone } from './hooks/useIsPhone';
 export { useQuery } from './hooks/useQuery';
 export { usePrevious } from './hooks/usePrevious';

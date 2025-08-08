@@ -1,6 +1,7 @@
 import React, { FormEvent, useId } from 'react'
 //
 import { 
+  useClasseName,
   useClasses 
 } from '../..'
 // CSS
@@ -29,7 +30,8 @@ export const Switch = ({
 
   // #region Hooks
   const id = useId()
-  const { classBuilder, classes } = useClasses(['ap-switch', className])
+  const { classBuilder, classes } = useClasses(['ap-switch'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region Events

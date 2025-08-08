@@ -5,6 +5,7 @@ import {
   MenuNavigationList,
   ShellContainer,
   ShellPage,
+  useClasseName,
   useClasses
 } from '../..'
 import { flattenMenu, getParent, IMenu, IMenuItemDef } from './MenuUtil'
@@ -105,7 +106,8 @@ export const MenuInner = ({
   const selectItem = useSelectItem()
   const goBack = useGoBack()
 
-  const { classBuilder, classes } = useClasses(['ap-menu', className])
+  const { classBuilder, classes } = useClasses(['ap-menu'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     if (collapsed) {
       classBuilder.add(`ap-menu--collapsed`)

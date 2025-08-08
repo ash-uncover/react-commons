@@ -19,9 +19,10 @@ var MenuNavigationList = exports.MenuNavigationList = function MenuNavigationLis
   var className = _ref.className,
     items = _ref.items;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-menu-navigation-list', className]),
+  var _useClasses = (0, _.useClasses)(['ap-menu-navigation-list']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region > Events

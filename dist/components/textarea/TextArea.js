@@ -38,9 +38,10 @@ var TextArea = exports.TextArea = function TextArea(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     focused = _useState2[0],
     setFocused = _useState2[1];
-  var _useClasses = (0, _.useClasses)(['ap-text-area', className]),
+  var _useClasses = (0, _.useClasses)(['ap-text-area']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region >  Events

@@ -27,9 +27,10 @@ var MenuNavigationItem = exports.MenuNavigationItem = function MenuNavigationIte
     selected = _ref.selected,
     onClick = _ref.onClick;
   // #region Hooks
-  var _useClasses = (0, _.useClasses)(['ap-menu-navigation-item', className]),
+  var _useClasses = (0, _.useClasses)(['ap-menu-navigation-item']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     if (selected) {
       classBuilder.add("ap-menu-navigation-item--selected");

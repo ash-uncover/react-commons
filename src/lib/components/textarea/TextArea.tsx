@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 //
 import { 
+  useClasseName,
   useClasses 
 } from '../..'
 // CSS
@@ -42,7 +43,8 @@ export const TextArea = ({
   // #region > Hooks
   const textarea = useRef<HTMLTextAreaElement>(null)
   const [focused, setFocused] = useState(false)
-  const { classBuilder, classes } = useClasses(['ap-text-area', className])
+  const { classBuilder, classes } = useClasses(['ap-text-area'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region >  Events

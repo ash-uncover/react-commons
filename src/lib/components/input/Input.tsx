@@ -5,6 +5,7 @@ import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 //
 import { 
+  useClasseName,
   useClasses 
 } from '../..'
 // CSS
@@ -53,7 +54,8 @@ export const Input = ({
   const input = React.useRef<HTMLInputElement>(null)
   const [focused, setFocused] = React.useState<boolean>(false)
   const [showPassword, setShowPassword] = React.useState(false)
-  const { classBuilder, classes } = useClasses(['ap-input', className])
+  const { classBuilder, classes } = useClasses(['ap-input'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     if (showPassword) {
       classBuilder.add(`ap-input--show-password`)

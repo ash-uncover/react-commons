@@ -23,8 +23,10 @@ var ShellPage = exports.ShellPage = function ShellPage(_ref) {
     level = _ref.level,
     children = _ref.children;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-shell-page', className]),
+  var _useClasses = (0, _.useClasses)(['ap-shell-page']),
+    classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region > Render

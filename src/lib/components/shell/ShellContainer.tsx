@@ -1,6 +1,7 @@
 import React from 'react'
 //
 import {
+  useClasseName,
   useClasses
 } from '../..'
 // CSS
@@ -26,7 +27,8 @@ export const ShellContainer = ({
 
   // #region > Hooks
   const container = React.useRef(null)
-  const { classBuilder, classes } = useClasses(['ap-shell-container', className])
+  const { classBuilder, classes } = useClasses(['ap-shell-container'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     let containerLevel = 0
     if (typeof level === 'undefined') {

@@ -22,8 +22,10 @@ var Shell = exports.Shell = function Shell(_ref) {
     style = _ref.style,
     children = _ref.children;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-shell', className]),
+  var _useClasses = (0, _.useClasses)(['ap-shell']),
+    classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region > Render

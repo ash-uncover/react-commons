@@ -25,9 +25,10 @@ var Title = exports.Title = function Title(_ref) {
     text = _ref.text,
     children = _ref.children;
   // #region >  Hooks
-  var _useClasses = (0, _.useClasses)(['ap-title', className]),
+  var _useClasses = (0, _.useClasses)(['ap-title']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     classBuilder.add("ap-title--".concat(level.toLowerCase()));
     return function () {

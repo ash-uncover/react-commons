@@ -84,9 +84,10 @@ var MenuInner = exports.MenuInner = function MenuInner(_ref2) {
   var itemComponent = (0, _MenuProvider.useMenuItemComponent)();
   var selectItem = (0, _MenuProvider.useSelectItem)();
   var goBack = (0, _MenuProvider.useGoBack)();
-  var _useClasses = (0, _.useClasses)(['ap-menu', className]),
+  var _useClasses = (0, _.useClasses)(['ap-menu']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     if (collapsed) {
       classBuilder.add("ap-menu--collapsed");

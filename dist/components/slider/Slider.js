@@ -71,9 +71,10 @@ var Slider = exports.Slider = function Slider(_ref) {
       return setShowTooltip(false);
     }, TOOLTIP_TIMEOUT_DELAY);
   };
-  var _useClasses = (0, _.useClasses)(['ap-slider', className]),
+  var _useClasses = (0, _.useClasses)(['ap-slider']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     if (disabled) {
       classBuilder.add("ap-slider--disabled");

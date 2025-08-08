@@ -159,6 +159,12 @@ Object.defineProperty(exports, "TitleLevels", {
     return _TitleLevel.TitleLevels;
   }
 });
+Object.defineProperty(exports, "useClasseName", {
+  enumerable: true,
+  get: function get() {
+    return _useClasses.useClasseName;
+  }
+});
 Object.defineProperty(exports, "useClasses", {
   enumerable: true,
   get: function get() {

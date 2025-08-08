@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react'
 import { 
   TitleLevel, 
   TitleLevels, 
+  useClasseName, 
   useClasses
 } from '../..'
 // CSS
@@ -32,7 +33,8 @@ export const Title = ({
 }: TitleProperties) => {
 
   // #region >  Hooks
-  const { classBuilder, classes } = useClasses(['ap-title', className])
+  const { classBuilder, classes } = useClasses(['ap-title'])
+  useClasseName(classBuilder, className)
     React.useEffect(() => {
       classBuilder.add(`ap-title--${level.toLowerCase()}`)
       return () => {

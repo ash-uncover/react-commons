@@ -43,9 +43,10 @@ var Select = exports.Select = function Select(_ref) {
       setValueSelected(null);
     }
   }, [value, values]);
-  var _useClasses = (0, _.useClasses)(['ap-select', className]),
+  var _useClasses = (0, _.useClasses)(['ap-select']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     if (disabled) {
       classBuilder.add("ap-select--disabled");

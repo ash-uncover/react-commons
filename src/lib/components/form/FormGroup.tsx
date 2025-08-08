@@ -3,6 +3,7 @@ import React from 'react'
 import {
   FormGroupDirection,
   FormGroupDirections,
+  useClasseName,
   useClasses
 } from '../..'
 // CSS
@@ -28,7 +29,8 @@ export const FormGroup = ({
 }: FormGroupProperties) => {
 
   // #region > Hooks
-  const { classBuilder, classes } = useClasses(['ap-form-group', className])
+  const { classBuilder, classes } = useClasses(['ap-form-group'])
+  useClasseName(classBuilder, className)
   React.useEffect(() => {
     classBuilder.add(`ap-form-group--${direction.toLowerCase()}`)
     return () => {

@@ -28,7 +28,7 @@ export { type TitleLevel, TitleLevels } from './components/title/TitleLevel'
 // #endregion
 
 // #region Hooks
-export { useClasses } from './hooks/useClasses'
+export { useClasses, useClasseName } from './hooks/useClasses'
 export { useIsPhone } from './hooks/useIsPhone'
 export { useQuery } from './hooks/useQuery'
 export { usePrevious } from './hooks/usePrevious'

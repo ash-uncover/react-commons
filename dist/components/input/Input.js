@@ -47,9 +47,10 @@ var Input = exports.Input = function Input(_ref) {
     _React$useState4 = _slicedToArray(_React$useState3, 2),
     showPassword = _React$useState4[0],
     setShowPassword = _React$useState4[1];
-  var _useClasses = (0, _.useClasses)(['ap-input', className]),
+  var _useClasses = (0, _.useClasses)(['ap-input']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     if (showPassword) {
       classBuilder.add("ap-input--show-password");

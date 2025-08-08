@@ -1,6 +1,7 @@
 import React from 'react'
 //
 import { 
+  useClasseName,
   useClasses 
 } from '../..'
 // CSS
@@ -22,7 +23,8 @@ export const PanelFooter = ({
 }: PanelFooterProperties) => {
 
   // #region > Hooks
-  const { classBuilder, classes } = useClasses(['ap-panel-footer', className])
+  const { classBuilder, classes } = useClasses(['ap-panel-footer'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region > Events

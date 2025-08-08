@@ -2,6 +2,7 @@ import React from 'react'
 //
 import {
   ShellContainer,
+  useClasseName,
   useClasses
 } from '../..'
 // CSS
@@ -23,7 +24,8 @@ export const Shell = ({
 }: ShellProperties) => {
 
   // #region > Hooks
-  const { classes } = useClasses(['ap-shell', className])
+  const { classBuilder, classes } = useClasses(['ap-shell'])
+  useClasseName(classBuilder, className)
   // #endregion
 
   // #region > Render

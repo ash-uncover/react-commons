@@ -22,9 +22,10 @@ var PanelHeader = exports.PanelHeader = function PanelHeader(_ref) {
     style = _ref.style,
     children = _ref.children;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-panel-header', className]),
+  var _useClasses = (0, _.useClasses)(['ap-panel-header']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region > Events

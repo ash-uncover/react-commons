@@ -26,9 +26,10 @@ var Switch = exports.Switch = function Switch(_ref) {
     onChange = _ref.onChange;
   // #region Hooks
   var id = (0, _react.useId)();
-  var _useClasses = (0, _.useClasses)(['ap-switch', className]),
+  var _useClasses = (0, _.useClasses)(['ap-switch']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   // #endregion
 
   // #region Events

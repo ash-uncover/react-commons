@@ -30,9 +30,10 @@ var Avatar = exports.Avatar = function Avatar(_ref) {
     title = _ref.title,
     onClick = _ref.onClick;
   // #region > Hooks
-  var _useClasses = (0, _.useClasses)(['ap-avatar', className]),
+  var _useClasses = (0, _.useClasses)(['ap-avatar']),
     classBuilder = _useClasses.classBuilder,
     classes = _useClasses.classes;
+  (0, _.useClasseName)(classBuilder, className);
   _react["default"].useEffect(function () {
     classBuilder.add("ap-avatar--".concat(size.toLowerCase()));
     return function () {
