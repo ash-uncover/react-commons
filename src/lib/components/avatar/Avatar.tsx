@@ -10,6 +10,7 @@ import {
 } from '../..'
 // CSS
 import './Avatar.css'
+import { useClasseName } from 'src/lib/hooks/useClasses'
 
 // #region Declaration
 interface AvatarProperties {
@@ -40,6 +41,7 @@ export const Avatar = ({
 
   // #region > Hooks
   const { classBuilder, classes } = useClasses(['ap-avatar', className])
+  useClasseName
   React.useEffect(() => {
       classBuilder.add(`ap-avatar--${size.toLowerCase()}`)
       return () => {

@@ -10,6 +10,15 @@ export const useClasses = (classes: (string | undefined)[]) => {
   }
 }
 
+export const useClasseName = (classBuilder: ClassBuilder, className: string | undefined) => {
+  React.useEffect(() => {
+    classBuilder.add(className)
+    return () => {
+      classBuilder.remove(className)
+    }
+  }, [className])
+}
+
 type ClassDefinition = string | (string | undefined)[] | undefined
 
 function toClassArray(arg: ClassDefinition): string[] {

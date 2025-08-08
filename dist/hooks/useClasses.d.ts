@@ -2,6 +2,7 @@ export declare const useClasses: (classes: (string | undefined)[]) => {
     classBuilder: ClassBuilder;
     classes: string;
 };
+export declare const useClasseName: (classBuilder: ClassBuilder, className: string | undefined) => void;
 type ClassDefinition = string | (string | undefined)[] | undefined;
 declare class ClassBuilder {
     #private;

@@ -4,7 +4,7 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useClasses = void 0;
+exports.useClasses = exports.useClasseName = void 0;
 var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
@@ -40,6 +40,14 @@ var useClasses = exports.useClasses = function useClasses(classes) {
     classBuilder: classBuilder,
     classes: classesString
   };
+};
+var useClasseName = exports.useClasseName = function useClasseName(classBuilder, className) {
+  _react["default"].useEffect(function () {
+    classBuilder.add(className);
+    return function () {
+      classBuilder.remove(className);
+    };
+  }, [className]);
 };
 function toClassArray(arg) {
   if (Array.isArray(arg)) {
