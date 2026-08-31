@@ -21,6 +21,17 @@ module.exports = merge(base, {
     publicPath: '/',
   },
 
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+
+  performance: {
+    hints: false,
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       favicon: './public/favicon.png',
