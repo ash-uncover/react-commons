@@ -19,6 +19,7 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default":
 // #region Component
 var Label = exports.Label = function Label(_ref) {
   var className = _ref.className,
+    preferSpan = _ref.preferSpan,
     style = _ref.style,
     text = _ref.text,
     children = _ref.children;
@@ -33,6 +34,12 @@ var Label = exports.Label = function Label(_ref) {
   // #endregion
 
   // #region > Render
+  if (preferSpan) {
+    return /*#__PURE__*/_react["default"].createElement("span", {
+      className: classes,
+      style: style
+    }, children || text);
+  }
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: classes,
     style: style

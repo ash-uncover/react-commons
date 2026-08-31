@@ -1,0 +1,47 @@
+:root {
+  --ap-app-menu-item--height: 2.5rem;
+  --ap-app-menu-item--color: var(--ap-shell-container--color);
+  --ap-app-menu-item--background: transparent;
+  --ap-app-menu-item--font-weight: normal;
+  --ap-app-menu-item--filter: none;
+  --ap-app-menu-item--active-color: var(--ap-main-color);
+  --ap-app-menu-item--active-background: var(--ap-main-background);
+}
+
+.ap-app-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--ap-gaps-s);
+  height: var(--ap-app-menu-item--height);
+  padding-right: var(--ap-padding-l);
+  box-sizing: border-box;
+  cursor: pointer;
+  color: var(--ap-app-menu-item--color);
+  background: var(--ap-app-menu-item--background);
+  font-weight: var(--ap-app-menu-item--font-weight);
+  filter: var(--ap-app-menu-item--filter);
+
+  &:hover {
+    --ap-app-menu-item--filter: brightness(120%);
+  }
+
+  &.ap-app-menu-item--active {
+    --ap-app-menu-item--color: var(--ap-app-menu-item--active-color);
+    --ap-app-menu-item--background: var(--ap-app-menu-item--active-background);
+  }
+
+  &.ap-app-menu-item--group {
+    --ap-app-menu-item--font-weight: bold;
+  }
+
+  .ap-app-menu-item__icon {
+    flex-shrink: 0;
+    width: 1rem;
+  }
+
+  .ap-app-menu-item__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

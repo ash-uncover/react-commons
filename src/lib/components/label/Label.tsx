@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 //
-import { 
+import {
   useClasseName,
-  useClasses 
+  useClasses
 } from '../..'
 // CSS
 import './Label.css'
@@ -10,6 +10,7 @@ import './Label.css'
 // #region Declaration
 interface LabelProperties {
   className?: string
+  preferSpan?: boolean
   style?: React.CSSProperties
 
   text?: string
@@ -21,6 +22,7 @@ interface LabelProperties {
 // #region Component
 export const Label = ({
   className,
+  preferSpan,
   style,
 
   text,
@@ -37,6 +39,16 @@ export const Label = ({
   // #endregion
 
   // #region > Render
+  if (preferSpan) {
+    return (
+      <span
+        className={classes}
+        style={style}
+      >
+        {children || text}
+      </span>
+    )
+  }
   return (
     <div
       className={classes}

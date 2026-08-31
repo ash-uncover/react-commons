@@ -1,0 +1,8 @@
+.ap-app-menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--ap-shell-container--background);
+  color: var(--ap-shell-container--color);
+}

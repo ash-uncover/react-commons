@@ -102,6 +102,27 @@ All classes follow **BEM** with the `ap-` library prefix.
 
 Modifiers are added and removed at runtime via `ClassBuilder` (from the `useClasses`/`useClasseName` hooks). Child element classes are static — set directly in JSX.
 
+## Component conventions
+
+**`classBuilder.add/remove` must always be inside `useEffect`, never in the render body.**
+Calling `classBuilder.add()` directly in the render function calls `notify()` → `setClassesString()` → setState during render → React infinite loop. Always wrap in `useEffect` with the relevant dependency:
+```tsx
+React.useEffect(() => {
+  classBuilder.add(`ap-foo--${variant}`)
+  return () => { classBuilder.remove(`ap-foo--${variant}`) }
+}, [variant])
+```
+
+**Component fields in data structures must be `React.ComponentType`, never `ReactElement`.**
+Storing `<MyPage />` (a ReactElement instance) in a data structure creates a new object reference on every parent render. React sees a different element each time and unmounts/remounts the component — causing the equivalent of a full page reload on every navigation. Always store the component reference (`MyPage`) and let the renderer instantiate it:
+```tsx
+// Wrong — new object every render, causes remounting
+{ component: <MyPage /> }
+
+// Correct — stable reference, React can reconcile properly
+{ component: MyPage }
+```
+
 ## Peer dependencies
 
 The following are `peerDependencies` (must be provided by the consumer, not bundled):

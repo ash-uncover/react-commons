@@ -3,6 +3,24 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "AppMenu", {
+  enumerable: true,
+  get: function get() {
+    return _AppMenu.AppMenu;
+  }
+});
+Object.defineProperty(exports, "AppMenuItem", {
+  enumerable: true,
+  get: function get() {
+    return _AppMenuItem.AppMenuItem;
+  }
+});
+Object.defineProperty(exports, "AppMenuNode", {
+  enumerable: true,
+  get: function get() {
+    return _AppMenuNode.AppMenuNode;
+  }
+});
 Object.defineProperty(exports, "Avatar", {
   enumerable: true,
   get: function get() {
@@ -43,6 +61,12 @@ Object.defineProperty(exports, "ICONS", {
   enumerable: true,
   get: function get() {
     return _IconUtils.ICONS;
+  }
+});
+Object.defineProperty(exports, "Icon", {
+  enumerable: true,
+  get: function get() {
+    return _Icon.Icon;
   }
 });
 Object.defineProperty(exports, "ImageUploader", {
@@ -159,6 +183,24 @@ Object.defineProperty(exports, "TitleLevels", {
     return _TitleLevel.TitleLevels;
   }
 });
+Object.defineProperty(exports, "findNodeDef", {
+  enumerable: true,
+  get: function get() {
+    return _AppUtils.findNodeDef;
+  }
+});
+Object.defineProperty(exports, "getParent", {
+  enumerable: true,
+  get: function get() {
+    return _AppUtils.getParent;
+  }
+});
+Object.defineProperty(exports, "resolveApp", {
+  enumerable: true,
+  get: function get() {
+    return _AppUtils.resolveApp;
+  }
+});
 Object.defineProperty(exports, "useClasseName", {
   enumerable: true,
   get: function get() {
@@ -189,6 +231,10 @@ Object.defineProperty(exports, "useQuery", {
     return _useQuery.useQuery;
   }
 });
+var _AppUtils = require("./components/app/AppUtils");
+var _AppMenu = require("./components/app/AppMenu");
+var _AppMenuItem = require("./components/app/AppMenuItem");
+var _AppMenuNode = require("./components/app/AppMenuNode");
 var _Avatar = require("./components/avatar/Avatar");
 var _AvatarSize = require("./components/avatar/AvatarSize");
 var _Button = require("./components/button/Button");
@@ -197,6 +243,7 @@ var _FormGroup = require("./components/form/FormGroup");
 var _FormGroupDirection = require("./components/form/FormGroupDirection");
 var _ImageUploader = require("./components/imageuploader/ImageUploader");
 var _IconUtils = require("./components/icon/IconUtils");
+var _Icon = require("./components/icon/Icon");
 var _Input = require("./components/input/Input");
 var _Label = require("./components/label/Label");
 var _Menu = require("./components/menu/Menu");

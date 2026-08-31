@@ -1,3 +1,15 @@
+// #region App
+export { type AppNode } from './components/app/AppNode'
+export { type AppNodeDef } from './components/app/AppNodeDef'
+export { resolveApp, getParent, findNodeDef } from './components/app/AppUtils'
+export { AppMenu } from './components/app/AppMenu'
+export { type AppMenuProperties } from './components/app/AppMenu'
+export { AppMenuItem } from './components/app/AppMenuItem'
+export { type AppMenuItemProperties } from './components/app/AppMenuItem'
+export { AppMenuNode } from './components/app/AppMenuNode'
+export { type AppMenuNodeProperties } from './components/app/AppMenuNode'
+// #endregion
+
 // #region Components
 export { Avatar } from './components/avatar/Avatar'
 export { type AvatarSize, AvatarSizes } from './components/avatar/AvatarSize'
@@ -7,6 +19,8 @@ export { FormGroup } from './components/form/FormGroup'
 export { type FormGroupDirection, FormGroupDirections } from './components/form/FormGroupDirection'
 export { ImageUploader } from './components/imageuploader/ImageUploader'
 export { ICONS } from './components/icon/IconUtils'
+export { Icon } from './components/icon/Icon'
+export { type IconProperties } from './components/icon/Icon'
 export { Input } from './components/input/Input'
 export { Label } from './components/label/Label'
 export { Menu } from './components/menu/Menu'

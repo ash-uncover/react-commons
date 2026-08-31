@@ -1,0 +1,18 @@
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.app__nav {
+  flex-shrink: 0;
+  width: 14rem;
+  overflow-y: auto;
+}
+
+.app__content {
+  flex-grow: 1;
+  height: 100%;
+  overflow: auto;
+}

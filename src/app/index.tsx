@@ -1,5 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router'
 
 // icons
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -13,5 +14,7 @@ const containerRoot = document.getElementById('reactroot')!
 const root = createRoot(containerRoot)
 
 root.render(
-  <App />
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 )
