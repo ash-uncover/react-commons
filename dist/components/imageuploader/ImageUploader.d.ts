@@ -12,7 +12,7 @@ interface ImageUploaderProperties {
     className?: string;
     style?: React.CSSProperties;
     name: string;
-    src: string;
+    src?: string;
     onChange: (event: {
         file: any;
     }) => void;

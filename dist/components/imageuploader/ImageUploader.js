@@ -101,13 +101,13 @@ var ImageUploader = exports.ImageUploader = function ImageUploader(_ref) {
     className: "images"
   }, /*#__PURE__*/_react["default"].createElement("img", {
     className: "image l",
-    src: source
+    src: source || undefined
   }), /*#__PURE__*/_react["default"].createElement("img", {
     className: "image m",
-    src: source
+    src: source || undefined
   }), /*#__PURE__*/_react["default"].createElement("img", {
     className: "image s",
-    src: source
+    src: source || undefined
   })), /*#__PURE__*/_react["default"].createElement("div", {
     className: "controls"
   }, error && /*#__PURE__*/_react["default"].createElement("div", {

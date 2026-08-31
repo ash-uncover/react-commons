@@ -47,7 +47,7 @@ interface ImageUploaderProperties {
   style?: React.CSSProperties
 
   name: string
-  src: string
+  src?: string
 
   onChange: (event: { file: any }) => void
 }
@@ -96,18 +96,9 @@ export const ImageUploader = ({
   return (
     <div className='image-uploader'>
       <div className='images'>
-        <img
-          className='image l'
-          src={source}
-        />
-        <img
-          className='image m'
-          src={source}
-        />
-        <img
-          className='image s'
-          src={source}
-        />
+        <img className='image l' src={source || undefined} />
+        <img className='image m' src={source || undefined} />
+        <img className='image s' src={source || undefined} />
       </div>
 
       <div className='controls'>
