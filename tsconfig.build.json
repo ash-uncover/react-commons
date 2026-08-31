@@ -8,8 +8,8 @@
     "lib": [
       "DOM"
     ],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "outDir": "dist",
     "skipLibCheck": true,
@@ -27,6 +27,8 @@
     "dist",
     "node_modules",
     "test",
-    ".vscode"
+    ".vscode",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
   ]
 }

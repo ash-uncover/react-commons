@@ -56,6 +56,22 @@ export const Avatar = ({
       classBuilder.remove(`ap-avatar--interactive`)
     }
   }, [onClick])
+  React.useEffect(() => {
+    if (image) {
+      classBuilder.add('ap-avatar--image')
+    } else if (icon) {
+      classBuilder.add('ap-avatar--icon')
+    } else if (initials) {
+      classBuilder.add('ap-avatar--initials')
+    } else {
+      classBuilder.add('ap-avatar--icon')
+    }
+    return () => {
+      classBuilder.remove('ap-avatar--image')
+      classBuilder.remove('ap-avatar--icon')
+      classBuilder.remove('ap-avatar--initials')
+    }
+  }, [image, icon, initials])
   // #endregion
 
   // #region > Events
@@ -64,7 +80,6 @@ export const Avatar = ({
   // #region > Render
   let content: React.ReactNode = <span />
   if (image) {
-    classBuilder.add(`ap-avatar--image`)
     content = (
       <img
         className='ap-avatar__content'
@@ -72,7 +87,6 @@ export const Avatar = ({
       />
     )
   } else if (icon) {
-    classBuilder.add(`ap-avatar--icon`)
     content = (
       <FontAwesomeIcon
         className='ap-avatar__content'
@@ -80,15 +94,12 @@ export const Avatar = ({
       />
     )
   } else if (initials) {
-    classBuilder.add(`ap-avatar--initials`)
     content = (
       <span className='ap-avatar__content'>
         {initials.substring(0, 2).toUpperCase()}
       </span>
     )
   } else {
-    // Default to user icon
-    classBuilder.add(`ap-avatar--icon`)
     content = (
       <FontAwesomeIcon
         className='ap-avatar__content'

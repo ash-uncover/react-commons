@@ -48,6 +48,22 @@ var Avatar = exports.Avatar = function Avatar(_ref) {
       classBuilder.remove("ap-avatar--interactive");
     };
   }, [onClick]);
+  _react["default"].useEffect(function () {
+    if (image) {
+      classBuilder.add('ap-avatar--image');
+    } else if (icon) {
+      classBuilder.add('ap-avatar--icon');
+    } else if (initials) {
+      classBuilder.add('ap-avatar--initials');
+    } else {
+      classBuilder.add('ap-avatar--icon');
+    }
+    return function () {
+      classBuilder.remove('ap-avatar--image');
+      classBuilder.remove('ap-avatar--icon');
+      classBuilder.remove('ap-avatar--initials');
+    };
+  }, [image, icon, initials]);
   // #endregion
 
   // #region > Events
@@ -56,25 +72,20 @@ var Avatar = exports.Avatar = function Avatar(_ref) {
   // #region > Render
   var content = /*#__PURE__*/_react["default"].createElement("span", null);
   if (image) {
-    classBuilder.add("ap-avatar--image");
     content = /*#__PURE__*/_react["default"].createElement("img", {
       className: "ap-avatar__content",
       src: image
     });
   } else if (icon) {
-    classBuilder.add("ap-avatar--icon");
     content = /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
       className: "ap-avatar__content",
       icon: icon
     });
   } else if (initials) {
-    classBuilder.add("ap-avatar--initials");
     content = /*#__PURE__*/_react["default"].createElement("span", {
       className: "ap-avatar__content"
     }, initials.substring(0, 2).toUpperCase());
   } else {
-    // Default to user icon
-    classBuilder.add("ap-avatar--icon");
     content = /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
       className: "ap-avatar__content",
       icon: _freeSolidSvgIcons.faUser
