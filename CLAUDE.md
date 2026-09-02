@@ -130,3 +130,102 @@ The following are `peerDependencies` (must be provided by the consumer, not bund
 - `react-responsive`
 - `@fortawesome/react-fontawesome` + free icon packs (solid, regular, brands)
 - `@sol.ac/js-utils`
+
+---
+
+## Testing
+
+### Setup
+
+- `jest.config.js` at the repo root (not in `package.json`)
+- `testEnvironment: 'jsdom'` — all components run in a browser-like environment
+- `setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts']` — imports `@testing-library/jest-dom`
+- CSS imports are mapped to `__mocks__/styleMock.js` via `moduleNameMapper`
+- `transformIgnorePatterns` must allow `react-router` and `@remix-run` through (they ship as ESM)
+- 100% coverage enforced on all metrics (branches, functions, lines, statements)
+- `collectCoverageFrom` targets `src/lib/**` only — `src/app/` is the demo app and must be excluded
+
+### Spec file co-location
+
+Tests live alongside source: `Foo.tsx` + `Foo.spec.tsx`. The build pipeline excludes them via:
+- `tsconfig.build.json` — `exclude` list covers both `*.spec.ts` and `*.spec.tsx`
+- Babel `--ignore` — covers all four patterns (`*.spec.ts`, `*.spec.tsx`, `*.test.ts`, `*.test.tsx`)
+- Babel `--no-copy-ignored` — prevents `--copy-files` from copying spec sources to `dist/`
+- `build:clean-tests` — removes any `*.spec.js` / `*.test.js` / `*.spec.d.ts` / `*.test.d.ts` that slip through
+
+### Mocking the barrel (`'../..'`)
+
+Every component spec mocks `'../..'` (the library's `index.ts` barrel) to break circular dependencies and control what the component sees:
+
+```tsx
+jest.mock('../..', () => {
+  const { useClasses, useClasseName } = require('../../hooks/useClasses')
+  return {
+    __esModule: true,
+    useClasses,
+    useClasseName,
+    // other exports the component under test needs
+  }
+})
+```
+
+**Always `require` the real hook implementations** — `useClasses` and `useClasseName` must be the real functions, not stubs, because they manage the internal class-string state that the component renders.
+
+### Covering constant/enum files
+
+Files like `ButtonSemantic.ts` that only export a type alias and a constant object reach 0% coverage because the spec mocks the barrel that imports them. Fix: spread the real module in the mock factory instead of redefining the values inline:
+
+```ts
+// Wrong — defines mock values inline, real file never executed
+ButtonSemantics: { DEFAULT: 'DEFAULT', POSITIVE: 'POSITIVE', ... }
+
+// Correct — executes the real file, covers it
+...require('./ButtonSemantic'),
+```
+
+### Avoiding untestable branches
+
+Several patterns create Istanbul branches that can never be exercised:
+
+**Redundant optional chaining on always-defined values** — `values?.length` where `values: SelectValue[]` is never null. Replace with `values.length`. Same for `menuDef?.length`, `items?.length` etc.
+
+**Ref null guards in event handlers** — `if (sliderBar?.current)` inside a mouse handler: the `?.` on the ref object itself (not `.current`) creates a null branch that can never be taken since `useRef` always returns an object. Remove the `?.`, keep the `if (sliderBar.current)` null-check on `.current` if the handler can fire from a document-level listener after unmount.
+
+**Ref null guards post-mount** — `if (textarea.current)` or `if (container.current)` inside handlers that only fire after the component is mounted. The ref is always set by the time any event fires. Replace with `ref.current!` (non-null assertion) to remove the dead branch.
+
+**Default parameters that are never defaulted** — `function buildContext(items: IMenuItemDef[] = [])` where callers always pass the argument. Remove the default to eliminate the "was the default used?" branch.
+
+**`|| []` fallback on always-array values** — `let items = menuItems || []` where `menuItems` is guaranteed non-null. Remove the `|| []`.
+
+### Timer-related act() warnings
+
+The Slider uses `setTimeout` to hide the tooltip. Tests that use fake timers must wrap timer advancement in `act()`:
+
+```ts
+// afterEach — fires pending timers including setShowTooltip(false)
+afterEach(() => {
+  act(() => jest.runOnlyPendingTimers())
+  jest.useRealTimers()
+})
+
+// In tests
+act(() => { jest.runAllTimers() })
+```
+
+Calling `jest.runOnlyPendingTimers()` or `jest.runAllTimers()` bare (outside `act`) triggers "An update was not wrapped in act()" warnings because the timer callback calls `setState`.
+
+### NaN prop warnings
+
+Components that pass numeric props (e.g. `min`, `max`) to native DOM elements should guard against `NaN` before passing to the DOM:
+
+```tsx
+// Triggers "Received NaN for the `min` attribute" warning
+<input min={min} />
+
+// Correct — undefined is ignored by React, NaN is not
+<input min={isNaN(min) ? undefined : min} />
+```
+
+### Mocking React.useRef — don't
+
+Mocking `React.useRef` with `mockReturnValueOnce` to simulate a null ref corrupts React's fiber hook state. The re-render triggered by the subsequent state update breaks because hook ordering is violated. Defensive guards like `if (ref.current)` that only exist to protect against a null ref that can never be null in normal rendering are best removed rather than tested through hook mocking.
