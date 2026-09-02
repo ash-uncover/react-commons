@@ -68,26 +68,24 @@ export const ImageUploader = ({
 
   const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
-    if (fileInput.current) {
-      const files = fileInput.current.files
-      if (files?.length && files[0]) {
-        const file = files[0]
-        const extOk = FileUtils.checkExtention(file, TYPES_EXT)
-        if (!extOk) {
-          setError('Type de fichier non supporté')
-          return
-        }
-        const sizeOk = FileUtils.checkSize(file, MAX_SIZE)
-        if (!sizeOk) {
-          setError('Le fichier sélectionné est trop gros (taille max: 2Mo)')
-          return
-        }
-        setError('')
-        const url = createObjectURL(file)
-        setSource(url)
-        revokeObjectURL(url)
-        onChange({ file })
+    const files = fileInput.current!.files
+    if (files?.length && files[0]) {
+      const file = files[0]
+      const extOk = FileUtils.checkExtention(file, TYPES_EXT)
+      if (!extOk) {
+        setError('Type de fichier non supporté')
+        return
       }
+      const sizeOk = FileUtils.checkSize(file, MAX_SIZE)
+      if (!sizeOk) {
+        setError('Le fichier sélectionné est trop gros (taille max: 2Mo)')
+        return
+      }
+      setError('')
+      const url = createObjectURL(file)
+      setSource(url)
+      revokeObjectURL(url)
+      onChange({ file })
     }
   }
 

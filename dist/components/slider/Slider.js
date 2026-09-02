@@ -94,7 +94,7 @@ var Slider = exports.Slider = function Slider(_ref) {
     return realStep;
   };
   var moveSlider = function moveSlider(x) {
-    if (sliderBar !== null && sliderBar !== void 0 && sliderBar.current) {
+    if (sliderBar.current) {
       var rectBar = sliderBar.current.getBoundingClientRect();
       var clientWidth = rectBar.width;
       var relativePosition = x - rectBar.left;
@@ -179,8 +179,8 @@ var Slider = exports.Slider = function Slider(_ref) {
       display: 'none'
     },
     type: "number",
-    min: min,
-    max: max,
+    min: isNaN(min) ? undefined : min,
+    max: isNaN(max) ? undefined : max,
     value: currentValue,
     onChange: handleChange
   }), /*#__PURE__*/_react["default"].createElement(_.Button, {

@@ -63,7 +63,7 @@ export const Select = ({
 
   // #region > Events
   function handleValuePrevious() {
-    if (value && values?.length) {
+    if (value && values.length) {
       const currentValueIndex: number = values.findIndex(v => v.id === value)
       const newValueIndex = (currentValueIndex + values.length - 1) % values.length
       const newValue = values[newValueIndex]
@@ -71,7 +71,7 @@ export const Select = ({
     }
   }
   function handleValueNext() {
-    if (value && values?.length) {
+    if (value && values.length) {
       const currentValueIndex: number = values.findIndex(v => v.id === value)
       const newValueIndex = (currentValueIndex + values.length + 1) % values.length
       const newValue = values[newValueIndex]

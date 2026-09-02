@@ -34,9 +34,7 @@ var ShellContainer = exports.ShellContainer = function ShellContainer(_ref) {
   _react["default"].useEffect(function () {
     var containerLevel = 0;
     if (typeof level === 'undefined') {
-      if (container.current) {
-        containerLevel = computeContainerLevel(container.current);
-      }
+      containerLevel = computeContainerLevel(container.current);
     } else {
       containerLevel = validContainerLevel(level);
     }

@@ -47,10 +47,7 @@ var TextArea = exports.TextArea = function TextArea(_ref) {
   // #region >  Events
   function handleFocus() {
     setFocused(true);
-    if (textarea.current) {
-      console.log('focus');
-      textarea.current.focus();
-    }
+    textarea.current.focus();
   }
   function handleBlur() {
     setFocused(false);

@@ -56,7 +56,7 @@ export const Menu = ({
   // #endregion
 
   // #region > Render
-  if (menuDef?.length) {
+  if (menuDef.length) {
     return (
       <MenuProvider
         items={menuDef}

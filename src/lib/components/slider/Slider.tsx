@@ -95,7 +95,7 @@ export const Slider = ({
     return realStep
   }
   const moveSlider = (x: number) => {
-    if (sliderBar?.current) {
+    if (sliderBar.current) {
       const rectBar = sliderBar.current.getBoundingClientRect()
       const clientWidth = rectBar.width
       const relativePosition = x - rectBar.left
@@ -181,8 +181,8 @@ export const Slider = ({
           display: 'none'
         }}
         type='number'
-        min={min}
-        max={max}
+        min={isNaN(min) ? undefined : min}
+        max={isNaN(max) ? undefined : max}
         value={currentValue}
         onChange={handleChange}
       />

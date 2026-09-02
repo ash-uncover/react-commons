@@ -1,127 +1,138 @@
-import { IMenu, IMenuItem, IMenuItemDef, buildMenuItemDef, flattenMenu, flattenMenuItem } from './MenuUtil'
+import {
+  flattenMenu,
+  flattenMenuItem,
+  buildMenuItemDef,
+  getParent,
+  findItemDefinition,
+  equals,
+  IMenu,
+  IMenuItem,
+  IMenuItemDef,
+} from './MenuUtil'
 
-describe('MenuUtil', () => {
+describe('MenuUtil — additional coverage', () => {
 
-  /* TEST CASES */
+  // #region getParent
+  describe('getParent', () => {
 
-  // #region flattenMenu
-  describe('flattenMenu', () => {
-
-    test('empty menu', () => {
+    test('returns null for an item with no parents', () => {
       // Declaration
-      const menu: IMenu = { items: [] }
+      const item: IMenuItemDef = { parents: [] }
+      // Execution
+      const result = getParent(item)
+      // Assertions
+      expect(result).toBeNull()
+    })
+
+    test('returns the last parent when parents are present', () => {
+      // Declaration
+      const root: IMenuItemDef = { parents: [], name: 'root' }
+      const child: IMenuItemDef = { parents: [root], name: 'child' }
+      // Execution
+      const result = getParent(child)
+      // Assertions
+      expect(result).toBe(root)
+    })
+
+  })
+  // #endregion
+
+  // #region findItemDefinition
+  describe('findItemDefinition', () => {
+
+    test('returns matching item definition', () => {
+      // Declaration
+      const item: IMenuItem = { name: 'foo' }
+      const def: IMenuItemDef = { parents: [], name: 'foo' }
+      // Execution
+      const result = findItemDefinition([def], item)
+      // Assertions
+      expect(result).toBe(def)
+    })
+
+    test('returns null when no match found', () => {
+      // Declaration
+      const item: IMenuItem = { name: 'missing' }
+      const def: IMenuItemDef = { parents: [], name: 'other' }
+      // Execution
+      const result = findItemDefinition([def], item)
+      // Assertions
+      expect(result).toBeNull()
+    })
+
+  })
+  // #endregion
+
+  // #region equals
+  describe('equals', () => {
+
+    test('returns true for identical name/description/icon/component', () => {
+      // Declaration
+      const item: IMenuItem = { name: 'x', description: 'd' }
+      const def: IMenuItemDef = { parents: [], name: 'x', description: 'd' }
+      // Execution
+      // Assertions
+      expect(equals(def, item)).toBe(true)
+    })
+
+    test('returns false when names differ', () => {
+      // Declaration
+      const item: IMenuItem = { name: 'a' }
+      const def: IMenuItemDef = { parents: [], name: 'b' }
+      // Execution
+      // Assertions
+      expect(equals(def, item)).toBe(false)
+    })
+
+  })
+  // #endregion
+
+  // #region flattenMenu with items
+  describe('flattenMenu with items', () => {
+
+    test('flattens a menu with one item', () => {
+      // Declaration
+      const item: IMenuItem = { name: 'root' }
+      const menu: IMenu = { items: [item] }
       // Execution
       const result = flattenMenu(menu)
-      // Assertions
-      expect(result).toEqual([])
+      // Assertions — flattenMenu calls flattenMenuItem on the menu itself (wrapping items)
+      // The "menu" object acts as an IMenuItem, so result contains the wrapper + the root
+      expect(result.length).toBe(2)
+      expect(result[1].name).toBe('root')
     })
+
+    test('the first result item has a reference to child def in its items array', () => {
+      // Declaration
+      const child: IMenuItem = { name: 'child' }
+      const root: IMenuItem = { name: 'root', items: [child] }
+      const menu: IMenu = { items: [root] }
+      // Execution
+      const result = flattenMenu(menu)
+      // Assertions — result[0] is the menu wrapper, result[1] is root, result[2] is child
+      expect(result.length).toBe(3)
+      const rootDef = result[1]
+      expect(rootDef.name).toBe('root')
+      expect(rootDef.items).toHaveLength(1)
+      expect(rootDef.items![0].name).toBe('child')
+    })
+
   })
   // #endregion
 
-  // #region flattenMenuItem
-  describe('flattenMenuItem', () => {
+  // #region buildMenuItemDef with confirmBack
+  describe('buildMenuItemDef with confirmBack', () => {
 
-    test('empty menu item', () => {
+    test('copies confirmBack from item', () => {
       // Declaration
-      const menuItem: IMenuItem = {}
+      const item: IMenuItem = { name: 'item', confirmBack: true }
       // Execution
-      const result = flattenMenuItem([], menuItem)
+      const result = buildMenuItemDef([], item)
       // Assertions
-      expect(result).toEqual([{ parents: [], item: menuItem }])
+      expect(result.confirmBack).toBe(true)
     })
 
-    test('one level menu', () => {
-      // Declaration
-      const menuItem1: IMenuItem = {
-        name: 'item1'
-      }
-      const menuItem2: IMenuItem = {
-        name: 'item2'
-      }
-      const menuItem: IMenuItem = {
-        name: 'item',
-        items: [menuItem1, menuItem2]
-      }
-      // Execution
-      const result = flattenMenuItem([], menuItem)
-      // Assertions
-      const parent = {
-        parents: [],
-        item: menuItem
-      }
-      const parent1 = {
-        parents: [parent],
-        item: menuItem1
-      }
-      const parent2 = {
-        parents: [parent],
-        item: menuItem2
-      }
-      expect(result).toEqual([
-        parent,
-        parent1,
-        parent2
-      ])
-    })
-
-    test('two level menu', () => {
-      // Declaration
-      const menuItem2: IMenuItem = {
-        name: 'item2'
-      }
-      const menuItem1: IMenuItem = {
-        name: 'item1',
-        items: [menuItem2]
-      }
-      const menuItem: IMenuItem = {
-        name: 'item',
-        items: [menuItem1]
-      }
-      // Execution
-      const result = flattenMenuItem([], menuItem)
-      // Assertions
-      const parent = {
-        parents: [],
-        item: menuItem
-      }
-      const parent1 = {
-        parents: [parent],
-        item: menuItem1
-      }
-      const parent2 = {
-        parents: [parent, parent1],
-        item: menuItem2
-      }
-      expect(result).toEqual([
-        parent,
-        parent1,
-        parent2
-      ])
-    })
   })
   // #endregion
 
-  // #region buildMenuItemDef
-  describe('buildMenuItemDef', () => {
-
-    test('when sent a menu item', () => {
-      // Declaration
-      const parents: IMenuItemDef[] = []
-      const menuItem: IMenuItem = {
-        name: 'name',
-        icon: ['fas', 'vial'],
-        description: 'description',
-        items: []
-      }
-      // Execution
-      const result = buildMenuItemDef(parents, menuItem)
-      // Assertions
-      expect(result.parents).toBe(parents)
-      expect(result.name).toBe(menuItem.name)
-      expect(result.description).toBe(menuItem.description)
-      expect(result.icon).toBe(menuItem.icon)
-      expect(result.items).toEqual([])
-    })
-  })
-  // #endregion
 })

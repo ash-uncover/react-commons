@@ -118,7 +118,7 @@ export const Input = ({
         onBlur={handleBlur}
         onChange={handleInputChange}
       />
-      {showPasswordIcon && type === 'password' && value?.length ? (
+      {showPasswordIcon && type === 'password' && value ? (
         <FontAwesomeIcon
           className='ap-input__action ap-input__action-password'
           icon={faEye}
@@ -127,7 +127,7 @@ export const Input = ({
           onMouseUp={handleResetShowPassword}
         />
       ) : null}
-      {showClearIcon && value?.length ? (
+      {showClearIcon && value ? (
         <FontAwesomeIcon
           className='ap-input__action'
           icon={faRemove}

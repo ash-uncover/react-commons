@@ -32,9 +32,7 @@ export const ShellContainer = ({
   React.useEffect(() => {
     let containerLevel = 0
     if (typeof level === 'undefined') {
-      if (container.current) {
-        containerLevel = computeContainerLevel(container.current)
-      }
+      containerLevel = computeContainerLevel(container.current!)
     } else {
       containerLevel = validContainerLevel(level)
     }

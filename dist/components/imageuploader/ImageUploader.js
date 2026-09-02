@@ -68,28 +68,26 @@ var ImageUploader = exports.ImageUploader = function ImageUploader(_ref) {
 
   var onFileChange = function onFileChange(event) {
     event.preventDefault();
-    if (fileInput.current) {
-      var files = fileInput.current.files;
-      if (files !== null && files !== void 0 && files.length && files[0]) {
-        var file = files[0];
-        var extOk = _jsUtils.FileUtils.checkExtention(file, TYPES_EXT);
-        if (!extOk) {
-          setError('Type de fichier non supporté');
-          return;
-        }
-        var sizeOk = _jsUtils.FileUtils.checkSize(file, MAX_SIZE);
-        if (!sizeOk) {
-          setError('Le fichier sélectionné est trop gros (taille max: 2Mo)');
-          return;
-        }
-        setError('');
-        var url = createObjectURL(file);
-        setSource(url);
-        revokeObjectURL(url);
-        onChange({
-          file: file
-        });
+    var files = fileInput.current.files;
+    if (files !== null && files !== void 0 && files.length && files[0]) {
+      var file = files[0];
+      var extOk = _jsUtils.FileUtils.checkExtention(file, TYPES_EXT);
+      if (!extOk) {
+        setError('Type de fichier non supporté');
+        return;
       }
+      var sizeOk = _jsUtils.FileUtils.checkSize(file, MAX_SIZE);
+      if (!sizeOk) {
+        setError('Le fichier sélectionné est trop gros (taille max: 2Mo)');
+        return;
+      }
+      setError('');
+      var url = createObjectURL(file);
+      setSource(url);
+      revokeObjectURL(url);
+      onChange({
+        file: file
+      });
     }
   };
 

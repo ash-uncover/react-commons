@@ -50,7 +50,7 @@ var Menu = exports.Menu = function Menu(_ref) {
   // #endregion
 
   // #region > Render
-  if (menuDef !== null && menuDef !== void 0 && menuDef.length) {
+  if (menuDef.length) {
     return /*#__PURE__*/_react["default"].createElement(_MenuProvider.MenuProvider, {
       items: menuDef
     }, /*#__PURE__*/_react["default"].createElement(MenuInner, {

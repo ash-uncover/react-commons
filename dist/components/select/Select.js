@@ -59,7 +59,7 @@ var Select = exports.Select = function Select(_ref) {
 
   // #region > Events
   function handleValuePrevious() {
-    if (value && values !== null && values !== void 0 && values.length) {
+    if (value && values.length) {
       var currentValueIndex = values.findIndex(function (v) {
         return v.id === value;
       });
@@ -71,7 +71,7 @@ var Select = exports.Select = function Select(_ref) {
     }
   }
   function handleValueNext() {
-    if (value && values !== null && values !== void 0 && values.length) {
+    if (value && values.length) {
       var currentValueIndex = values.findIndex(function (v) {
         return v.id === value;
       });

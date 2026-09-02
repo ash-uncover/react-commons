@@ -9,30 +9,29 @@ interface MenuContextProperties {
   itemNavigation: IMenuItemDef | null
   itemComponent: IMenuItemDef | null
 }
-function buildContext(menuItems: IMenuItemDef[] = [], menuItemSelection?: IMenuItemDef) {
-  let items = menuItems || []
-  let itemSelection = menuItemSelection || null
-  let itemSelected = null
-  let itemNavigation = null
-  let itemComponent = null
-  if (items?.length) {
-    itemSelection = itemSelection || items[0]
-    if (itemSelection) {
-      if (itemSelection.component) {
-        itemSelected = itemSelection
-        itemComponent = itemSelection
-      } else if (itemSelection.items?.length) {
-        itemSelected = itemSelection.items[0]
-        itemComponent = itemSelection.items[0]
-      } else {
-        throw Error('Must have either a component or items')
-      }
-      const parent = getParent(itemSelection)
-      if (itemSelection.items?.length) {
-        itemNavigation = itemSelection
-      } else if (parent) {
-        itemNavigation = parent
-      }
+function buildContext(menuItems: IMenuItemDef[], menuItemSelection?: IMenuItemDef) {
+  const items = menuItems
+  let itemSelection: IMenuItemDef | null = menuItemSelection || null
+  let itemSelected: IMenuItemDef | null = null
+  let itemNavigation: IMenuItemDef | null = null
+  let itemComponent: IMenuItemDef | null = null
+  if (items.length) {
+    const sel = itemSelection ?? items[0]
+    itemSelection = sel
+    if (sel.component) {
+      itemSelected = sel
+      itemComponent = sel
+    } else if (sel.items?.length) {
+      itemSelected = sel.items[0]
+      itemComponent = sel.items[0]
+    } else {
+      throw Error('Must have either a component or items')
+    }
+    const parent = getParent(sel)
+    if (sel.items?.length) {
+      itemNavigation = sel
+    } else if (parent) {
+      itemNavigation = parent
     }
   }
   return {

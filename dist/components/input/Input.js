@@ -112,13 +112,13 @@ var Input = exports.Input = function Input(_ref) {
     value: value,
     onBlur: handleBlur,
     onChange: handleInputChange
-  }), showPasswordIcon && type === 'password' && value !== null && value !== void 0 && value.length ? /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
+  }), showPasswordIcon && type === 'password' && value ? /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
     className: "ap-input__action ap-input__action-password",
     icon: _freeRegularSvgIcons.faEye,
     onMouseDown: handleToggleShowPassword,
     onMouseLeave: handleResetShowPassword,
     onMouseUp: handleResetShowPassword
-  }) : null, showClearIcon && value !== null && value !== void 0 && value.length ? /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
+  }) : null, showClearIcon && value ? /*#__PURE__*/_react["default"].createElement(_reactFontawesome.FontAwesomeIcon, {
     className: "ap-input__action",
     icon: _freeSolidSvgIcons.faRemove,
     onClick: handleResetValue

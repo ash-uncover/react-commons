@@ -15,33 +15,30 @@ function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" !=
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 // #region Context
 
-function buildContext() {
-  var menuItems = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var menuItemSelection = arguments.length > 1 ? arguments[1] : undefined;
-  var items = menuItems || [];
+function buildContext(menuItems, menuItemSelection) {
+  var items = menuItems;
   var itemSelection = menuItemSelection || null;
   var itemSelected = null;
   var itemNavigation = null;
   var itemComponent = null;
-  if (items !== null && items !== void 0 && items.length) {
-    itemSelection = itemSelection || items[0];
-    if (itemSelection) {
-      var _itemSelection$items, _itemSelection$items2;
-      if (itemSelection.component) {
-        itemSelected = itemSelection;
-        itemComponent = itemSelection;
-      } else if ((_itemSelection$items = itemSelection.items) !== null && _itemSelection$items !== void 0 && _itemSelection$items.length) {
-        itemSelected = itemSelection.items[0];
-        itemComponent = itemSelection.items[0];
-      } else {
-        throw Error('Must have either a component or items');
-      }
-      var parent = (0, _MenuUtil.getParent)(itemSelection);
-      if ((_itemSelection$items2 = itemSelection.items) !== null && _itemSelection$items2 !== void 0 && _itemSelection$items2.length) {
-        itemNavigation = itemSelection;
-      } else if (parent) {
-        itemNavigation = parent;
-      }
+  if (items.length) {
+    var _sel$items, _sel$items2;
+    var sel = itemSelection !== null && itemSelection !== void 0 ? itemSelection : items[0];
+    itemSelection = sel;
+    if (sel.component) {
+      itemSelected = sel;
+      itemComponent = sel;
+    } else if ((_sel$items = sel.items) !== null && _sel$items !== void 0 && _sel$items.length) {
+      itemSelected = sel.items[0];
+      itemComponent = sel.items[0];
+    } else {
+      throw Error('Must have either a component or items');
+    }
+    var parent = (0, _MenuUtil.getParent)(sel);
+    if ((_sel$items2 = sel.items) !== null && _sel$items2 !== void 0 && _sel$items2.length) {
+      itemNavigation = sel;
+    } else if (parent) {
+      itemNavigation = parent;
     }
   }
   return {
